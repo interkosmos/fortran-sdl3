@@ -1,0 +1,11 @@
+build/
+dist/
+doc/
+dump/
+
+*.*~
+*.a
+*.mod
+*.o
+*.so
+*.swp

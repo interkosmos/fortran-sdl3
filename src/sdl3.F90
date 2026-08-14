@@ -1,0 +1,33 @@
+! Author:  Philipp Engel
+! Licence: ISC
+module sdl3
+    use :: sdl3_audio
+    use :: sdl3_blendmode
+    use :: sdl3_camera
+    use :: sdl3_cpuinfo
+    use :: sdl3_endian
+    use :: sdl3_error
+    use :: sdl3_events
+    use :: sdl3_gpu
+    use :: sdl3_guid
+    use :: sdl3_hints
+    use :: sdl3_init
+    use :: sdl3_joystick
+    use :: sdl3_keyboard
+    use :: sdl3_keycode
+    use :: sdl3_mouse
+    use :: sdl3_notification
+    use :: sdl3_pen
+    use :: sdl3_pixels
+    use :: sdl3_power
+    use :: sdl3_properties
+    use :: sdl3_rect
+    use :: sdl3_render
+    use :: sdl3_scancode
+    use :: sdl3_sensor
+    use :: sdl3_stdinc
+    use :: sdl3_timer
+    use :: sdl3_touch
+    use :: sdl3_version
+    use :: sdl3_video
+end module sdl3

@@ -1,0 +1,50 @@
+name = "fortran-sdl3"
+version = "0.1.0"
+license = "ISC"
+author = "Philipp Engel"
+maintainer = "@interkosmos"
+copyright = "Copyright (c) 2026, Philipp Engel"
+description = "Fortran 2023 ISO C binding interfaces to SDL 3.0"
+keywords = [ "graphics", "sdl", "sdl3" ]
+
+[build]
+link = [ "SDL3" ]
+
+[library]
+source-dir = "src"
+
+[install]
+library = true
+
+[features]
+debug.flags = "-g -O0 -L/usr/local/lib"
+release.flags = "-O3 -L/usr/local/lib"
+
+[profiles]
+debug = ["debug"]
+release = ["release"]
+
+[[executable]]
+source-dir = "examples"
+name = "clear"
+main = "clear.f90"
+
+[[executable]]
+source-dir = "examples"
+name = "root3"
+main = "root3.f90"
+
+[[executable]]
+source-dir = "examples"
+name = "smoke"
+main = "smoke.f90"
+
+[[executable]]
+source-dir = "examples"
+name = "version"
+main = "version.f90"
+
+[[executable]]
+source-dir = "examples"
+name = "window"
+main = "window.f90"
