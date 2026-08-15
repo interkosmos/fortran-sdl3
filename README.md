@@ -10,10 +10,10 @@ For Fortran bindings to SDL 2.0, see [fortran-sdl2](https://github.com/interkosm
 
 ## Build Instructions
 
-Install SDL 3.0 with development headers. On FreeBSD, run:
+Install SDL 3.0 and SDL3_image with development headers. On FreeBSD, run:
 
 ```
-$ doas pkg install devel/sdl3
+$ doas pkg install devel/sdl3 graphics/sdl3_image
 ```
 
 Then, clone the _fortran-sdl3_ repository:
@@ -43,11 +43,11 @@ Install the library to `/opt`:
 $ make install PREFIX=/opt
 ```
 
-Link your programs against `/opt/lib/libfortran-sdl3.a` and `-lSDL3`. Additionally, pass the path to the Fortran module
-files to the compiler, for instance:
+Link your programs against `/opt/lib/libfortran-sdl3.a`, `-lSDL3`, and optionally `-lSDL3_image`. Furthermore, pass the
+path to the Fortran module files to the compiler, for instance:
 
 ```
-$ gfortran -I/opt/include/libfortran-sdl3 -o example example.f90 /opt/lib/libfortran-sdl3.a -lSDL3
+$ gfortran -I/opt/include/libfortran-sdl3 -o example example.f90 /opt/lib/libfortran-sdl3.a -lSDL3 -lSDL3_image
 ```
 
 ### Fortran Package Manager
@@ -71,6 +71,7 @@ The following example programs are provided in `examples/`:
 
 * **bship** renders the [Burning Ship fractal](https://en.wikipedia.org/wiki/Burning_Ship_fractal).
 * **clear** demonstrates colour fading.
+* **dvd** bounces texture in full screen.
 * **root3** draws a complex cube root fractal to texture.
 * **smoke** renders a chaotic [attractor](https://en.wikipedia.org/wiki/Attractor).
 * **version** outputs SDL version information.

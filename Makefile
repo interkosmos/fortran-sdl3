@@ -17,7 +17,11 @@ ARFLAGS = rcs
 CFLAGS  = $(RELEASE)
 FFLAGS  = $(RELEASE)
 LDFLAGS = -L$(PREFIX)
-LDLIBS  = `pkg-config --libs sdl3`
+
+LIBSDL3 = `pkg-config --libs sdl3`
+LIBIMG3 = -lSDL3_image
+LDLIBS  = $(LIBSDL3)
+
 INCDIR  = $(PREFIX)/include/libfortran-sdl3
 LIBDIR  = $(PREFIX)/lib
 TARGET  = libfortran-sdl3.a
@@ -33,6 +37,7 @@ SRC = src/sdl3.F90 \
       src/sdl3_gpu.F90 \
       src/sdl3_guid.F90 \
       src/sdl3_hints.F90 \
+      src/sdl3_image.F90 \
       src/sdl3_init.F90 \
       src/sdl3_joystick.F90 \
       src/sdl3_keyboard.F90 \
@@ -94,6 +99,7 @@ $(TARGET): $(SRC)
 	$(FC) $(FFLAGS) -c src/sdl3_gpu.F90
 	$(FC) $(FFLAGS) -c src/sdl3_render.F90
 	$(FC) $(FFLAGS) -c src/sdl3.F90
+	$(FC) $(FFLAGS) -c src/sdl3_image.F90
 	$(AR) $(ARFLAGS) $(TARGET) sdl3_*.o
 
 install: $(TARGET)
@@ -102,15 +108,18 @@ install: $(TARGET)
 	install -m 644 $(TARGET) $(LIBDIR)/
 	@echo "--- Installing module files to $(INCDIR)/ ..."
 	install -d $(INCDIR)
-	install -m 644 sdl3_*.mod $(INCDIR)/
+	install -m 644 sdl3*.mod $(INCDIR)/
 
-examples: bship clear root3 smoke version window
+examples: bship clear dvd root3 smoke version window
 
 bship: $(TARGET) examples/bship.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o bship examples/bship.f90 $(TARGET) $(LDLIBS)
 
 clear: $(TARGET) examples/clear.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o clear examples/clear.f90 $(TARGET) $(LDLIBS)
+
+dvd: $(TARGET) examples/dvd.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -o dvd examples/dvd.f90 $(TARGET) $(LDLIBS) $(LIBIMG3)
 
 root3: $(TARGET) examples/root3.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o root3 examples/root3.f90 $(TARGET) $(LDLIBS)
@@ -134,6 +143,7 @@ clean:
 	$(RM) -f $(TARGET)
 	$(RM) -f bship
 	$(RM) -f clear
+	$(RM) -f dvd
 	$(RM) -f root3
 	$(RM) -f smoke
 	$(RM) -f version

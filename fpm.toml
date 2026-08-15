@@ -36,6 +36,12 @@ main = "clear.f90"
 
 [[executable]]
 source-dir = "examples"
+name = "dvd"
+main = "dvd.f90"
+link = [ "SDL3", "SDL3_image" ]
+
+[[executable]]
+source-dir = "examples"
 name = "root3"
 main = "root3.f90"
 
