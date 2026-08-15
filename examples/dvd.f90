@@ -150,7 +150,7 @@ contains
             sdl_fcolor(1.0, 0.0, 1.0), &
             sdl_fcolor(1.0, 1.0, 0.0), &
             sdl_fcolor(0.0, 0.0, 1.0), &
-            sdl_fcolor(1.0, 255, 1.0)  &
+            sdl_fcolor(1.0, 1.0, 1.0)  &
         ]
 
         type(c_ptr), intent(in)    :: texture
