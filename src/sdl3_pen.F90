@@ -1,14 +1,15 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_pen
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_pen.h`.
     use :: sdl3_mouse
     use :: sdl3_stdinc
     use :: sdl3_touch
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_pen_id          = uint32 ! SDL_PenID
-    integer, parameter, public :: sdl_pen_input_flags = uint32 ! SDL_PenInputFlags
+    integer, parameter, public :: sdl_pen_id          = uint32 !! SDL_PenID
+    integer, parameter, public :: sdl_pen_input_flags = uint32 !! SDL_PenInputFlags
 
     integer(c_int), parameter, public :: SDL_PEN_MOUSEID = sdl_mouse_id - 2
     integer(c_int), parameter, public :: SDL_PEN_TOUCHID = sdl_touch_id - 2

@@ -1,6 +1,7 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_render
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_render.h`.
     use :: sdl3_blendmode
     use :: sdl3_events
     use :: sdl3_gpu

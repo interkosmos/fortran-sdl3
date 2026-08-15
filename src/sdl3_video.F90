@@ -8,17 +8,17 @@ module sdl3_video
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_display_id   = uint32 ! SDL_DisplayID
-    integer, parameter, public :: sdl_window_flags = uint64 ! SDL_WindowFlags
-    integer, parameter, public :: sdl_window_id    = uint32 ! SDL_WindowID
+    integer, parameter, public :: sdl_display_id   = uint32 !! SDL_DisplayID
+    integer, parameter, public :: sdl_window_flags = uint64 !! SDL_WindowFlags
+    integer, parameter, public :: sdl_window_id    = uint32 !! SDL_WindowID
 
-    integer, parameter, public :: sdl_egl_attrib = c_intptr_t ! SDL_EGLAttrib
-    integer, parameter, public :: sdl_egl_int    = c_int      ! SDL_EGLint
+    integer, parameter, public :: sdl_egl_attrib = c_intptr_t !! SDL_EGLAttrib
+    integer, parameter, public :: sdl_egl_int    = c_int      !! SDL_EGLint
 
-    integer, parameter, public :: sdl_gl_profile              = uint32 ! SDL_GLProfile
-    integer, parameter, public :: sdl_gl_context_flag         = uint32 ! SDL_GLContextFlag
-    integer, parameter, public :: sdl_gl_context_release_flag = uint32 ! SDL_GLContextReleaseFlag
-    integer, parameter, public :: sdl_gl_context_reset        = uint32 ! SDL_GLContextResetNotification
+    integer, parameter, public :: sdl_gl_profile              = uint32 !! SDL_GLProfile
+    integer, parameter, public :: sdl_gl_context_flag         = uint32 !! SDL_GLContextFlag
+    integer, parameter, public :: sdl_gl_context_release_flag = uint32 !! SDL_GLContextReleaseFlag
+    integer, parameter, public :: sdl_gl_context_reset        = uint32 !! SDL_GLContextResetNotification
 
     character(*), parameter, public :: SDL_PROP_GLOBAL_VIDEO_WAYLAND_WL_DISPLAY_POINTER = 'SDL.video.wayland.wl_display'
     character(*), parameter, public :: SDL_PROP_GLOBAL_VIDEO_WAYLAND_SESSION_ID_STRING  = 'SDL.video.wayland.session_id'
@@ -970,7 +970,6 @@ module sdl3_video
             type(c_ptr), intent(in), value :: window
             integer(sdl_properties_id)     :: sdl_get_window_properties
         end function sdl_get_window_properties
-
 
         ! bool SDL_GetWindowSafeArea(SDL_Window *window, SDL_Rect *rect)
         function sdl_get_window_safe_area(window, rect) bind(c, name='SDL_GetWindowSafeArea')

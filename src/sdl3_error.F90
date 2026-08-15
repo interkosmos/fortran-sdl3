@@ -1,6 +1,7 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_error
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_error.h`.
     use :: sdl3_stdinc
     implicit none (type, external)
     private

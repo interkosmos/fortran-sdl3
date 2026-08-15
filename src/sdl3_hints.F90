@@ -1,6 +1,7 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_hints
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_hints.h`.
     use :: sdl3_stdinc
     implicit none (type, external)
     private

@@ -1,6 +1,7 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_events
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_events.h`.
     use :: sdl3_audio
     use :: sdl3_camera
     use :: sdl3_joystick
@@ -17,184 +18,182 @@ module sdl3_events
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_event_type = c_int
-
     ! enum SDL_EventType
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_FIRST                         = 0            !! Unused (do not remove).
+    integer(c_int), parameter, public :: SDL_EVENT_FIRST                         = 0            !! Unused (do not remove).
     ! Application events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_QUIT                          = int(z'0100') !! User-requested quit.
+    integer(c_int), parameter, public :: SDL_EVENT_QUIT                          = int(z'0100') !! User-requested quit.
     ! These application events have special meaning on iOS and Android.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_TERMINATING                   = int(z'0101') !! The application is being terminated by the OS. This event must be handled in a callback set with SDL_AddEventWatch().
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_LOW_MEMORY                    = int(z'0102') !! The application is low on memory free memory if possible. This event must be handled in a callback set with SDL_AddEventWatch().
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WILL_ENTER_BACKGROUND         = int(z'0103') !! The application is about to enter the background. This event must be handled in a callback set with SDL_AddEventWatch().
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DID_ENTER_BACKGROUND          = int(z'0104') !! The application did enter the background and may not get CPU for some time. This event must be handled in a callback set with SDL_AddEventWatch().
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WILL_ENTER_FOREGROUND         = int(z'0105') !! The application is about to enter the foreground. This event must be handled in a callback set with SDL_AddEventWatch().
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DID_ENTER_FOREGROUND          = int(z'0106') !! The application is now interactive. This event must be handled in a callback set with SDL_AddEventWatch().
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_LOCALE_CHANGED                = int(z'0107') !! The user's locale preferences have changed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_SYSTEM_THEME_CHANGED          = int(z'0108') !! The system theme changed.
+    integer(c_int), parameter, public :: SDL_EVENT_TERMINATING                   = int(z'0101') !! The application is being terminated by the OS. This event must be handled in a callback set with SDL_AddEventWatch().
+    integer(c_int), parameter, public :: SDL_EVENT_LOW_MEMORY                    = int(z'0102') !! The application is low on memory free memory if possible. This event must be handled in a callback set with SDL_AddEventWatch().
+    integer(c_int), parameter, public :: SDL_EVENT_WILL_ENTER_BACKGROUND         = int(z'0103') !! The application is about to enter the background. This event must be handled in a callback set with SDL_AddEventWatch().
+    integer(c_int), parameter, public :: SDL_EVENT_DID_ENTER_BACKGROUND          = int(z'0104') !! The application did enter the background and may not get CPU for some time. This event must be handled in a callback set with SDL_AddEventWatch().
+    integer(c_int), parameter, public :: SDL_EVENT_WILL_ENTER_FOREGROUND         = int(z'0105') !! The application is about to enter the foreground. This event must be handled in a callback set with SDL_AddEventWatch().
+    integer(c_int), parameter, public :: SDL_EVENT_DID_ENTER_FOREGROUND          = int(z'0106') !! The application is now interactive. This event must be handled in a callback set with SDL_AddEventWatch().
+    integer(c_int), parameter, public :: SDL_EVENT_LOCALE_CHANGED                = int(z'0107') !! The user's locale preferences have changed.
+    integer(c_int), parameter, public :: SDL_EVENT_SYSTEM_THEME_CHANGED          = int(z'0108') !! The system theme changed.
     ! Display events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DISPLAY_ORIENTATION           = int(z'0151') !! Display orientation has changed to data1.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DISPLAY_ADDED                 = int(z'0152') !! Display has been added to the system.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DISPLAY_REMOVED               = int(z'0153') !! Display has been removed from the system.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DISPLAY_MOVED                 = int(z'0154') !! Display has changed position.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DISPLAY_DESKTOP_MODE_CHANGED  = int(z'0155') !! Display has changed desktop mode.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DISPLAY_CURRENT_MODE_CHANGED  = int(z'0156') !! Display has changed current mode.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DISPLAY_CONTENT_SCALE_CHANGED = int(z'0157') !! Display has changed content scale.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DISPLAY_USABLE_BOUNDS_CHANGED = int(z'0158') !! Display has changed usable bounds.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DISPLAY_FIRST                 = SDL_EVENT_DISPLAY_ORIENTATION
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DISPLAY_LAST                  = SDL_EVENT_DISPLAY_USABLE_BOUNDS_CHANGED
+    integer(c_int), parameter, public :: SDL_EVENT_DISPLAY_ORIENTATION           = int(z'0151') !! Display orientation has changed to data1.
+    integer(c_int), parameter, public :: SDL_EVENT_DISPLAY_ADDED                 = int(z'0152') !! Display has been added to the system.
+    integer(c_int), parameter, public :: SDL_EVENT_DISPLAY_REMOVED               = int(z'0153') !! Display has been removed from the system.
+    integer(c_int), parameter, public :: SDL_EVENT_DISPLAY_MOVED                 = int(z'0154') !! Display has changed position.
+    integer(c_int), parameter, public :: SDL_EVENT_DISPLAY_DESKTOP_MODE_CHANGED  = int(z'0155') !! Display has changed desktop mode.
+    integer(c_int), parameter, public :: SDL_EVENT_DISPLAY_CURRENT_MODE_CHANGED  = int(z'0156') !! Display has changed current mode.
+    integer(c_int), parameter, public :: SDL_EVENT_DISPLAY_CONTENT_SCALE_CHANGED = int(z'0157') !! Display has changed content scale.
+    integer(c_int), parameter, public :: SDL_EVENT_DISPLAY_USABLE_BOUNDS_CHANGED = int(z'0158') !! Display has changed usable bounds.
+    integer(c_int), parameter, public :: SDL_EVENT_DISPLAY_FIRST                 = SDL_EVENT_DISPLAY_ORIENTATION
+    integer(c_int), parameter, public :: SDL_EVENT_DISPLAY_LAST                  = SDL_EVENT_DISPLAY_USABLE_BOUNDS_CHANGED
     ! Window events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_SHOWN                  = int(z'0202') !! Window has been shown.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_HIDDEN                 = int(z'0203') !! Window has been hidden.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_EXPOSED                = int(z'0204') !! Window has been exposed and should be redrawn and can be redrawn directly from event watchers for this event.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_MOVED                  = int(z'0205') !! Window has been moved to data1 data2.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_RESIZED                = int(z'0206') !! Window has been resized to data1xdata2.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED     = int(z'0207') !! The pixel size of the window has changed to data1xdata2.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_METAL_VIEW_RESIZED     = int(z'0208') !! The pixel size of a Metal view associated with the window has changed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_MINIMIZED              = int(z'0209') !! Window has been minimized.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_MAXIMIZED              = int(z'020A') !! Window has been maximized.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_RESTORED               = int(z'020B') !! Window has been restored to normal size and position.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_MOUSE_ENTER            = int(z'020C') !! Window has gained mouse focus.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_MOUSE_LEAVE            = int(z'020D') !! Window has lost mouse focus.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_FOCUS_GAINED           = int(z'020E') !! Window has gained keyboard focus.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_FOCUS_LOST             = int(z'020F') !! Window has lost keyboard focus.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_CLOSE_REQUESTED        = int(z'0210') !! The window manager requests that the window be closed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_HIT_TEST               = int(z'0211') !! Window had a hit test that wasn't SDL_HITTEST_NORMAL.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_ICCPROF_CHANGED        = int(z'0212') !! The window's ICC profile has changed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_DISPLAY_CHANGED        = int(z'0213') !! Window has been moved to display data1.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_DISPLAY_SCALE_CHANGED  = int(z'0214') !! Window display scale has been changed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_SAFE_AREA_CHANGED      = int(z'0215') !! The window safe area has been changed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_OCCLUDED               = int(z'0216') !! The window has been occluded.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_ENTER_FULLSCREEN       = int(z'0217') !! The window has entered fullscreen mode.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_LEAVE_FULLSCREEN       = int(z'0218') !! The window has left fullscreen mode.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_DESTROYED              = int(z'0219') !! The window with the associated ID is being or has been destroyed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_HDR_STATE_CHANGED      = int(z'021A') !! Window HDR properties have changed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_SETTINGS_CHANGED       = int(z'021B') !! Window settings have changed (on visionOS).
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_FIRST                  = SDL_EVENT_WINDOW_SHOWN
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_WINDOW_LAST                   = SDL_EVENT_WINDOW_SETTINGS_CHANGED
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_SHOWN                  = int(z'0202') !! Window has been shown.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_HIDDEN                 = int(z'0203') !! Window has been hidden.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_EXPOSED                = int(z'0204') !! Window has been exposed and should be redrawn and can be redrawn directly from event watchers for this event.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_MOVED                  = int(z'0205') !! Window has been moved to data1 data2.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_RESIZED                = int(z'0206') !! Window has been resized to data1xdata2.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED     = int(z'0207') !! The pixel size of the window has changed to data1xdata2.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_METAL_VIEW_RESIZED     = int(z'0208') !! The pixel size of a Metal view associated with the window has changed.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_MINIMIZED              = int(z'0209') !! Window has been minimized.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_MAXIMIZED              = int(z'020A') !! Window has been maximized.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_RESTORED               = int(z'020B') !! Window has been restored to normal size and position.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_MOUSE_ENTER            = int(z'020C') !! Window has gained mouse focus.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_MOUSE_LEAVE            = int(z'020D') !! Window has lost mouse focus.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_FOCUS_GAINED           = int(z'020E') !! Window has gained keyboard focus.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_FOCUS_LOST             = int(z'020F') !! Window has lost keyboard focus.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_CLOSE_REQUESTED        = int(z'0210') !! The window manager requests that the window be closed.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_HIT_TEST               = int(z'0211') !! Window had a hit test that wasn't SDL_HITTEST_NORMAL.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_ICCPROF_CHANGED        = int(z'0212') !! The window's ICC profile has changed.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_DISPLAY_CHANGED        = int(z'0213') !! Window has been moved to display data1.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_DISPLAY_SCALE_CHANGED  = int(z'0214') !! Window display scale has been changed.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_SAFE_AREA_CHANGED      = int(z'0215') !! The window safe area has been changed.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_OCCLUDED               = int(z'0216') !! The window has been occluded.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_ENTER_FULLSCREEN       = int(z'0217') !! The window has entered fullscreen mode.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_LEAVE_FULLSCREEN       = int(z'0218') !! The window has left fullscreen mode.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_DESTROYED              = int(z'0219') !! The window with the associated ID is being or has been destroyed.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_HDR_STATE_CHANGED      = int(z'021A') !! Window HDR properties have changed.
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_SETTINGS_CHANGED       = int(z'021B') !! Window settings have changed (on visionOS).
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_FIRST                  = SDL_EVENT_WINDOW_SHOWN
+    integer(c_int), parameter, public :: SDL_EVENT_WINDOW_LAST                   = SDL_EVENT_WINDOW_SETTINGS_CHANGED
     ! Keyboard events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_KEY_DOWN                      = int(z'0300') !! Key pressed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_KEY_UP                        = int(z'0301') !! Key released.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_TEXT_EDITING                  = int(z'0302') !! Keyboard text editing (composition).
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_TEXT_INPUT                    = int(z'0303') !! Keyboard text input.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_KEYMAP_CHANGED                = int(z'0304') !! Keymap changed due to a system event such as an input language or keyboard layout change.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_KEYBOARD_ADDED                = int(z'0305') !! A new keyboard has been inserted into the system.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_KEYBOARD_REMOVED              = int(z'0306') !! A keyboard has been removed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_TEXT_EDITING_CANDIDATES       = int(z'0307') !! Keyboard text editing candidates.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_SCREEN_KEYBOARD_SHOWN         = int(z'0308') !! The on-screen keyboard has been shown.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_SCREEN_KEYBOARD_HIDDEN        = int(z'0309') !! The on-screen keyboard has been hidden.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_KEYBOARD_FIRST                = SDL_EVENT_KEY_DOWN
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_KEYBOARD_LAST                 = SDL_EVENT_SCREEN_KEYBOARD_HIDDEN
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_MOUSE_MOTION                  = int(z'0400') !! Mouse moved.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_MOUSE_BUTTON_DOWN             = int(z'0401') !! Mouse button pressed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_MOUSE_BUTTON_UP               = int(z'0402') !! Mouse button released.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_MOUSE_WHEEL                   = int(z'0403') !! Mouse wheel motion.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_MOUSE_ADDED                   = int(z'0404') !! A new mouse has been inserted into the system.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_MOUSE_REMOVED                 = int(z'0405') !! A mouse has been removed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_MOUSE_FIRST                   = SDL_EVENT_MOUSE_MOTION
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_MOUSE_LAST                    = SDL_EVENT_MOUSE_REMOVED
+    integer(c_int), parameter, public :: SDL_EVENT_KEY_DOWN                      = int(z'0300') !! Key pressed.
+    integer(c_int), parameter, public :: SDL_EVENT_KEY_UP                        = int(z'0301') !! Key released.
+    integer(c_int), parameter, public :: SDL_EVENT_TEXT_EDITING                  = int(z'0302') !! Keyboard text editing (composition).
+    integer(c_int), parameter, public :: SDL_EVENT_TEXT_INPUT                    = int(z'0303') !! Keyboard text input.
+    integer(c_int), parameter, public :: SDL_EVENT_KEYMAP_CHANGED                = int(z'0304') !! Keymap changed due to a system event such as an input language or keyboard layout change.
+    integer(c_int), parameter, public :: SDL_EVENT_KEYBOARD_ADDED                = int(z'0305') !! A new keyboard has been inserted into the system.
+    integer(c_int), parameter, public :: SDL_EVENT_KEYBOARD_REMOVED              = int(z'0306') !! A keyboard has been removed.
+    integer(c_int), parameter, public :: SDL_EVENT_TEXT_EDITING_CANDIDATES       = int(z'0307') !! Keyboard text editing candidates.
+    integer(c_int), parameter, public :: SDL_EVENT_SCREEN_KEYBOARD_SHOWN         = int(z'0308') !! The on-screen keyboard has been shown.
+    integer(c_int), parameter, public :: SDL_EVENT_SCREEN_KEYBOARD_HIDDEN        = int(z'0309') !! The on-screen keyboard has been hidden.
+    integer(c_int), parameter, public :: SDL_EVENT_KEYBOARD_FIRST                = SDL_EVENT_KEY_DOWN
+    integer(c_int), parameter, public :: SDL_EVENT_KEYBOARD_LAST                 = SDL_EVENT_SCREEN_KEYBOARD_HIDDEN
+    integer(c_int), parameter, public :: SDL_EVENT_MOUSE_MOTION                  = int(z'0400') !! Mouse moved.
+    integer(c_int), parameter, public :: SDL_EVENT_MOUSE_BUTTON_DOWN             = int(z'0401') !! Mouse button pressed.
+    integer(c_int), parameter, public :: SDL_EVENT_MOUSE_BUTTON_UP               = int(z'0402') !! Mouse button released.
+    integer(c_int), parameter, public :: SDL_EVENT_MOUSE_WHEEL                   = int(z'0403') !! Mouse wheel motion.
+    integer(c_int), parameter, public :: SDL_EVENT_MOUSE_ADDED                   = int(z'0404') !! A new mouse has been inserted into the system.
+    integer(c_int), parameter, public :: SDL_EVENT_MOUSE_REMOVED                 = int(z'0405') !! A mouse has been removed.
+    integer(c_int), parameter, public :: SDL_EVENT_MOUSE_FIRST                   = SDL_EVENT_MOUSE_MOTION
+    integer(c_int), parameter, public :: SDL_EVENT_MOUSE_LAST                    = SDL_EVENT_MOUSE_REMOVED
     ! Joystick events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_AXIS_MOTION          = int(z'0600') !! Joystick axis motion.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_BALL_MOTION          = int(z'0601') !! Joystick trackball motion.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_HAT_MOTION           = int(z'0602') !! Joystick hat position change.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_BUTTON_DOWN          = int(z'0603') !! Joystick button pressed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_BUTTON_UP            = int(z'0604') !! Joystick button released.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_ADDED                = int(z'0605') !! A new joystick has been inserted into the system.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_REMOVED              = int(z'0606') !! An opened joystick has been removed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_BATTERY_UPDATED      = int(z'0607') !! Joystick battery level change.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_UPDATE_COMPLETE      = int(z'0608') !! Joystick update is complete.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_FIRST                = SDL_EVENT_JOYSTICK_AXIS_MOTION
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_JOYSTICK_LAST                 = SDL_EVENT_JOYSTICK_UPDATE_COMPLETE
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_AXIS_MOTION          = int(z'0600') !! Joystick axis motion.
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_BALL_MOTION          = int(z'0601') !! Joystick trackball motion.
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_HAT_MOTION           = int(z'0602') !! Joystick hat position change.
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_BUTTON_DOWN          = int(z'0603') !! Joystick button pressed.
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_BUTTON_UP            = int(z'0604') !! Joystick button released.
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_ADDED                = int(z'0605') !! A new joystick has been inserted into the system.
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_REMOVED              = int(z'0606') !! An opened joystick has been removed.
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_BATTERY_UPDATED      = int(z'0607') !! Joystick battery level change.
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_UPDATE_COMPLETE      = int(z'0608') !! Joystick update is complete.
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_FIRST                = SDL_EVENT_JOYSTICK_AXIS_MOTION
+    integer(c_int), parameter, public :: SDL_EVENT_JOYSTICK_LAST                 = SDL_EVENT_JOYSTICK_UPDATE_COMPLETE
     ! Gamepad events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_AXIS_MOTION           = int(z'0650') !! Gamepad axis motion.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_BUTTON_DOWN           = int(z'0651') !! Gamepad button pressed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_BUTTON_UP             = int(z'0652') !! Gamepad button released.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_ADDED                 = int(z'0653') !! A new gamepad has been inserted into the system.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_REMOVED               = int(z'0654') !! A gamepad has been removed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_REMAPPED              = int(z'0655') !! The gamepad mapping was updated.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN         = int(z'0656') !! Gamepad touchpad was touched.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION       = int(z'0657') !! Gamepad touchpad finger was moved.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_TOUCHPAD_UP           = int(z'0658') !! Gamepad touchpad finger was lifted.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_SENSOR_UPDATE         = int(z'0659') !! Gamepad sensor was updated.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_UPDATE_COMPLETE       = int(z'065A') !! Gamepad update is complete.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED  = int(z'065B') !! Gamepad Steam handle has changed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_CAPSENSE_TOUCH        = int(z'065C') !! Gamepad capsense was touched.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_CAPSENSE_RELEASE      = int(z'065D') !! Gamepad capsense was released.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_FIRST                 = SDL_EVENT_GAMEPAD_AXIS_MOTION
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_GAMEPAD_LAST                  = SDL_EVENT_GAMEPAD_CAPSENSE_RELEASE
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_AXIS_MOTION           = int(z'0650') !! Gamepad axis motion.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_BUTTON_DOWN           = int(z'0651') !! Gamepad button pressed.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_BUTTON_UP             = int(z'0652') !! Gamepad button released.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_ADDED                 = int(z'0653') !! A new gamepad has been inserted into the system.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_REMOVED               = int(z'0654') !! A gamepad has been removed.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_REMAPPED              = int(z'0655') !! The gamepad mapping was updated.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN         = int(z'0656') !! Gamepad touchpad was touched.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION       = int(z'0657') !! Gamepad touchpad finger was moved.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_TOUCHPAD_UP           = int(z'0658') !! Gamepad touchpad finger was lifted.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_SENSOR_UPDATE         = int(z'0659') !! Gamepad sensor was updated.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_UPDATE_COMPLETE       = int(z'065A') !! Gamepad update is complete.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED  = int(z'065B') !! Gamepad Steam handle has changed.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_CAPSENSE_TOUCH        = int(z'065C') !! Gamepad capsense was touched.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_CAPSENSE_RELEASE      = int(z'065D') !! Gamepad capsense was released.
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_FIRST                 = SDL_EVENT_GAMEPAD_AXIS_MOTION
+    integer(c_int), parameter, public :: SDL_EVENT_GAMEPAD_LAST                  = SDL_EVENT_GAMEPAD_CAPSENSE_RELEASE
     ! Touch events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_FINGER_DOWN                   = int(z'0700')
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_FINGER_UP                     = int(z'0701')
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_FINGER_MOTION                 = int(z'0702')
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_FINGER_CANCELED               = int(z'0703')
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_FINGER_FIRST                  = SDL_EVENT_FINGER_DOWN
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_FINGER_LAST                   = SDL_EVENT_FINGER_CANCELED
+    integer(c_int), parameter, public :: SDL_EVENT_FINGER_DOWN                   = int(z'0700')
+    integer(c_int), parameter, public :: SDL_EVENT_FINGER_UP                     = int(z'0701')
+    integer(c_int), parameter, public :: SDL_EVENT_FINGER_MOTION                 = int(z'0702')
+    integer(c_int), parameter, public :: SDL_EVENT_FINGER_CANCELED               = int(z'0703')
+    integer(c_int), parameter, public :: SDL_EVENT_FINGER_FIRST                  = SDL_EVENT_FINGER_DOWN
+    integer(c_int), parameter, public :: SDL_EVENT_FINGER_LAST                   = SDL_EVENT_FINGER_CANCELED
     ! Pinch events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PINCH_BEGIN                   = int(z'0710') !! Pinch gesture started.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PINCH_UPDATE                  = int(z'0711') !! Pinch gesture updated.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PINCH_END                     = int(z'0712') !! Pinch gesture ended.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PINCH_FIRST                   = SDL_EVENT_PINCH_BEGIN
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PINCH_LAST                    = SDL_EVENT_PINCH_END
+    integer(c_int), parameter, public :: SDL_EVENT_PINCH_BEGIN                   = int(z'0710') !! Pinch gesture started.
+    integer(c_int), parameter, public :: SDL_EVENT_PINCH_UPDATE                  = int(z'0711') !! Pinch gesture updated.
+    integer(c_int), parameter, public :: SDL_EVENT_PINCH_END                     = int(z'0712') !! Pinch gesture ended.
+    integer(c_int), parameter, public :: SDL_EVENT_PINCH_FIRST                   = SDL_EVENT_PINCH_BEGIN
+    integer(c_int), parameter, public :: SDL_EVENT_PINCH_LAST                    = SDL_EVENT_PINCH_END
     ! Clipboard events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_CLIPBOARD_UPDATE              = int(z'0900') !! The clipboard changed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_CLIPBOARD_FIRST               = SDL_EVENT_CLIPBOARD_UPDATE
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_CLIPBOARD_LAST                = SDL_EVENT_CLIPBOARD_UPDATE
+    integer(c_int), parameter, public :: SDL_EVENT_CLIPBOARD_UPDATE              = int(z'0900') !! The clipboard changed.
+    integer(c_int), parameter, public :: SDL_EVENT_CLIPBOARD_FIRST               = SDL_EVENT_CLIPBOARD_UPDATE
+    integer(c_int), parameter, public :: SDL_EVENT_CLIPBOARD_LAST                = SDL_EVENT_CLIPBOARD_UPDATE
     ! Drag and drop events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DROP_FILE                     = int(z'1000') !! The system requests a file open.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DROP_TEXT                     = int(z'1001') !! text/plain drag-and-drop event.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DROP_BEGIN                    = int(z'1002') !! A new set of drops is beginning (NULL filename).
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DROP_COMPLETE                 = int(z'1003') !! Current set of drops is now complete (NULL filename).
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DROP_POSITION                 = int(z'1004') !! Position while moving over the window.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DROP_FIRST                    = SDL_EVENT_DROP_FILE
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_DROP_LAST                     = SDL_EVENT_DROP_POSITION
+    integer(c_int), parameter, public :: SDL_EVENT_DROP_FILE                     = int(z'1000') !! The system requests a file open.
+    integer(c_int), parameter, public :: SDL_EVENT_DROP_TEXT                     = int(z'1001') !! text/plain drag-and-drop event.
+    integer(c_int), parameter, public :: SDL_EVENT_DROP_BEGIN                    = int(z'1002') !! A new set of drops is beginning (NULL filename).
+    integer(c_int), parameter, public :: SDL_EVENT_DROP_COMPLETE                 = int(z'1003') !! Current set of drops is now complete (NULL filename).
+    integer(c_int), parameter, public :: SDL_EVENT_DROP_POSITION                 = int(z'1004') !! Position while moving over the window.
+    integer(c_int), parameter, public :: SDL_EVENT_DROP_FIRST                    = SDL_EVENT_DROP_FILE
+    integer(c_int), parameter, public :: SDL_EVENT_DROP_LAST                     = SDL_EVENT_DROP_POSITION
     ! Audio hotplug events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_AUDIO_DEVICE_ADDED            = int(z'1100') !! A new audio device is available.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_AUDIO_DEVICE_REMOVED          = int(z'1101') !! An audio device has been removed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_AUDIO_DEVICE_FORMAT_CHANGED   = int(z'1102') !! An audio device's format has been changed by the system.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_AUDIO_DEVICE_FIRST            = SDL_EVENT_AUDIO_DEVICE_ADDED
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_AUDIO_DEVICE_LAST             = SDL_EVENT_AUDIO_DEVICE_FORMAT_CHANGED
+    integer(c_int), parameter, public :: SDL_EVENT_AUDIO_DEVICE_ADDED            = int(z'1100') !! A new audio device is available.
+    integer(c_int), parameter, public :: SDL_EVENT_AUDIO_DEVICE_REMOVED          = int(z'1101') !! An audio device has been removed.
+    integer(c_int), parameter, public :: SDL_EVENT_AUDIO_DEVICE_FORMAT_CHANGED   = int(z'1102') !! An audio device's format has been changed by the system.
+    integer(c_int), parameter, public :: SDL_EVENT_AUDIO_DEVICE_FIRST            = SDL_EVENT_AUDIO_DEVICE_ADDED
+    integer(c_int), parameter, public :: SDL_EVENT_AUDIO_DEVICE_LAST             = SDL_EVENT_AUDIO_DEVICE_FORMAT_CHANGED
     ! Sensor events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_SENSOR_UPDATE                 = int(z'1200') !! A sensor was updated.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_SENSOR_FIRST                  = SDL_EVENT_SENSOR_UPDATE
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_SENSOR_LAST                   = SDL_EVENT_SENSOR_UPDATE
+    integer(c_int), parameter, public :: SDL_EVENT_SENSOR_UPDATE                 = int(z'1200') !! A sensor was updated.
+    integer(c_int), parameter, public :: SDL_EVENT_SENSOR_FIRST                  = SDL_EVENT_SENSOR_UPDATE
+    integer(c_int), parameter, public :: SDL_EVENT_SENSOR_LAST                   = SDL_EVENT_SENSOR_UPDATE
     ! Pressure-sensitive pen events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PEN_PROXIMITY_IN              = int(z'1300') !! Pressure-sensitive pen has become available.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PEN_PROXIMITY_OUT             = int(z'1301') !! Pressure-sensitive pen has become unavailable.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PEN_DOWN                      = int(z'1302') !! Pressure-sensitive pen touched drawing surface.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PEN_UP                        = int(z'1303') !! Pressure-sensitive pen stopped touching drawing surface.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PEN_BUTTON_DOWN               = int(z'1304') !! Pressure-sensitive pen button pressed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PEN_BUTTON_UP                 = int(z'1305') !! Pressure-sensitive pen button released.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PEN_MOTION                    = int(z'1306') !! Pressure-sensitive pen is moving on the tablet.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PEN_AXIS                      = int(z'1307') !! Pressure-sensitive pen angle/pressure/etc changed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PEN_FIRST                     = SDL_EVENT_PEN_PROXIMITY_IN
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PEN_LAST                      = SDL_EVENT_PEN_AXIS
+    integer(c_int), parameter, public :: SDL_EVENT_PEN_PROXIMITY_IN              = int(z'1300') !! Pressure-sensitive pen has become available.
+    integer(c_int), parameter, public :: SDL_EVENT_PEN_PROXIMITY_OUT             = int(z'1301') !! Pressure-sensitive pen has become unavailable.
+    integer(c_int), parameter, public :: SDL_EVENT_PEN_DOWN                      = int(z'1302') !! Pressure-sensitive pen touched drawing surface.
+    integer(c_int), parameter, public :: SDL_EVENT_PEN_UP                        = int(z'1303') !! Pressure-sensitive pen stopped touching drawing surface.
+    integer(c_int), parameter, public :: SDL_EVENT_PEN_BUTTON_DOWN               = int(z'1304') !! Pressure-sensitive pen button pressed.
+    integer(c_int), parameter, public :: SDL_EVENT_PEN_BUTTON_UP                 = int(z'1305') !! Pressure-sensitive pen button released.
+    integer(c_int), parameter, public :: SDL_EVENT_PEN_MOTION                    = int(z'1306') !! Pressure-sensitive pen is moving on the tablet.
+    integer(c_int), parameter, public :: SDL_EVENT_PEN_AXIS                      = int(z'1307') !! Pressure-sensitive pen angle/pressure/etc changed.
+    integer(c_int), parameter, public :: SDL_EVENT_PEN_FIRST                     = SDL_EVENT_PEN_PROXIMITY_IN
+    integer(c_int), parameter, public :: SDL_EVENT_PEN_LAST                      = SDL_EVENT_PEN_AXIS
     ! Camera hotplug events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_CAMERA_DEVICE_ADDED           = int(z'1400') !! A new camera device is available.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_CAMERA_DEVICE_REMOVED         = int(z'1401') !! A camera device has been removed.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_CAMERA_DEVICE_APPROVED        = int(z'1402') !! A camera device has been approved for use by the user.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_CAMERA_DEVICE_DENIED          = int(z'1403') !! A camera device has been denied for use by the user.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_CAMERA_DEVICE_FIRST           = SDL_EVENT_CAMERA_DEVICE_ADDED
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_CAMERA_DEVICE_LAST            = SDL_EVENT_CAMERA_DEVICE_DENIED
+    integer(c_int), parameter, public :: SDL_EVENT_CAMERA_DEVICE_ADDED           = int(z'1400') !! A new camera device is available.
+    integer(c_int), parameter, public :: SDL_EVENT_CAMERA_DEVICE_REMOVED         = int(z'1401') !! A camera device has been removed.
+    integer(c_int), parameter, public :: SDL_EVENT_CAMERA_DEVICE_APPROVED        = int(z'1402') !! A camera device has been approved for use by the user.
+    integer(c_int), parameter, public :: SDL_EVENT_CAMERA_DEVICE_DENIED          = int(z'1403') !! A camera device has been denied for use by the user.
+    integer(c_int), parameter, public :: SDL_EVENT_CAMERA_DEVICE_FIRST           = SDL_EVENT_CAMERA_DEVICE_ADDED
+    integer(c_int), parameter, public :: SDL_EVENT_CAMERA_DEVICE_LAST            = SDL_EVENT_CAMERA_DEVICE_DENIED
     ! Notification events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_NOTIFICATION_ACTION_INVOKED   = int(z'1500') !! A user response to a system notification was received.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_NOTIFICATION_FIRST            = SDL_EVENT_NOTIFICATION_ACTION_INVOKED
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_NOTIFICATION_LAST             = SDL_EVENT_NOTIFICATION_ACTION_INVOKED
+    integer(c_int), parameter, public :: SDL_EVENT_NOTIFICATION_ACTION_INVOKED   = int(z'1500') !! A user response to a system notification was received.
+    integer(c_int), parameter, public :: SDL_EVENT_NOTIFICATION_FIRST            = SDL_EVENT_NOTIFICATION_ACTION_INVOKED
+    integer(c_int), parameter, public :: SDL_EVENT_NOTIFICATION_LAST             = SDL_EVENT_NOTIFICATION_ACTION_INVOKED
     ! Render events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_RENDER_TARGETS_RESET          = int(z'2000') !! The render targets have been reset and their contents need to be updated.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_RENDER_DEVICE_RESET           = int(z'2001') !! The device has been reset and all textures need to be recreated.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_RENDER_DEVICE_LOST            = int(z'2002') !! The device has been lost and can't be recovered.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_RENDER_FIRST                  = SDL_EVENT_RENDER_TARGETS_RESET
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_RENDER_LAST                   = SDL_EVENT_RENDER_DEVICE_LOST
+    integer(c_int), parameter, public :: SDL_EVENT_RENDER_TARGETS_RESET          = int(z'2000') !! The render targets have been reset and their contents need to be updated.
+    integer(c_int), parameter, public :: SDL_EVENT_RENDER_DEVICE_RESET           = int(z'2001') !! The device has been reset and all textures need to be recreated.
+    integer(c_int), parameter, public :: SDL_EVENT_RENDER_DEVICE_LOST            = int(z'2002') !! The device has been lost and can't be recovered.
+    integer(c_int), parameter, public :: SDL_EVENT_RENDER_FIRST                  = SDL_EVENT_RENDER_TARGETS_RESET
+    integer(c_int), parameter, public :: SDL_EVENT_RENDER_LAST                   = SDL_EVENT_RENDER_DEVICE_LOST
     ! Reserved events for private platforms.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PRIVATE0                      = int(z'4000')
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PRIVATE1                      = int(z'4001')
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PRIVATE2                      = int(z'4002')
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_PRIVATE3                      = int(z'4003')
+    integer(c_int), parameter, public :: SDL_EVENT_PRIVATE0                      = int(z'4000')
+    integer(c_int), parameter, public :: SDL_EVENT_PRIVATE1                      = int(z'4001')
+    integer(c_int), parameter, public :: SDL_EVENT_PRIVATE2                      = int(z'4002')
+    integer(c_int), parameter, public :: SDL_EVENT_PRIVATE3                      = int(z'4003')
     ! Internal events.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_POLL_SENTINEL                 = int(z'7F00')     !! Signals the end of an event poll cycle.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_USER                          = int(z'8000')     !! Events SDL_EVENT_USER through SDL_EVENT_LAST are for your use and should be allocated with SDL_RegisterEvents().
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_LAST                          = int(z'FFFF')     !! This last event is only for bounding internal arrays.
-    integer(sdl_event_type), parameter, public :: SDL_EVENT_ENUM_PADDING                  = int(z'7FFFFFFF') !! This just makes sure the enum is the size of Uint32.
+    integer(c_int), parameter, public :: SDL_EVENT_POLL_SENTINEL                 = int(z'7F00')     !! Signals the end of an event poll cycle.
+    integer(c_int), parameter, public :: SDL_EVENT_USER                          = int(z'8000')     !! Events SDL_EVENT_USER through SDL_EVENT_LAST are for your use and should be allocated with SDL_RegisterEvents().
+    integer(c_int), parameter, public :: SDL_EVENT_LAST                          = int(z'FFFF')     !! This last event is only for bounding internal arrays.
+    integer(c_int), parameter, public :: SDL_EVENT_ENUM_PADDING                  = int(z'7FFFFFFF') !! This just makes sure the enum is the size of Uint32.
 
     ! enum SDL_EventAction
     integer(c_int), parameter, public :: SDL_ADDEVENT  = 0 !! Add events to the back of the queue.
@@ -210,7 +209,7 @@ module sdl3_events
 
     ! struct SDL_DisplayEvent
     type, bind(c), public :: sdl_display_event
-        integer(sdl_event_type)  :: type       = 0 !! SDL_EVENT_DISPLAY_*.
+        integer(c_int)           :: type       = 0 !! SDL_EVENT_DISPLAY_*.
         integer(uint32), private :: reserved   = 0
         integer(uint64)          :: timestamp  = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_display_id)  :: display_id = 0 !! The associated display.
@@ -220,7 +219,7 @@ module sdl3_events
 
     ! struct SDL_WindowEvent
     type, bind(c), public :: sdl_window_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_WINDOW_*.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_WINDOW_*.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id = 0 !! The associated window.
@@ -230,7 +229,7 @@ module sdl3_events
 
     ! struct SDL_KeyboardDeviceEvent
     type, bind(c), public :: sdl_keyboard_device_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_KEYBOARD_ADDED or SDL_EVENT_KEYBOARD_REMOVED.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_KEYBOARD_ADDED or SDL_EVENT_KEYBOARD_REMOVED.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_keyboard_id) :: which     = 0 !! The keyboard instance id.
@@ -238,7 +237,7 @@ module sdl3_events
 
     ! struct SDL_KeyboardEvent
     type, bind(c), public :: sdl_keyboard_event
-        integer(sdl_event_type)  :: type      = 0              !! SDL_EVENT_KEY_DOWN or SDL_EVENT_KEY_UP.
+        integer(c_int)           :: type      = 0              !! SDL_EVENT_KEY_DOWN or SDL_EVENT_KEY_UP.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0              !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id = 0              !! The window with keyboard focus, if any.
@@ -253,7 +252,7 @@ module sdl3_events
 
     ! struct SDL_TextEditingEvent
     type, bind(c), public :: sdl_text_editing_event
-        integer(sdl_event_type)  :: type      = 0          !! SDL_EVENT_TEXT_EDITING.
+        integer(c_int)           :: type      = 0          !! SDL_EVENT_TEXT_EDITING.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0          !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id = 0          !! The window with keyboard focus, if any.
@@ -264,7 +263,7 @@ module sdl3_events
 
     ! struct SDL_TextEditingCandidatesEvent
     type, bind(c), public :: sdl_text_editing_candidates_event
-        integer(sdl_event_type)  :: type               = 0              !! SDL_EVENT_TEXT_EDITING_CANDIDATES.
+        integer(c_int)           :: type               = 0              !! SDL_EVENT_TEXT_EDITING_CANDIDATES.
         integer(uint32), private :: reserved           = 0
         integer(uint64)          :: timestamp          = 0              !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id          = 0              !! The window with keyboard focus, if any.
@@ -279,7 +278,7 @@ module sdl3_events
 
     ! struct SDL_TextInputEvent
     type, bind(c), public :: sdl_text_input_event
-        integer(sdl_event_type)  :: type      = 0          !! SDL_EVENT_TEXT_INPUT.
+        integer(c_int)           :: type      = 0          !! SDL_EVENT_TEXT_INPUT.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0          !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id = 0          !! The window with keyboard focus, if any.
@@ -288,7 +287,7 @@ module sdl3_events
 
     ! struct SDL_MouseDeviceEvent
     type, bind(c), public :: sdl_mouse_device_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_MOUSE_ADDED or SDL_EVENT_MOUSE_REMOVED.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_MOUSE_ADDED or SDL_EVENT_MOUSE_REMOVED.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_mouse_id)    :: which     = 0 !! The mouse instance id.
@@ -296,7 +295,7 @@ module sdl3_events
 
     ! struct SDL_MouseMotionEvent
     type, bind(c), public :: sdl_mouse_motion_event
-        integer(sdl_event_type)  :: type      = 0   !! SDL_EVENT_MOUSE_MOTION.
+        integer(c_int)           :: type      = 0   !! SDL_EVENT_MOUSE_MOTION.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0   !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id = 0   !! The window with mouse focus, if any.
@@ -310,7 +309,7 @@ module sdl3_events
 
     ! struct SDL_MouseButtonEvent
     type, bind(c), public :: sdl_mouse_button_event
-        integer(sdl_event_type)  :: type      = 0              !! SDL_EVENT_MOUSE_BUTTON_DOWN or SDL_EVENT_MOUSE_BUTTON_UP.
+        integer(c_int)           :: type      = 0              !! SDL_EVENT_MOUSE_BUTTON_DOWN or SDL_EVENT_MOUSE_BUTTON_UP.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0              !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id = 0              !! The window with mouse focus, if any.
@@ -325,7 +324,7 @@ module sdl3_events
 
     ! struct SDL_MouseWheelEvent
     type, bind(c), public :: sdl_mouse_wheel_event
-        integer(sdl_event_type)  :: type      = 0   !! SDL_EVENT_MOUSE_WHEEL.
+        integer(c_int)           :: type      = 0   !! SDL_EVENT_MOUSE_WHEEL.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0   !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id = 0   !! The window with mouse focus, if any.
@@ -341,7 +340,7 @@ module sdl3_events
 
     ! struct SDL_JoyAxisEvent
     type, bind(c), public :: sdl_joy_axis_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_JOYSTICK_AXIS_MOTION.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_JOYSTICK_AXIS_MOTION.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0 !! The joystick instance id.
@@ -355,7 +354,7 @@ module sdl3_events
 
     ! struct SDL_JoyBallEvent
     type, bind(c), public :: sdl_joy_ball_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_JOYSTICK_BALL_MOTION.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_JOYSTICK_BALL_MOTION.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0 !! The joystick instance id.
@@ -369,7 +368,7 @@ module sdl3_events
 
     ! struct SDL_JoyHatEvent
     type, bind(c), public :: sdl_joy_hat_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_JOYSTICK_HAT_MOTION.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_JOYSTICK_HAT_MOTION.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0 !! The joystick instance id.
@@ -381,7 +380,7 @@ module sdl3_events
 
     ! struct SDL_JoyButtonEvent
     type, bind(c), public :: sdl_joy_button_event
-        integer(sdl_event_type)  :: type      = 0              !! SDL_EVENT_JOYSTICK_BUTTON_DOWN or SDL_EVENT_JOYSTICK_BUTTON_UP.
+        integer(c_int)           :: type      = 0              !! SDL_EVENT_JOYSTICK_BUTTON_DOWN or SDL_EVENT_JOYSTICK_BUTTON_UP.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0              !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0              !! The joystick instance id.
@@ -393,7 +392,7 @@ module sdl3_events
 
     ! struct SDL_JoyDeviceEvent
     type, bind(c), public :: sdl_joy_device_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_JOYSTICK_ADDED or SDL_EVENT_JOYSTICK_REMOVED or SDL_EVENT_JOYSTICK_UPDATE_COMPLETE.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_JOYSTICK_ADDED or SDL_EVENT_JOYSTICK_REMOVED or SDL_EVENT_JOYSTICK_UPDATE_COMPLETE.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0 !! The joystick instance id.
@@ -401,7 +400,7 @@ module sdl3_events
 
     ! struct SDL_JoyBatteryEvent
     type, bind(c), public :: sdl_joy_battery_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_JOYSTICK_BATTERY_UPDATED.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_JOYSTICK_BATTERY_UPDATED.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0 !! The joystick instance id.
@@ -411,7 +410,7 @@ module sdl3_events
 
     ! struct SDL_GamepadAxisEvent
     type, bind(c), public :: sdl_gamepad_axis_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_GAMEPAD_AXIS_MOTION.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_GAMEPAD_AXIS_MOTION.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0 !! The joystick instance id.
@@ -425,7 +424,7 @@ module sdl3_events
 
     ! struct SDL_GamepadButtonEvent
     type, bind(c), public :: sdl_gamepad_button_event
-        integer(sdl_event_type)  :: type      = 0              !! SDL_EVENT_GAMEPAD_BUTTON_DOWN or SDL_EVENT_GAMEPAD_BUTTON_UP.
+        integer(c_int)           :: type      = 0              !! SDL_EVENT_GAMEPAD_BUTTON_DOWN or SDL_EVENT_GAMEPAD_BUTTON_UP.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0              !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0              !! The joystick instance id.
@@ -437,7 +436,7 @@ module sdl3_events
 
     ! struct SDL_GamepadDeviceEvent
     type, bind(c), public :: sdl_gamepad_device_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_GAMEPAD_ADDED, SDL_EVENT_GAMEPAD_REMOVED, or SDL_EVENT_GAMEPAD_REMAPPED, SDL_EVENT_GAMEPAD_UPDATE_COMPLETE or SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_GAMEPAD_ADDED, SDL_EVENT_GAMEPAD_REMOVED, or SDL_EVENT_GAMEPAD_REMAPPED, SDL_EVENT_GAMEPAD_UPDATE_COMPLETE or SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0 !! The joystick instance id.
@@ -445,7 +444,7 @@ module sdl3_events
 
     ! struct SDL_GamepadTouchpadEvent
     type, bind(c), public :: sdl_gamepad_touchpad_event
-        integer(sdl_event_type)  :: type      = 0   !! SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN or SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION or SDL_EVENT_GAMEPAD_TOUCHPAD_UP.
+        integer(c_int)           :: type      = 0   !! SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN or SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION or SDL_EVENT_GAMEPAD_TOUCHPAD_UP.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0   !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0   !! The joystick instance id.
@@ -458,7 +457,7 @@ module sdl3_events
 
     ! struct SDL_GamepadSensorEvent
     type, bind(c), public :: sdl_gamepad_sensor_event
-        integer(sdl_event_type)  :: type             = 0   !! SDL_EVENT_GAMEPAD_SENSOR_UPDATE.
+        integer(c_int)           :: type             = 0   !! SDL_EVENT_GAMEPAD_SENSOR_UPDATE.
         integer(uint32), private :: reserved         = 0
         integer(uint64)          :: timestamp        = 0   !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which            = 0   !! The joystick instance id.
@@ -469,7 +468,7 @@ module sdl3_events
 
     ! struct SDL_GamepadCapSenseEvent
     type, bind(c), public :: sdl_gamepad_cap_sense_event
-        integer(sdl_event_type)  :: type      = 0              !! SDL_EVENT_GAMEPAD_CAPSENSE_TOUCH or SDL_EVENT_GAMEPAD_CAPSENSE_RELEASE.
+        integer(c_int)           :: type      = 0              !! SDL_EVENT_GAMEPAD_CAPSENSE_TOUCH or SDL_EVENT_GAMEPAD_CAPSENSE_RELEASE.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0              !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_joystick_id) :: which     = 0              !! The joystick instance id.
@@ -481,7 +480,7 @@ module sdl3_events
 
     ! struct SDL_AudioDeviceEvent
     type, bind(c), public :: sdl_audio_device_event
-        integer(sdl_event_type)      :: type      = 0              !! SDL_EVENT_AUDIO_DEVICE_ADDED, or SDL_EVENT_AUDIO_DEVICE_REMOVED, or SDL_EVENT_AUDIO_DEVICE_FORMAT_CHANGED.
+        integer(c_int)               :: type      = 0              !! SDL_EVENT_AUDIO_DEVICE_ADDED, or SDL_EVENT_AUDIO_DEVICE_REMOVED, or SDL_EVENT_AUDIO_DEVICE_FORMAT_CHANGED.
         integer(uint32), private     :: reserved  = 0
         integer(uint64)              :: timestamp = 0              !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_audio_device_id) :: which     = 0              !! SDL_AudioDeviceID for the device being added or removed or changing.
@@ -493,7 +492,7 @@ module sdl3_events
 
     ! struct SDL_CameraDeviceEvent
     type, bind(c), public :: sdl_camera_device_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_CAMERA_DEVICE_ADDED, SDL_EVENT_CAMERA_DEVICE_REMOVED, SDL_EVENT_CAMERA_DEVICE_APPROVED, SDL_EVENT_CAMERA_DEVICE_DENIED.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_CAMERA_DEVICE_ADDED, SDL_EVENT_CAMERA_DEVICE_REMOVED, SDL_EVENT_CAMERA_DEVICE_APPROVED, SDL_EVENT_CAMERA_DEVICE_DENIED.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_camera_id)   :: which     = 0 !! SDL_CameraID for the device being added or removed or changing.
@@ -501,7 +500,7 @@ module sdl3_events
 
     ! struct SDL_NotificationEvent
     type, bind(c), public :: sdl_notification_event
-        integer(sdl_event_type)      :: type      = 0          !! SDL_EVENT_NOTIFICATION_ACTION_INVOKED.
+        integer(c_int)               :: type      = 0          !! SDL_EVENT_NOTIFICATION_ACTION_INVOKED.
         integer(uint32), private     :: reserved  = 0
         integer(uint64)              :: timestamp = 0          !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_notification_id) :: which     = 0          !! The ID of the notification that generated this event.
@@ -510,7 +509,7 @@ module sdl3_events
 
     ! struct SDL_RenderEvent
     type, bind(c), public :: sdl_render_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_RENDER_TARGETS_RESET, SDL_EVENT_RENDER_DEVICE_RESET, SDL_EVENT_RENDER_DEVICE_LOST.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_RENDER_TARGETS_RESET, SDL_EVENT_RENDER_DEVICE_RESET, SDL_EVENT_RENDER_DEVICE_LOST.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id = 0 !! The window containing the renderer in question.
@@ -518,7 +517,7 @@ module sdl3_events
 
     ! struct SDL_TouchFingerEvent
     type, bind(c), public :: sdl_touch_finger_event
-        integer(sdl_event_type)  :: type      = 0   !! SDL_EVENT_FINGER_DOWN, SDL_EVENT_FINGER_UP, SDL_EVENT_FINGER_MOTION, or SDL_EVENT_FINGER_CANCELED.
+        integer(c_int)           :: type      = 0   !! SDL_EVENT_FINGER_DOWN, SDL_EVENT_FINGER_UP, SDL_EVENT_FINGER_MOTION, or SDL_EVENT_FINGER_CANCELED.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0   !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_touch_id)    :: touchID   = 0   !! The touch device id.
@@ -533,7 +532,7 @@ module sdl3_events
 
     ! struct SDL_PinchFingerEvent
     type, bind(c), public :: sdl_pinch_finger_event
-        integer(sdl_event_type)  :: type      = 0   !! SDL_EVENT_PINCH_BEGIN or SDL_EVENT_PINCH_UPDATE or SDL_EVENT_PINCH_END.
+        integer(c_int)           :: type      = 0   !! SDL_EVENT_PINCH_BEGIN or SDL_EVENT_PINCH_UPDATE or SDL_EVENT_PINCH_END.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0   !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         real(c_float)            :: scale     = 0.0 !! The scale change since the last SDL_EVENT_PINCH_UPDATE. Scale < 1 is "zoom out". Scale > 1 is "zoom in".
@@ -546,7 +545,7 @@ module sdl3_events
 
     ! struct SDL_PenProximityEvent
     type, bind(c), public :: sdl_pen_proximity_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_PEN_PROXIMITY_IN or SDL_EVENT_PEN_PROXIMITY_OUT.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_PEN_PROXIMITY_IN or SDL_EVENT_PEN_PROXIMITY_OUT.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id = 0 !! The window with pen focus, if any.
@@ -555,7 +554,7 @@ module sdl3_events
 
     ! struct SDL_PenMotionEvent
     type, bind(c), public :: sdl_pen_motion_event
-        integer(sdl_event_type)      :: type      = 0   !! SDL_EVENT_PEN_MOTION.
+        integer(c_int)               :: type      = 0   !! SDL_EVENT_PEN_MOTION.
         integer(uint32), private     :: reserved  = 0
         integer(uint64)              :: timestamp = 0   !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)       :: window_id = 0   !! The window with pen focus, if any.
@@ -567,7 +566,7 @@ module sdl3_events
 
     ! struct SDL_PenTouchEvent
     type, bind(c), public :: sdl_pen_touch_event
-        integer(sdl_event_type)      :: type      = 0              !! SDL_EVENT_PEN_DOWN or SDL_EVENT_PEN_UP.
+        integer(c_int)               :: type      = 0              !! SDL_EVENT_PEN_DOWN or SDL_EVENT_PEN_UP.
         integer(uint32), private     :: reserved  = 0
         integer(uint64)              :: timestamp = 0              !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)       :: window_id = 0              !! The window with pen focus, if any.
@@ -581,7 +580,7 @@ module sdl3_events
 
     ! struct SDL_PenButtonEvent
     type, bind(c), public :: sdl_pen_button_event
-        integer(sdl_event_type)      :: type      = 0              !! SDL_EVENT_PEN_BUTTON_DOWN or SDL_EVENT_PEN_BUTTON_UP.
+        integer(c_int)               :: type      = 0              !! SDL_EVENT_PEN_BUTTON_DOWN or SDL_EVENT_PEN_BUTTON_UP.
         integer(uint32), private     :: reserved  = 0
         integer(uint64)              :: timestamp = 0              !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)       :: window_id = 0              !! The window with mouse focus, if any.
@@ -595,7 +594,7 @@ module sdl3_events
 
     ! struct SDL_PenAxisEvent
     type, bind(c), public :: sdl_pen_axis_event
-        integer(sdl_event_type)      :: type      = 0   !! SDL_EVENT_PEN_AXIS.
+        integer(c_int)               :: type      = 0   !! SDL_EVENT_PEN_AXIS.
         integer(uint32), private     :: reserved  = 0
         integer(uint64)              :: timestamp = 0   !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)       :: window_id = 0   !! The window with pen focus, if any.
@@ -609,7 +608,7 @@ module sdl3_events
 
     ! struct SDL_DropEvent
     type, bind(c), public :: sdl_drop_event
-        integer(sdl_event_type)  :: type      = 0          !! SDL_EVENT_DROP_BEGIN or SDL_EVENT_DROP_FILE or SDL_EVENT_DROP_TEXT or SDL_EVENT_DROP_COMPLETE or SDL_EVENT_DROP_POSITION.
+        integer(c_int)           :: type      = 0          !! SDL_EVENT_DROP_BEGIN or SDL_EVENT_DROP_FILE or SDL_EVENT_DROP_TEXT or SDL_EVENT_DROP_COMPLETE or SDL_EVENT_DROP_POSITION.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0          !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_window_id)   :: window_id = 0          !! The window that was dropped on, if any.
@@ -621,7 +620,7 @@ module sdl3_events
 
     ! struct SDL_ClipboardEvent
     type, bind(c), public :: sdl_clipboard_event
-        integer(sdl_event_type)  :: type           = 0              !! SDL_EVENT_CLIPBOARD_UPDATE.
+        integer(c_int)           :: type           = 0              !! SDL_EVENT_CLIPBOARD_UPDATE.
         integer(uint32), private :: reserved       = 0
         integer(uint64)          :: timestamp      = 0              !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         logical(c_bool)          :: owner          = .false._c_bool !! are we owning the clipboard (internal update).
@@ -631,7 +630,7 @@ module sdl3_events
 
     ! struct SDL_SensorEvent
     type, bind(c), public :: sdl_sensor_event
-        integer(sdl_event_type)  :: type             = 0   !! SDL_EVENT_SENSOR_UPDATE.
+        integer(c_int)           :: type             = 0   !! SDL_EVENT_SENSOR_UPDATE.
         integer(uint32), private :: reserved         = 0
         integer(uint64)          :: timestamp        = 0   !! In nanoseconds, populated using `SDL_GetTicksNS()`.
         integer(sdl_sensor_id)   :: which            = 0   !! The instance ID of the sensor.
@@ -641,7 +640,7 @@ module sdl3_events
 
     ! struct SDL_QuitEvent
     type, bind(c), public :: sdl_quit_event
-        integer(sdl_event_type)  :: type      = 0 !! SDL_EVENT_QUIT.
+        integer(c_int)           :: type      = 0 !! SDL_EVENT_QUIT.
         integer(uint32), private :: reserved  = 0
         integer(uint64)          :: timestamp = 0 !! In nanoseconds, populated using `SDL_GetTicksNS()`.
     end type sdl_quit_event

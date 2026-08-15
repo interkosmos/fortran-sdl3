@@ -1,16 +1,17 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_gpu
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_gpu.h`.
     use :: sdl3_pixels
     use :: sdl3_properties
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_gpu_color_component_flags = uint8
-    integer, parameter, public :: sdl_gpu_texture_usage_flags   = uint32
-    integer, parameter, public :: sdl_gpu_buffer_usage_flags    = uint32
-    integer, parameter, public :: sdl_gpu_shader_format         = uint32
+    integer, parameter, public :: sdl_gpu_color_component_flags = uint8  !! SDL_GPUColorComponentFlags
+    integer, parameter, public :: sdl_gpu_texture_usage_flags   = uint32 !! SDL_GPUTextureUsageFlags
+    integer, parameter, public :: sdl_gpu_buffer_usage_flags    = uint32 !! SDL_GPUBufferUsageFlags
+    integer, parameter, public :: sdl_gpu_shader_format         = uint32 !! SDL_GPUShaderFormat
 
     character(*), parameter, public :: SDL_PROP_GPU_DEVICE_CREATE_DEBUGMODE_BOOLEAN                   = 'SDL.gpu.device.create.debugmode'
     character(*), parameter, public :: SDL_PROP_GPU_DEVICE_CREATE_PREFERLOWPOWER_BOOLEAN              = 'SDL.gpu.device.create.preferlowpower'

@@ -1,13 +1,14 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_touch
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_touch.h`.
     use :: sdl3_mouse
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_touch_id  = uint64 ! SDL_TouchID
-    integer, parameter, public :: sdl_finger_id = uint64 ! SDL_FingerID
+    integer, parameter, public :: sdl_touch_id  = uint64 !! SDL_TouchID
+    integer, parameter, public :: sdl_finger_id = uint64 !! SDL_FingerID
 
     ! enum SDL_TouchDeviceType
     integer(c_int), parameter, public :: SDL_TOUCH_DEVICE_INVALID           = -1

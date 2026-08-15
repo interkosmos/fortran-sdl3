@@ -1,12 +1,13 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_sensor
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_sensor.h`.
     use :: sdl3_properties
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_sensor_id = uint32 ! SDL_SensorID
+    integer, parameter, public :: sdl_sensor_id = uint32 !! SDL_SensorID
 
     real(c_float), parameter, public :: SDL_STANDARD_GRAVITY = 9.80665
 

@@ -1,12 +1,13 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_audio
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_audio.h`.
     use :: sdl3_properties
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_audio_device_id = uint32 ! SDL_AudioDeviceID
+    integer, parameter, public :: sdl_audio_device_id = uint32 !! SDL_AudioDeviceID
 
     integer(c_unsigned), parameter, public :: SDL_AUDIO_MASK_BITSIZE    = int(z'FF', c_unsigned)
     integer(c_unsigned), parameter, public :: SDL_AUDIO_MASK_FLOAT      = shiftl(1_c_unsigned,  8)

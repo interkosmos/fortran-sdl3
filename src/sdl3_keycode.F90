@@ -1,12 +1,13 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_keycode
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_keycode.h`.
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_keycode = uint32 ! SDL_Keycode
-    integer, parameter, public :: sdl_keymod  = uint16 ! SDL_Keymod
+    integer, parameter, public :: sdl_keycode = uint32 !! SDL_Keycode
+    integer, parameter, public :: sdl_keymod  = uint16 !! SDL_Keymod
 
     integer(c_unsigned), parameter, public :: SDLK_EXTENDED_MASK = shiftl(1_c_unsigned, 29)
     integer(c_unsigned), parameter, public :: SDLK_SCANCODE_MASK = shiftl(1_c_unsigned, 30)

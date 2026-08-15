@@ -1,11 +1,12 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_timer
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_timer.h`.
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_timer_id = uint32 ! SDL_TimerID
+    integer, parameter, public :: sdl_timer_id = uint32 !! SDL_TimerID
 
     public :: sdl_timer_callback
     public :: sdl_ns_timer_callback

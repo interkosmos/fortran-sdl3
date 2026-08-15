@@ -1,13 +1,14 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_notification
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_notification.h`.
     use :: sdl3_properties
     use :: sdl3_properties
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_notification_id = uint32 ! SDL_NotificationID
+    integer, parameter, public :: sdl_notification_id = uint32 !! SDL_NotificationID
 
     ! enum SDL_NotificationPriority
     integer(c_int), parameter, public :: SDL_NOTIFICATION_PRIORITY_LOW      = -1 !! Lowest priority.

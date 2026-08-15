@@ -1,12 +1,13 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_camera
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_camera.h`.
     use :: sdl3_properties
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_camera_id = uint32 ! SDL_CameraID
+    integer, parameter, public :: sdl_camera_id = uint32 !! SDL_CameraID
 
     ! struct SDL_CameraSpec
     type, bind(c), public :: sdl_camera_spec

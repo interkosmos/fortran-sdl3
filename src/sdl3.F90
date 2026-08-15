@@ -1,6 +1,7 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3
+    !! Meta module.
     use :: sdl3_audio
     use :: sdl3_blendmode
     use :: sdl3_camera

@@ -1,13 +1,14 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_joystick
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_joystick.h`.
     use :: sdl3_guid
     use :: sdl3_properties
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_joystick_id = uint32 ! SDL_JoystickID
+    integer, parameter, public :: sdl_joystick_id = uint32 !! SDL_JoystickID
 
     ! enum SDL_JoystickType
     integer(c_int), parameter, public :: SDL_JOYSTICK_TYPE_UNKNOWN      =  0

@@ -1,12 +1,13 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_mouse
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_mouse.h`.
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_mouse_id           = uint32 ! SDL_MouseID
-    integer, parameter, public :: sdl_mouse_button_flags = uint32 ! SDL_MouseButtonFlags
+    integer, parameter, public :: sdl_mouse_id           = uint32 !! SDL_MouseID
+    integer, parameter, public :: sdl_mouse_button_flags = uint32 !! SDL_MouseButtonFlags
 
     ! enum SDL_SystemCursor
     integer(c_int), parameter, public :: SDL_SYSTEM_CURSOR_DEFAULT       =  0

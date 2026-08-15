@@ -1,11 +1,12 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_init
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_init.h`.
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_init_flags = uint32
+    integer, parameter, public :: sdl_init_flags = uint32 !! SDL_InitFlags
 
     integer(sdl_init_flags), parameter, public :: SDL_INIT_AUDIO    = int(z'00000010')
     integer(sdl_init_flags), parameter, public :: SDL_INIT_VIDEO    = int(z'00000020')

@@ -1,11 +1,12 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_keyboard
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_keyboard.h`.
     use :: sdl3_stdinc
     implicit none (type, external)
     private
 
-    integer, parameter, public :: sdl_keyboard_id = uint32
+    integer, parameter, public :: sdl_keyboard_id = uint32 !! SDL_KeyboardID
 
     ! enum SDL_TextInputType
     integer(c_int), parameter, public :: SDL_TEXTINPUT_TYPE_TEXT                    = 0 !! The input is text.

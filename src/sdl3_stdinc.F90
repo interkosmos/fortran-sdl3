@@ -1,6 +1,7 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 module sdl3_stdinc
+    !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_stdinc.h`.
     use, intrinsic :: iso_c_binding, only: c_associated, c_f_pointer, c_funloc, c_loc, c_sizeof, &
                                            c_bool, c_char, c_double, c_float, c_funptr, c_int, &
                                            c_int8_t, c_int16_t, c_int32_t, c_int64_t, c_intptr_t, &
