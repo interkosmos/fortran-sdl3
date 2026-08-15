@@ -115,19 +115,24 @@ contains
                     angle = 0_real64
 
                     if (ix /= 0 .or. iy /= 0) then
-                        z = cmplx(ix * C, iy * C)
+                        z = cmplx(ix * C, iy * C, real64)
 
                         do i = 1, 224
                             w = z**2
                             z = z * w * 2 + 1
                             z = z / w / 3
 
-                            d = z - 1;                                if (abs(d) < R2R) exit
-                            d = z + cmplx(0.5_real64,  0.866_real64); if (abs(d) < R2R) exit
-                            d = z + cmplx(0.5_real64, -0.866_real64); if (abs(d) < R2R) exit
+                            d = z - 1
+                            if (abs(d) < R2R) exit
+
+                            d = z + cmplx(0.5_real64,  0.866_real64, real64)
+                            if (abs(d) < R2R) exit
+
+                            d = z + cmplx(0.5_real64, -0.866_real64, real64)
+                            if (abs(d) < R2R) exit
                         end do
 
-                        angle = atan2(imag(d), dble(d))
+                        angle = atan2(aimag(d), dble(d))
                     end if
 
                     x = ix + (width  / 2) + 1

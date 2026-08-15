@@ -25,13 +25,13 @@ module sdl3_keyboard
     integer(c_int), parameter, public :: SDL_CAPITALIZE_WORDS     = 2 !! The first letter of words will be capitalized.
     integer(c_int), parameter, public :: SDL_CAPITALIZE_LETTERS   = 3 !! All letters will be capitalized.
 
-    character(*), parameter, public :: SDL_PROP_TEXTINPUT_TYPE_NUMBER              = 'SDL.textinput.type'
-    character(*), parameter, public :: SDL_PROP_TEXTINPUT_CAPITALIZATION_NUMBER    = 'SDL.textinput.capitalization'
+    character(*), parameter, public :: SDL_PROP_TEXTINPUT_ANDROID_INPUTTYPE_NUMBER = 'SDL.textinput.android.inputtype'
     character(*), parameter, public :: SDL_PROP_TEXTINPUT_AUTOCORRECT_BOOLEAN      = 'SDL.textinput.autocorrect'
-    character(*), parameter, public :: SDL_PROP_TEXTINPUT_MULTILINE_BOOLEAN        = 'SDL.textinput.multiline'
-    character(*), parameter, public :: SDL_PROP_TEXTINPUT_TITLE_STRING             = 'SDL.textinput.title'
-    character(*), parameter, public :: SDL_PROP_TEXTINPUT_PLACEHOLDER_STRING       = 'SDL.textinput.placeholder'
+    character(*), parameter, public :: SDL_PROP_TEXTINPUT_CAPITALIZATION_NUMBER    = 'SDL.textinput.capitalization'
     character(*), parameter, public :: SDL_PROP_TEXTINPUT_DEFAULT_TEXT_STRING      = 'SDL.textinput.default_text'
     character(*), parameter, public :: SDL_PROP_TEXTINPUT_MAX_LENGTH_NUMBER        = 'SDL.textinput.max_length'
-    character(*), parameter, public :: SDL_PROP_TEXTINPUT_ANDROID_INPUTTYPE_NUMBER = 'SDL.textinput.android.inputtype'
+    character(*), parameter, public :: SDL_PROP_TEXTINPUT_MULTILINE_BOOLEAN        = 'SDL.textinput.multiline'
+    character(*), parameter, public :: SDL_PROP_TEXTINPUT_PLACEHOLDER_STRING       = 'SDL.textinput.placeholder'
+    character(*), parameter, public :: SDL_PROP_TEXTINPUT_TITLE_STRING             = 'SDL.textinput.title'
+    character(*), parameter, public :: SDL_PROP_TEXTINPUT_TYPE_NUMBER              = 'SDL.textinput.type'
 end module sdl3_keyboard

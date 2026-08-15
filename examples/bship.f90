@@ -19,7 +19,6 @@ program main
 
     sdl_block: block
         logical         :: done, res
-        real            :: r, g, b
         real(real64)    :: mx, my, w
         type(sdl_event) :: event
 

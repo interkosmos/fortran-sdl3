@@ -41,8 +41,8 @@ module sdl3_notification
     character(*), parameter, public :: SDL_PROP_NOTIFICATION_PRIORITY_NUMBER     = 'SDL.notification.priority'
     character(*), parameter, public :: SDL_PROP_NOTIFICATION_REPLACES_NUMBER     = 'SDL.notification.replaces'
     character(*), parameter, public :: SDL_PROP_NOTIFICATION_SOUND_STRING        = 'SDL.notification.sound'
-    character(*), parameter, public :: SDL_PROP_NOTIFICATION_TRANSIENT_BOOLEAN   = 'SDL.notification.transient'
     character(*), parameter, public :: SDL_PROP_NOTIFICATION_TITLE_STRING        = 'SDL.notification.title'
+    character(*), parameter, public :: SDL_PROP_NOTIFICATION_TRANSIENT_BOOLEAN   = 'SDL.notification.transient'
 
     public :: sdl_remove_notification
     public :: sdl_request_notification_permission

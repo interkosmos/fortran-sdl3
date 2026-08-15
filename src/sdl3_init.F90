@@ -22,13 +22,13 @@ module sdl3_init
     integer(c_int), parameter, public :: SDL_APP_SUCCESS  = 1
     integer(c_int), parameter, public :: SDL_APP_FAILURE  = 2
 
-    character(*), parameter, public :: SDL_PROP_APP_METADATA_NAME_STRING       = 'SDL.app.metadata.name'
-    character(*), parameter, public :: SDL_PROP_APP_METADATA_VERSION_STRING    = 'SDL.app.metadata.version'
-    character(*), parameter, public :: SDL_PROP_APP_METADATA_IDENTIFIER_STRING = 'SDL.app.metadata.identifier'
-    character(*), parameter, public :: SDL_PROP_APP_METADATA_CREATOR_STRING    = 'SDL.app.metadata.creator'
     character(*), parameter, public :: SDL_PROP_APP_METADATA_COPYRIGHT_STRING  = 'SDL.app.metadata.copyright'
-    character(*), parameter, public :: SDL_PROP_APP_METADATA_URL_STRING        = 'SDL.app.metadata.url'
+    character(*), parameter, public :: SDL_PROP_APP_METADATA_CREATOR_STRING    = 'SDL.app.metadata.creator'
+    character(*), parameter, public :: SDL_PROP_APP_METADATA_IDENTIFIER_STRING = 'SDL.app.metadata.identifier'
+    character(*), parameter, public :: SDL_PROP_APP_METADATA_NAME_STRING       = 'SDL.app.metadata.name'
     character(*), parameter, public :: SDL_PROP_APP_METADATA_TYPE_STRING       = 'SDL.app.metadata.type'
+    character(*), parameter, public :: SDL_PROP_APP_METADATA_URL_STRING        = 'SDL.app.metadata.url'
+    character(*), parameter, public :: SDL_PROP_APP_METADATA_VERSION_STRING    = 'SDL.app.metadata.version'
 
     public :: sdl_main_thread_callback
 

@@ -75,8 +75,8 @@ module sdl3_joystick
     end type sdl_virtual_joystick_desc
 
     character(*), parameter, public :: SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN       = 'SDL.joystick.cap.mono_led'
-    character(*), parameter, public :: SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN        = 'SDL.joystick.cap.rgb_led'
     character(*), parameter, public :: SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN     = 'SDL.joystick.cap.player_led'
+    character(*), parameter, public :: SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN        = 'SDL.joystick.cap.rgb_led'
     character(*), parameter, public :: SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN         = 'SDL.joystick.cap.rumble'
     character(*), parameter, public :: SDL_PROP_JOYSTICK_CAP_TRIGGER_RUMBLE_BOOLEAN = 'SDL.joystick.cap.trigger_rumble'
 
