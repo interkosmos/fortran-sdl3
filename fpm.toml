@@ -26,6 +26,11 @@ release = ["release"]
 
 [[executable]]
 source-dir = "examples"
+name = "bship"
+main = "bship.f90"
+
+[[executable]]
+source-dir = "examples"
 name = "clear"
 main = "clear.f90"
 

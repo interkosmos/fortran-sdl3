@@ -1,7 +1,7 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 program main
-    !! Program that demonstrates color fading. Based on the SDL example `clear.c`.
+    !! Program that demonstrates colour fading. Based on the SDL example `clear.c`.
     use, intrinsic :: iso_fortran_env, only: real64
     use :: sdl3
     implicit none (type, external)

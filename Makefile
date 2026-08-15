@@ -104,7 +104,10 @@ install: $(TARGET)
 	install -d $(INCDIR)
 	install -m 644 sdl3_*.mod $(INCDIR)/
 
-examples: clear root3 smoke version window
+examples: bship clear root3 smoke version window
+
+bship: $(TARGET) examples/bship.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -o bship examples/bship.f90 $(TARGET) $(LDLIBS)
 
 clear: $(TARGET) examples/clear.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o clear examples/clear.f90 $(TARGET) $(LDLIBS)
@@ -129,6 +132,7 @@ clean:
 	$(RM) -f *.mod
 	$(RM) -f *.o
 	$(RM) -f $(TARGET)
+	$(RM) -f bship
 	$(RM) -f clear
 	$(RM) -f root3
 	$(RM) -f smoke

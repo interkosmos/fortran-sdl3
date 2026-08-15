@@ -44,7 +44,11 @@ $ make install PREFIX=/opt
 ```
 
 Link your programs against `/opt/lib/libfortran-sdl3.a` and `-lSDL3`. Additionally, pass the path to the Fortran module
-files to the compiler, for instance, `-I/opt/include/libfortran-sdl3`.
+files to the compiler, for instance:
+
+```
+$ gfortran -I/opt/include/libfortran-sdl3 -o example example.f90 /opt/lib/libfortran-sdl3.a -lSDL3
+```
 
 ### Fortran Package Manager
 
@@ -65,9 +69,10 @@ fortran-sdl3 = { git = "https://github.com/interkosmos/fortran-sdl3" }
 
 The following example programs are provided in `examples/`:
 
+* **bship** renders the [Burning Ship fractal](https://en.wikipedia.org/wiki/Burning_Ship_fractal).
 * **clear** demonstrates colour fading.
 * **root3** draws a complex cube root fractal to texture.
-* **smoke** renders a chaotic attractor.
+* **smoke** renders a chaotic [attractor](https://en.wikipedia.org/wiki/Attractor).
 * **version** outputs SDL version information.
 * **window** opens an SDL window.
 
