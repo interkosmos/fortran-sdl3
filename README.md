@@ -73,6 +73,7 @@ The following example programs are provided in `examples/`:
 * **bship** renders the [Burning Ship fractal](https://en.wikipedia.org/wiki/Burning_Ship_fractal).
 * **clear** demonstrates colour fading.
 * **dvd** bounces texture in full screen.
+* **glvertex** renders a triangle with OpenGL 1.2.
 * **root3** draws a complex cube root fractal to texture.
 * **smoke** renders a chaotic [attractor](https://en.wikipedia.org/wiki/Attractor).
 * **version** outputs SDL version information.

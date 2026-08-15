@@ -5,11 +5,13 @@ module sdl3_stdinc
     use, intrinsic :: iso_c_binding, only: c_associated, c_f_pointer, c_funloc, c_loc, c_sizeof, &
                                            c_bool, c_char, c_double, c_float, c_funptr, c_int, &
                                            c_int8_t, c_int16_t, c_int32_t, c_int64_t, c_intptr_t, &
-                                           c_ptr, c_size_t, c_null_char, c_null_funptr, c_null_ptr
+                                           c_ptr, c_short, c_signed_char, c_size_t, &
+                                           c_null_char, c_null_funptr, c_null_ptr
 
 #if HAS_UNSIGNED
 
-    use, intrinsic :: iso_c_binding, only: c_uint16_t, c_uint32_t, c_uint64_t, c_unsigned
+    use, intrinsic :: iso_c_binding, only: c_uint16_t, c_uint32_t, c_uint64_t, c_unsigned, &
+                                           c_unsigned_char, c_unsigned_short
 
 #endif
 
@@ -36,6 +38,8 @@ module sdl3_stdinc
     public :: c_int
     public :: c_intptr_t
     public :: c_ptr
+    public :: c_short
+    public :: c_signed_char
     public :: c_size_t
     public :: c_null_char
     public :: c_null_funptr
@@ -54,6 +58,8 @@ module sdl3_stdinc
     integer, parameter, public :: uint64 = c_uint64_t
 
     public :: c_unsigned
+    public :: c_unsigned_char
+    public :: c_unsigned_short
 
 #else
 
@@ -62,7 +68,9 @@ module sdl3_stdinc
     integer, parameter, public :: uint32 = c_int32_t
     integer, parameter, public :: uint64 = c_int64_t
 
-    integer, parameter, public :: c_unsigned = c_int
+    integer, parameter, public :: c_unsigned       = c_int
+    integer, parameter, public :: c_unsigned_char  = c_signed_char
+    integer, parameter, public :: c_unsigned_short = c_short
 
 #endif
 

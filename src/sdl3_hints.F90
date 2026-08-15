@@ -299,4 +299,113 @@ module sdl3_hints
             type(c_ptr), intent(in), value :: new_value
         end subroutine sdl_hint_callback
     end interface
+
+    public :: sdl_add_hint_callback
+    public :: sdl_get_hint_
+    public :: sdl_get_hint_boolean
+    public :: sdl_remove_hint_callback
+    public :: sdl_reset_hint
+    public :: sdl_reset_hints
+    public :: sdl_set_hint_
+    public :: sdl_set_hint_with_priority_
+
+    interface
+        ! bool SDL_AddHintCallback(const char *name, SDL_HintCallback callback, void *userdata)
+        function sdl_add_hint_callback(name, callback, userdata) bind(c, name='SDL_AddHintCallback')
+            import :: c_bool, c_char, c_ptr, sdl_hint_callback
+            implicit none
+            character(c_char), intent(in)         :: name
+            procedure(sdl_hint_callback), bind(c) :: callback
+            type(c_ptr),       intent(in), value  :: userdata
+            logical(c_bool)                       :: sdl_add_hint_callback
+        end function sdl_add_hint_callback
+
+        ! const char *SDL_GetHint(const char *name)
+        function sdl_get_hint_(name) bind(c, name='SDL_GetHint')
+            import :: c_char, c_ptr
+            implicit none
+            character(c_char), intent(in) :: name
+            type(c_ptr)                   :: sdl_get_hint_
+        end function sdl_get_hint_
+
+        ! bool SDL_GetHintBoolean(const char *name, bool default_value)
+        function sdl_get_hint_boolean(name, default_value) bind(c, name='SDL_GetHintBoolean')
+            import :: c_bool, c_char
+            implicit none
+            character(c_char), intent(in)        :: name
+            logical(c_bool),   intent(in), value :: default_value
+            logical(c_bool)                      :: sdl_get_hint_boolean
+        end function sdl_get_hint_boolean
+
+        ! void SDL_RemoveHintCallback(const char *name, SDL_HintCallback callback, void *userdata)
+        subroutine sdl_remove_hint_callback(name, callback, userdata) bind(c, name='SDL_RemoveHintCallback')
+            import :: c_char, c_ptr, sdl_hint_callback
+            implicit none
+            character(c_char), intent(in)         :: name
+            procedure(sdl_hint_callback), bind(c) :: callback
+            type(c_ptr),       intent(in), value  :: userdata
+        end subroutine sdl_remove_hint_callback
+
+        ! bool SDL_ResetHint(const char *name)
+        function sdl_reset_hint(name) bind(c, name='SDL_ResetHint')
+            import :: c_bool, c_char
+            implicit none
+            character(c_char), intent(in) :: name
+            logical(c_bool)               :: sdl_reset_hint
+        end function sdl_reset_hint
+
+        ! void SDL_ResetHints(void)
+        subroutine sdl_reset_hints() bind(c, name='SDL_ResetHints')
+        end subroutine sdl_reset_hints
+
+        ! bool SDL_SetHint(const char *name, const char *value)
+        function sdl_set_hint_(name, value) bind(c, name='SDL_SetHint')
+            import :: c_bool, c_char
+            implicit none
+            character(c_char), intent(in) :: name
+            character(c_char), intent(in) :: value
+            logical(c_bool)               :: sdl_set_hint_
+        end function sdl_set_hint_
+
+        ! bool SDL_SetHintWithPriority(const char *name, const char *value, SDL_HintPriority priority)
+        function sdl_set_hint_with_priority_(name, value, priority) bind(c, name='SDL_SetHintWithPriority')
+            import :: c_bool, c_char, c_int
+            implicit none
+            character(c_char), intent(in)        :: name
+            character(c_char), intent(in)        :: value
+            integer(c_int),    intent(in), value :: priority
+            logical(c_bool)                      :: sdl_set_hint_with_priority_
+        end function sdl_set_hint_with_priority_
+    end interface
+
+    public :: sdl_get_hint
+    public :: sdl_set_hint
+    public :: sdl_set_hint_with_priority
+contains
+    function sdl_get_hint(name) result(str)
+        character(*), intent(in)  :: name
+        character(:), allocatable :: str
+
+        type(c_ptr) :: ptr
+
+        ptr = sdl_get_hint_(f_c_str(name))
+        call c_f_str_ptr(ptr, str)
+    end function sdl_get_hint
+
+    function sdl_set_hint(name, value) result(l)
+        character(*), intent(in) :: name
+        character(*), intent(in) :: value
+        logical                  :: l
+
+        l = sdl_set_hint_(f_c_str(name), f_c_str(value))
+    end function sdl_set_hint
+
+    function sdl_set_hint_with_priority(name, value, priority) result(l)
+        character(*), intent(in) :: name
+        character(*), intent(in) :: value
+        integer,      intent(in) :: priority
+        logical                  :: l
+
+        l = sdl_set_hint_with_priority_(f_c_str(name), f_c_str(value), priority)
+    end function sdl_set_hint_with_priority
 end module sdl3_hints

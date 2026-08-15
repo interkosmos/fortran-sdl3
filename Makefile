@@ -20,6 +20,7 @@ LDFLAGS = -L$(PREFIX)
 
 LIBSDL3 = `pkg-config --libs sdl3`
 LIBIMG3 = -lSDL3_image
+LIBGL   = `pkg-config --libs --cflags gl`
 LDLIBS  = $(LIBSDL3)
 
 INCDIR  = $(PREFIX)/include/libfortran-sdl3
@@ -44,6 +45,7 @@ SRC = src/sdl3.F90 \
       src/sdl3_keycode.F90 \
       src/sdl3_mouse.F90 \
       src/sdl3_notification.F90 \
+      src/sdl3_opengl.F90 \
       src/sdl3_pen.F90 \
       src/sdl3_pixels.F90 \
       src/sdl3_power.F90 \
@@ -100,9 +102,10 @@ $(TARGET): $(SRC)
 	$(FC) $(FFLAGS) -c src/sdl3_events.F90
 	$(FC) $(FFLAGS) -c src/sdl3_gpu.F90
 	$(FC) $(FFLAGS) -c src/sdl3_render.F90
+	$(FC) $(FFLAGS) -c src/sdl3_opengl.F90
 	$(FC) $(FFLAGS) -c src/sdl3.F90
 	$(FC) $(FFLAGS) -c src/sdl3_image.F90
-	$(AR) $(ARFLAGS) $(TARGET) sdl3_*.o
+	$(AR) $(ARFLAGS) $(TARGET) sdl3*.o
 
 install: $(TARGET)
 	@echo "--- Installing $(TARGET) to $(LIBDIR)/ ..."
@@ -112,7 +115,7 @@ install: $(TARGET)
 	install -d $(INCDIR)
 	install -m 644 sdl3*.mod $(INCDIR)/
 
-examples: affine bship clear dvd root3 smoke version window
+examples: affine bship clear dvd glvertex root3 smoke version window
 
 affine: $(TARGET) examples/affine.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o affine examples/affine.f90 $(TARGET) $(LDLIBS) $(LIBIMG3)
@@ -125,6 +128,9 @@ clear: $(TARGET) examples/clear.f90
 
 dvd: $(TARGET) examples/dvd.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o dvd examples/dvd.f90 $(TARGET) $(LDLIBS) $(LIBIMG3)
+
+glvertex: $(TARGET) examples/glvertex.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -o glvertex examples/glvertex.f90 $(TARGET) $(LDLIBS) $(LIBGL)
 
 root3: $(TARGET) examples/root3.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o root3 examples/root3.f90 $(TARGET) $(LDLIBS)
@@ -150,6 +156,7 @@ clean:
 	$(RM) -f bship
 	$(RM) -f clear
 	$(RM) -f dvd
+	$(RM) -f glvertex
 	$(RM) -f root3
 	$(RM) -f smoke
 	$(RM) -f version

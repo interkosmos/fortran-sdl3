@@ -48,6 +48,12 @@ link = [ "SDL3", "SDL3_image" ]
 
 [[executable]]
 source-dir = "examples"
+name = "glvertex"
+main = "glvertex.f90"
+link = [ "SDL3", "GL" ]
+
+[[executable]]
+source-dir = "examples"
 name = "root3"
 main = "root3.f90"
 
