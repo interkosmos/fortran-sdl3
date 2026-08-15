@@ -10,7 +10,7 @@ module sdl3_stdinc
 
 #if HAS_UNSIGNED
 
-    use, intrinsic :: iso_c_binding, only: c_uint16_t, c_uint32_t, c_uint64_t, c_unsigned, &
+    use, intrinsic :: iso_c_binding, only: c_uint8_t, c_uint16_t, c_uint32_t, c_uint64_t, c_unsigned, &
                                            c_unsigned_char, c_unsigned_short
 
 #endif

@@ -6,7 +6,6 @@ module sdl3_opengl
     implicit none (type, external)
     private
 
-    ! integer, parameter, public :: GLvoid     = c_ptr
     integer, parameter, public :: GLenum     = c_unsigned
     integer, parameter, public :: GLboolean  = c_unsigned_char
     integer, parameter, public :: GLbitfield = c_unsigned
