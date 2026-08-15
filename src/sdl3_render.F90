@@ -993,13 +993,13 @@ module sdl3_render
         function sdl_render_texture_affine(renderer, texture, src_rect, origin, right, down) bind(c, name='SDL_RenderTextureAffine')
             import :: c_bool, c_ptr, sdl_fpoint, sdl_frect
             implicit none
-            type(c_ptr),      intent(in), value :: renderer
-            type(c_ptr),      intent(in), value :: texture
-            type(sdl_frect),  intent(in)        :: src_rect
-            type(sdl_fpoint), intent(in)        :: origin
-            type(sdl_fpoint), intent(in)        :: right
-            type(sdl_fpoint), intent(in)        :: down
-            logical(c_bool)                     :: sdl_render_texture_affine
+            type(c_ptr),      intent(in), value    :: renderer
+            type(c_ptr),      intent(in), value    :: texture
+            type(sdl_frect),  intent(in), optional :: src_rect
+            type(sdl_fpoint), intent(in)           :: origin
+            type(sdl_fpoint), intent(in)           :: right
+            type(sdl_fpoint), intent(in)           :: down
+            logical(c_bool)                        :: sdl_render_texture_affine
         end function sdl_render_texture_affine
 
         ! bool SDL_RenderTextureRotated(SDL_Renderer *renderer, SDL_Texture *texture, const SDL_FRect *srcrect, const SDL_FRect *dstrect, double angle, const SDL_FPoint *center, SDL_FlipMode flip)

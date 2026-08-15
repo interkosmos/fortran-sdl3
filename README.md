@@ -69,6 +69,7 @@ fortran-sdl3 = { git = "https://github.com/interkosmos/fortran-sdl3" }
 
 The following example programs are provided in `examples/`:
 
+* **affine** draws a cube using affine-transformed textures.
 * **bship** renders the [Burning Ship fractal](https://en.wikipedia.org/wiki/Burning_Ship_fractal).
 * **clear** demonstrates colour fading.
 * **dvd** bounces texture in full screen.

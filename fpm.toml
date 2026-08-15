@@ -26,6 +26,12 @@ release = ["release"]
 
 [[executable]]
 source-dir = "examples"
+name = "affine"
+main = "affine.f90"
+link = [ "SDL3", "SDL3_image" ]
+
+[[executable]]
+source-dir = "examples"
 name = "bship"
 main = "bship.f90"
 

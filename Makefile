@@ -53,6 +53,7 @@ SRC = src/sdl3.F90 \
       src/sdl3_scancode.F90 \
       src/sdl3_sensor.F90 \
       src/sdl3_stdinc.F90 \
+      src/sdl3_surface.F90 \
       src/sdl3_timer.F90 \
       src/sdl3_touch.F90 \
       src/sdl3_version.F90 \
@@ -81,6 +82,8 @@ $(TARGET): $(SRC)
 	$(FC) $(FFLAGS) -c src/sdl3_pixels.F90
 	$(FC) $(FFLAGS) -c src/sdl3_rect.F90
 	$(FC) $(FFLAGS) -c src/sdl3_init.F90
+	$(FC) $(FFLAGS) -c src/sdl3_blendmode.F90
+	$(FC) $(FFLAGS) -c src/sdl3_surface.F90
 	$(FC) $(FFLAGS) -c src/sdl3_video.F90
 	$(FC) $(FFLAGS) -c src/sdl3_scancode.F90
 	$(FC) $(FFLAGS) -c src/sdl3_keycode.F90
@@ -95,7 +98,6 @@ $(TARGET): $(SRC)
 	$(FC) $(FFLAGS) -c src/sdl3_power.F90
 	$(FC) $(FFLAGS) -c src/sdl3_notification.F90
 	$(FC) $(FFLAGS) -c src/sdl3_events.F90
-	$(FC) $(FFLAGS) -c src/sdl3_blendmode.F90
 	$(FC) $(FFLAGS) -c src/sdl3_gpu.F90
 	$(FC) $(FFLAGS) -c src/sdl3_render.F90
 	$(FC) $(FFLAGS) -c src/sdl3.F90
@@ -110,7 +112,10 @@ install: $(TARGET)
 	install -d $(INCDIR)
 	install -m 644 sdl3*.mod $(INCDIR)/
 
-examples: bship clear dvd root3 smoke version window
+examples: affine bship clear dvd root3 smoke version window
+
+affine: $(TARGET) examples/affine.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -o affine examples/affine.f90 $(TARGET) $(LDLIBS) $(LIBIMG3)
 
 bship: $(TARGET) examples/bship.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o bship examples/bship.f90 $(TARGET) $(LDLIBS)
@@ -141,6 +146,7 @@ clean:
 	$(RM) -f *.mod
 	$(RM) -f *.o
 	$(RM) -f $(TARGET)
+	$(RM) -f affine
 	$(RM) -f bship
 	$(RM) -f clear
 	$(RM) -f dvd

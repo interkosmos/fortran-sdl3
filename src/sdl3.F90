@@ -27,6 +27,7 @@ module sdl3
     use :: sdl3_scancode
     use :: sdl3_sensor
     use :: sdl3_stdinc
+    use :: sdl3_surface
     use :: sdl3_timer
     use :: sdl3_touch
     use :: sdl3_version
