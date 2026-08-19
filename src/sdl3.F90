@@ -19,6 +19,7 @@ module sdl3
     use :: sdl3_mouse
     use :: sdl3_notification
     use :: sdl3_opengl
+    use :: sdl3_opengl_glext
     use :: sdl3_pen
     use :: sdl3_pixels
     use :: sdl3_power

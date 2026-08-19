@@ -2,16 +2,15 @@
 ! Licence: ISC
 module sdl3_stdinc
     !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_stdinc.h`.
-    use, intrinsic :: iso_c_binding, only: c_associated, c_f_pointer, c_funloc, c_loc, c_sizeof, &
-                                           c_bool, c_char, c_double, c_float, c_funptr, c_int, &
-                                           c_int8_t, c_int16_t, c_int32_t, c_int64_t, c_intptr_t, &
-                                           c_ptr, c_short, c_signed_char, c_size_t, &
-                                           c_null_char, c_null_funptr, c_null_ptr
+    use, intrinsic :: iso_c_binding, only: c_associated, c_f_pointer, c_f_procpointer, c_funloc, c_loc, c_sizeof, &
+                                           c_bool, c_char, c_double, c_float, c_funptr, c_int, c_int8_t, c_int16_t, &
+                                           c_int32_t, c_int64_t, c_intptr_t, c_long_long, c_ptr, c_short, &
+                                           c_signed_char, c_size_t, c_new_line, c_null_char, c_null_funptr, c_null_ptr
 
 #if HAS_UNSIGNED
 
     use, intrinsic :: iso_c_binding, only: c_uint8_t, c_uint16_t, c_uint32_t, c_uint64_t, c_unsigned, &
-                                           c_unsigned_char, c_unsigned_short
+                                           c_unsigned_char, c_unsigned_long_long, c_unsigned_short
 
 #endif
 
@@ -26,6 +25,7 @@ module sdl3_stdinc
 
     public :: c_associated
     public :: c_f_pointer
+    public :: c_f_procpointer
     public :: c_funloc
     public :: c_loc
     public :: c_sizeof
@@ -36,11 +36,14 @@ module sdl3_stdinc
     public :: c_float
     public :: c_funptr
     public :: c_int
+    public :: c_int32_t
+    public :: c_int64_t
     public :: c_intptr_t
     public :: c_ptr
     public :: c_short
     public :: c_signed_char
     public :: c_size_t
+    public :: c_new_line
     public :: c_null_char
     public :: c_null_funptr
     public :: c_null_ptr
@@ -57,8 +60,11 @@ module sdl3_stdinc
     integer, parameter, public :: uint32 = c_uint32_t
     integer, parameter, public :: uint64 = c_uint64_t
 
+    public :: c_uint32_t
+    public :: c_uint64_t
     public :: c_unsigned
     public :: c_unsigned_char
+    public :: c_unsigned_long_long
     public :: c_unsigned_short
 
 #else
@@ -68,9 +74,12 @@ module sdl3_stdinc
     integer, parameter, public :: uint32 = c_int32_t
     integer, parameter, public :: uint64 = c_int64_t
 
-    integer, parameter, public :: c_unsigned       = c_int
-    integer, parameter, public :: c_unsigned_char  = c_signed_char
-    integer, parameter, public :: c_unsigned_short = c_short
+    integer, parameter, public :: c_uint32_t           = c_int32_t
+    integer, parameter, public :: c_uint64_t           = c_int64_t
+    integer, parameter, public :: c_unsigned           = c_int
+    integer, parameter, public :: c_unsigned_char      = c_signed_char
+    integer, parameter, public :: c_unsigned_long_long = c_long_long
+    integer, parameter, public :: c_unsigned_short     = c_short
 
 #endif
 

@@ -10,7 +10,7 @@ FORD = ford
 MAKE = make
 RM   = /bin/rm
 
-DEBUG   = -O0 -g -Wall -fmax-errors=1 -pedantic
+DEBUG   = -O0 -g -pedantic
 RELEASE = -O2 -mtune=native
 
 ARFLAGS = rcs
@@ -46,6 +46,7 @@ SRC = src/sdl3.F90 \
       src/sdl3_mouse.F90 \
       src/sdl3_notification.F90 \
       src/sdl3_opengl.F90 \
+      src/sdl3_opengl_glext.F90 \
       src/sdl3_pen.F90 \
       src/sdl3_pixels.F90 \
       src/sdl3_power.F90 \
@@ -103,6 +104,7 @@ $(TARGET): $(SRC)
 	$(FC) $(FFLAGS) -c src/sdl3_gpu.F90
 	$(FC) $(FFLAGS) -c src/sdl3_render.F90
 	$(FC) $(FFLAGS) -c src/sdl3_opengl.F90
+	$(FC) $(FFLAGS) -c src/sdl3_opengl_glext.F90
 	$(FC) $(FFLAGS) -c src/sdl3.F90
 	$(FC) $(FFLAGS) -c src/sdl3_image.F90
 	$(AR) $(ARFLAGS) $(TARGET) sdl3*.o
@@ -115,7 +117,7 @@ install: $(TARGET)
 	install -d $(INCDIR)
 	install -m 644 sdl3*.mod $(INCDIR)/
 
-examples: affine bship clear dvd glvertex root3 smoke version window
+examples: affine bship clear dvd gl3core glvertex root3 smoke version window
 
 affine: $(TARGET) examples/affine.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o affine examples/affine.f90 $(TARGET) $(LDLIBS) $(LIBIMG3)
@@ -128,6 +130,9 @@ clear: $(TARGET) examples/clear.f90
 
 dvd: $(TARGET) examples/dvd.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o dvd examples/dvd.f90 $(TARGET) $(LDLIBS) $(LIBIMG3)
+
+gl3core: $(TARGET) examples/gl3core.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -o gl3core examples/gl3core.f90 $(TARGET) $(LDLIBS) $(LIBGL)
 
 glvertex: $(TARGET) examples/glvertex.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o glvertex examples/glvertex.f90 $(TARGET) $(LDLIBS) $(LIBGL)
@@ -156,6 +161,7 @@ clean:
 	$(RM) -f bship
 	$(RM) -f clear
 	$(RM) -f dvd
+	$(RM) -f gl3core
 	$(RM) -f glvertex
 	$(RM) -f root3
 	$(RM) -f smoke
