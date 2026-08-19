@@ -2617,7 +2617,7 @@ module sdl3_opengl_glext
             integer(GLuint),    intent(in), value :: memory
             integer(GLuint64),  intent(in), value :: key
             integer(GLuint),    intent(in), value :: timeout
-            integer(GLboolean)                   :: glAcquireKeyedMutexWin32EXT_interface
+            integer(GLboolean)                    :: glAcquireKeyedMutexWin32EXT_interface
         end function glAcquireKeyedMutexWin32EXT_interface
 
         ! void glActiveProgramEXT(GLuint program)
@@ -2750,7 +2750,7 @@ module sdl3_opengl_glext
             integer(GLsizei),   intent(in), value :: n
             integer(GLuint),    intent(in)        :: programs(*)
             integer(GLboolean), intent(out)       :: residences
-            integer(GLboolean)                   :: glAreProgramsResidentNV_interface
+            integer(GLboolean)                    :: glAreProgramsResidentNV_interface
         end function glAreProgramsResidentNV_interface
 
         ! GLboolean glAreTexturesResidentEXT(GLsizei n, const GLuint *textures, GLboolean *residences)
@@ -2760,7 +2760,7 @@ module sdl3_opengl_glext
             integer(GLsizei),   intent(in), value :: n
             integer(GLuint),    intent(in)        :: textures(*)
             integer(GLboolean), intent(out)       :: residences
-            integer(GLboolean)                   :: glAreTexturesResidentEXT_interface
+            integer(GLboolean)                    :: glAreTexturesResidentEXT_interface
         end function glAreTexturesResidentEXT_interface
 
         ! void glArrayElementEXT(GLint i)
@@ -2799,7 +2799,7 @@ module sdl3_opengl_glext
             integer(GLsizei),    intent(in), value :: signalSemaphoreCount
             integer(GLuint),     intent(in)        :: signalSemaphoreArray(*)
             integer(GLuint64),   intent(in)        :: signalValueArray(*)
-            integer(GLuint)                       :: glAsyncCopyBufferSubDataNVX_interface
+            integer(GLuint)                        :: glAsyncCopyBufferSubDataNVX_interface
         end function glAsyncCopyBufferSubDataNVX_interface
 
         ! GLuint glAsyncCopyImageSubDataNVX(GLsizei waitSemaphoreCount, const GLuint *waitSemaphoreArray, const GLuint64 *waitValueArray, GLuint srcGpu, GLbitfield dstGpuMask, GLuint srcName, GLenum srcTarget, GLint srcLevel, GLint srcX, GLint srcY, GLint srcZ, GLuint dstName, GLenum dstTarget, GLint dstLevel, GLint dstX, GLint dstY, GLint dstZ, GLsizei srcWidth, GLsizei srcHeight, GLsizei srcDepth, GLsizei signalSemaphoreCount, const GLuint *signalSemaphoreArray, const GLuint64 *signalValueArray)
@@ -2829,7 +2829,7 @@ module sdl3_opengl_glext
             integer(GLsizei),    intent(in), value :: signalSemaphoreCount
             integer(GLuint),     intent(in)        :: signalSemaphoreArray(*)
             integer(GLuint64),   intent(in)        :: signalValueArray(*)
-            integer(GLuint)                       :: glAsyncCopyImageSubDataNVX_interface
+            integer(GLuint)                        :: glAsyncCopyImageSubDataNVX_interface
         end function glAsyncCopyImageSubDataNVX_interface
 
         ! void glAsyncMarkerSGIX(GLuint marker)
@@ -3188,7 +3188,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum), intent(in), value :: light
             integer(GLenum), intent(in), value :: value
-            integer(GLuint)                   :: glBindLightParameterEXT_interface
+            integer(GLuint)                    :: glBindLightParameterEXT_interface
         end function glBindLightParameterEXT_interface
 
         ! GLuint glBindMaterialParameterEXT(GLenum face, GLenum value)
@@ -3197,7 +3197,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum), intent(in), value :: face
             integer(GLenum), intent(in), value :: value
-            integer(GLuint)                   :: glBindMaterialParameterEXT_interface
+            integer(GLuint)                    :: glBindMaterialParameterEXT_interface
         end function glBindMaterialParameterEXT_interface
 
         ! void glBindMultiTextureEXT(GLenum texunit, GLenum target, GLuint texture)
@@ -3214,7 +3214,7 @@ module sdl3_opengl_glext
             import :: GLenum, GLuint
             implicit none
             integer(GLenum), intent(in), value :: value
-            integer(GLuint)                   :: glBindParameterEXT_interface
+            integer(GLuint)                    :: glBindParameterEXT_interface
         end function glBindParameterEXT_interface
 
         ! void glBindProgramARB(GLenum target, GLuint program)
@@ -3287,7 +3287,7 @@ module sdl3_opengl_glext
             integer(GLenum), intent(in), value :: unit
             integer(GLenum), intent(in), value :: coord
             integer(GLenum), intent(in), value :: value
-            integer(GLuint)                   :: glBindTexGenParameterEXT_interface
+            integer(GLuint)                    :: glBindTexGenParameterEXT_interface
         end function glBindTexGenParameterEXT_interface
 
         ! void glBindTextureEXT(GLenum target, GLuint texture)
@@ -3312,7 +3312,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum), intent(in), value :: unit
             integer(GLenum), intent(in), value :: value
-            integer(GLuint)                   :: glBindTextureUnitParameterEXT_interface
+            integer(GLuint)                    :: glBindTextureUnitParameterEXT_interface
         end function glBindTextureUnitParameterEXT_interface
 
         ! void glBindTextures(GLuint first, GLsizei count, const GLuint *textures)
@@ -3939,7 +3939,7 @@ module sdl3_opengl_glext
             import :: GLenum
             implicit none
             integer(GLenum), intent(in), value :: target
-            integer(GLenum)                   :: glCheckFramebufferStatus_interface
+            integer(GLenum)                    :: glCheckFramebufferStatus_interface
         end function glCheckFramebufferStatus_interface
 
         ! GLenum glCheckFramebufferStatusEXT(GLenum target)
@@ -3947,7 +3947,7 @@ module sdl3_opengl_glext
             import :: GLenum
             implicit none
             integer(GLenum), intent(in), value :: target
-            integer(GLenum)                   :: glCheckFramebufferStatusEXT_interface
+            integer(GLenum)                    :: glCheckFramebufferStatusEXT_interface
         end function glCheckFramebufferStatusEXT_interface
 
         ! GLenum glCheckNamedFramebufferStatus(GLuint framebuffer, GLenum target)
@@ -3956,7 +3956,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint), intent(in), value :: framebuffer
             integer(GLenum), intent(in), value :: target
-            integer(GLenum)                   :: glCheckNamedFramebufferStatus_interface
+            integer(GLenum)                    :: glCheckNamedFramebufferStatus_interface
         end function glCheckNamedFramebufferStatus_interface
 
         ! GLenum glCheckNamedFramebufferStatusEXT(GLuint framebuffer, GLenum target)
@@ -3965,7 +3965,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint), intent(in), value :: framebuffer
             integer(GLenum), intent(in), value :: target
-            integer(GLenum)                   :: glCheckNamedFramebufferStatusEXT_interface
+            integer(GLenum)                    :: glCheckNamedFramebufferStatusEXT_interface
         end function glCheckNamedFramebufferStatusEXT_interface
 
         ! void glClampColor(GLenum target, GLenum clamp)
@@ -4274,7 +4274,7 @@ module sdl3_opengl_glext
             type(c_ptr),         intent(in), value :: sync
             integer(Glbitfield), intent(in), value :: flags
             integer(GLuint64),   intent(in), value :: timeout
-            integer(GLenum)                       :: glClientWaitSync_interface
+            integer(GLenum)                        :: glClientWaitSync_interface
         end function glClientWaitSync_interface
 
         ! void glClipControl(GLenum origin, GLenum depth)
@@ -5806,14 +5806,14 @@ module sdl3_opengl_glext
         function glCreateProgram_interface() bind(c)
             import :: GLuint
             implicit none
-            integer(GLuint)  :: glCreateProgram_interface
+            integer(GLuint)   :: glCreateProgram_interface
         end function glCreateProgram_interface
 
         ! GLhandleARB glCreateProgramObjectARB(void)
         function glCreateProgramObjectARB_interface() bind(c)
             import :: GLhandleARB
             implicit none
-            integer(GLhandleARB)  :: glCreateProgramObjectARB_interface
+            integer(GLhandleARB)   :: glCreateProgramObjectARB_interface
         end function glCreateProgramObjectARB_interface
 
         ! void glCreateProgramPipelines(GLsizei n, GLuint *pipelines)
@@ -5828,7 +5828,7 @@ module sdl3_opengl_glext
         function glCreateProgressFenceNVX_interface() bind(c)
             import :: GLuint
             implicit none
-            integer(GLuint)  :: glCreateProgressFenceNVX_interface
+            integer(GLuint)   :: glCreateProgressFenceNVX_interface
         end function glCreateProgressFenceNVX_interface
 
         ! void glCreateQueries(GLenum target, GLsizei n, GLuint *ids)
@@ -5869,7 +5869,7 @@ module sdl3_opengl_glext
             import :: GLenum, GLuint
             implicit none
             integer(GLenum), intent(in), value :: type
-            integer(GLuint)                   :: glCreateShader_interface
+            integer(GLuint)                    :: glCreateShader_interface
         end function glCreateShader_interface
 
         ! GLhandleARB glCreateShaderObjectARB(GLenum shaderType)
@@ -5877,7 +5877,7 @@ module sdl3_opengl_glext
             import :: GLenum, GLhandleARB
             implicit none
             integer(GLenum),      intent(in), value :: shaderType
-            integer(GLhandleARB)                   :: glCreateShaderObjectARB_interface
+            integer(GLhandleARB)                    :: glCreateShaderObjectARB_interface
         end function glCreateShaderObjectARB_interface
 
         ! GLuint glCreateShaderProgramEXT(GLenum type, const GLchar *string)
@@ -5886,7 +5886,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum),   intent(in), value :: type
             character(c_char), intent(in)        :: string
-            integer(GLuint)                     :: glCreateShaderProgramEXT_interface
+            integer(GLuint)                      :: glCreateShaderProgramEXT_interface
         end function glCreateShaderProgramEXT_interface
 
         ! GLuint glCreateShaderProgramv(GLenum type, GLsizei count, const GLchar *const*strings)
@@ -5895,7 +5895,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum),  intent(in), value :: type
             integer(GLsizei), intent(in), value :: count
-            integer(GLuint)                    :: glCreateShaderProgramv_interface
+            integer(GLuint)                     :: glCreateShaderProgramv_interface
         end function glCreateShaderProgramv_interface
 
         ! void glCreateStatesNV(GLsizei n, GLuint *states)
@@ -7208,7 +7208,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum),     intent(in), value :: condition
             integer(Glbitfield), intent(in), value :: flags
-            type(c_ptr)                           :: glFenceSync_interface
+            type(c_ptr)                            :: glFenceSync_interface
         end function glFenceSync_interface
 
         ! void glFinalCombinerInputNV(GLenum variable, GLenum input, GLenum mapping, GLenum componentUsage)
@@ -7226,7 +7226,7 @@ module sdl3_opengl_glext
             import :: GLint, GLuint
             implicit none
             integer(GLuint), intent(out) :: markerp
-            integer(GLint)              :: glFinishAsyncSGIX_interface
+            integer(GLint)               :: glFinishAsyncSGIX_interface
         end function glFinishAsyncSGIX_interface
 
         ! void glFinishFenceAPPLE(GLuint fence)
@@ -7888,7 +7888,7 @@ module sdl3_opengl_glext
             import :: GLsizei, GLuint
             implicit none
             integer(GLsizei), intent(in), value :: range
-            integer(GLuint)                    :: glGenAsyncMarkersSGIX_interface
+            integer(GLuint)                     :: glGenAsyncMarkersSGIX_interface
         end function glGenAsyncMarkersSGIX_interface
 
         ! void glGenBuffers(GLsizei n, GLuint *buffers)
@@ -7928,7 +7928,7 @@ module sdl3_opengl_glext
             import :: GLuint
             implicit none
             integer(GLuint), intent(in), value :: range
-            integer(GLuint)                   :: glGenFragmentShadersATI_interface
+            integer(GLuint)                    :: glGenFragmentShadersATI_interface
         end function glGenFragmentShadersATI_interface
 
         ! void glGenFramebuffers(GLsizei n, GLuint *framebuffers)
@@ -7969,7 +7969,7 @@ module sdl3_opengl_glext
             import :: GLsizei, GLuint
             implicit none
             integer(GLsizei), intent(in), value :: range
-            integer(GLuint)                    :: glGenPathsNV_interface
+            integer(GLuint)                     :: glGenPathsNV_interface
         end function glGenPathsNV_interface
 
         ! void glGenPerfMonitorsAMD(GLsizei n, GLuint *monitors)
@@ -8068,7 +8068,7 @@ module sdl3_opengl_glext
             integer(GLenum), intent(in), value :: storagetype
             integer(GLenum), intent(in), value :: range
             integer(GLuint), intent(in), value :: components
-            integer(GLuint)                   :: glGenSymbolsEXT_interface
+            integer(GLuint)                    :: glGenSymbolsEXT_interface
         end function glGenSymbolsEXT_interface
 
         ! void glGenTexturesEXT(GLsizei n, GLuint *textures)
@@ -8116,7 +8116,7 @@ module sdl3_opengl_glext
             import :: GLuint
             implicit none
             integer(GLuint), intent(in), value :: range
-            integer(GLuint)                   :: glGenVertexShadersEXT_interface
+            integer(GLuint)                    :: glGenVertexShadersEXT_interface
         end function glGenVertexShadersEXT_interface
 
         ! void glGenerateMipmap(GLenum target)
@@ -8353,7 +8353,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),   intent(in), value :: program
             character(c_char), intent(in)        :: name
-            integer(GLint)                      :: glGetAttribLocation_interface
+            integer(GLint)                       :: glGetAttribLocation_interface
         end function glGetAttribLocation_interface
 
         ! GLint glGetAttribLocationARB(GLhandleARB programObj, const GLcharARB *name)
@@ -8362,7 +8362,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLhandleARB), intent(in), value :: programObj
             character(c_char),    intent(in)        :: name
-            integer(GLint)                         :: glGetAttribLocationARB_interface
+            integer(GLint)                          :: glGetAttribLocationARB_interface
         end function glGetAttribLocationARB_interface
 
         ! void glGetBooleanIndexedvEXT(GLenum target, GLuint index, GLboolean *data)
@@ -8614,7 +8614,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum), intent(in), value :: tokenID
             integer(GLuint), intent(in), value :: size
-            integer(GLuint)                   :: glGetCommandHeaderNV_interface
+            integer(GLuint)                    :: glGetCommandHeaderNV_interface
         end function glGetCommandHeaderNV_interface
 
         ! void glGetCompressedMultiTexImageEXT(GLenum texunit, GLenum target, GLint lod, void *img)
@@ -8766,7 +8766,7 @@ module sdl3_opengl_glext
             integer(GLenum),   intent(out)       :: severities
             integer(GLsizei),  intent(out)       :: lengths
             character(c_char), intent(in)        :: messageLog
-            integer(GLuint)                     :: glGetDebugMessageLog_interface
+            integer(GLuint)                      :: glGetDebugMessageLog_interface
         end function glGetDebugMessageLog_interface
 
         ! GLuint glGetDebugMessageLogAMD(GLuint count, GLsizei bufSize, GLenum *categories, GLenum *severities, GLuint *ids, GLsizei *lengths, GLchar *message)
@@ -8780,7 +8780,7 @@ module sdl3_opengl_glext
             integer(GLuint),   intent(out)       :: ids
             integer(GLsizei),  intent(out)       :: lengths
             character(c_char), intent(in)        :: message
-            integer(GLuint)                     :: glGetDebugMessageLogAMD_interface
+            integer(GLuint)                      :: glGetDebugMessageLogAMD_interface
         end function glGetDebugMessageLogAMD_interface
 
         ! GLuint glGetDebugMessageLogARB(GLuint count, GLsizei bufSize, GLenum *sources, GLenum *types, GLuint *ids, GLenum *severities, GLsizei *lengths, GLchar *messageLog)
@@ -8795,7 +8795,7 @@ module sdl3_opengl_glext
             integer(GLenum),   intent(out)       :: severities
             integer(GLsizei),  intent(out)       :: lengths
             character(c_char), intent(in)        :: messageLog
-            integer(GLuint)                     :: glGetDebugMessageLogARB_interface
+            integer(GLuint)                      :: glGetDebugMessageLogARB_interface
         end function glGetDebugMessageLogARB_interface
 
         ! void glGetDetailTexFuncSGIS(GLenum target, GLfloat *points)
@@ -8915,7 +8915,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),   intent(in), value :: program
             character(c_char), intent(in)        :: name
-            integer(GLint)                      :: glGetFragDataIndex_interface
+            integer(GLint)                       :: glGetFragDataIndex_interface
         end function glGetFragDataIndex_interface
 
         ! GLint glGetFragDataLocation(GLuint program, const GLchar *name)
@@ -8924,7 +8924,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),   intent(in), value :: program
             character(c_char), intent(in)        :: name
-            integer(GLint)                      :: glGetFragDataLocation_interface
+            integer(GLint)                       :: glGetFragDataLocation_interface
         end function glGetFragDataLocation_interface
 
         ! GLint glGetFragDataLocationEXT(GLuint program, const GLchar *name)
@@ -8933,7 +8933,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),   intent(in), value :: program
             character(c_char), intent(in)        :: name
-            integer(GLint)                      :: glGetFragDataLocationEXT_interface
+            integer(GLint)                       :: glGetFragDataLocationEXT_interface
         end function glGetFragDataLocationEXT_interface
 
         ! void glGetFragmentLightfvSGIX(GLenum light, GLenum pname, GLfloat *params)
@@ -9045,14 +9045,14 @@ module sdl3_opengl_glext
         function glGetGraphicsResetStatus_interface() bind(c)
             import :: GLenum
             implicit none
-            integer(GLenum)  :: glGetGraphicsResetStatus_interface
+            integer(GLenum)   :: glGetGraphicsResetStatus_interface
         end function glGetGraphicsResetStatus_interface
 
         ! GLenum glGetGraphicsResetStatusARB(void)
         function glGetGraphicsResetStatusARB_interface() bind(c)
             import :: GLenum
             implicit none
-            integer(GLenum)  :: glGetGraphicsResetStatusARB_interface
+            integer(GLenum)   :: glGetGraphicsResetStatusARB_interface
         end function glGetGraphicsResetStatusARB_interface
 
         ! GLhandleARB glGetHandleARB(GLenum pname)
@@ -9060,7 +9060,7 @@ module sdl3_opengl_glext
             import :: GLenum, GLhandleARB
             implicit none
             integer(GLenum),      intent(in), value :: pname
-            integer(GLhandleARB)                   :: glGetHandleARB_interface
+            integer(GLhandleARB)                    :: glGetHandleARB_interface
         end function glGetHandleARB_interface
 
         ! void glGetHistogram(GLenum target, GLboolean reset, GLenum format, GLenum type, void *values)
@@ -9139,7 +9139,7 @@ module sdl3_opengl_glext
             integer(GLboolean), intent(in), value :: layered
             integer(GLint),     intent(in), value :: layer
             integer(GLenum),    intent(in), value :: format
-            integer(GLuint64)                    :: glGetImageHandleARB_interface
+            integer(GLuint64)                     :: glGetImageHandleARB_interface
         end function glGetImageHandleARB_interface
 
         ! GLuint64 glGetImageHandleNV(GLuint texture, GLint level, GLboolean layered, GLint layer, GLenum format)
@@ -9151,7 +9151,7 @@ module sdl3_opengl_glext
             integer(GLboolean), intent(in), value :: layered
             integer(GLint),     intent(in), value :: layer
             integer(GLenum),    intent(in), value :: format
-            integer(GLuint64)                    :: glGetImageHandleNV_interface
+            integer(GLuint64)                     :: glGetImageHandleNV_interface
         end function glGetImageHandleNV_interface
 
         ! void glGetImageTransformParameterfvHP(GLenum target, GLenum pname, GLfloat *params)
@@ -9186,7 +9186,7 @@ module sdl3_opengl_glext
         function glGetInstrumentsSGIX_interface() bind(c)
             import :: GLint
             implicit none
-            integer(GLint)  :: glGetInstrumentsSGIX_interface
+            integer(GLint)   :: glGetInstrumentsSGIX_interface
         end function glGetInstrumentsSGIX_interface
 
         ! void glGetInteger64i_v(GLenum target, GLuint index, GLint64 *data)
@@ -10021,7 +10021,7 @@ module sdl3_opengl_glext
             integer(GLuint),  intent(in), value :: path
             integer(GLsizei), intent(in), value :: startSegment
             integer(GLsizei), intent(in), value :: numSegments
-            real(GLfloat)                      :: glGetPathLengthNV_interface
+            real(GLfloat)                       :: glGetPathLengthNV_interface
         end function glGetPathLengthNV_interface
 
         ! void glGetPathMetricRangeNV(GLbitfield metricQueryMask, GLuint firstPathName, GLsizei numPaths, GLsizei stride, GLfloat *metrics)
@@ -10448,7 +10448,7 @@ module sdl3_opengl_glext
             integer(GLuint),   intent(in), value :: program
             integer(GLenum),   intent(in), value :: programInterface
             character(c_char), intent(in)        :: name
-            integer(GLuint)                     :: glGetProgramResourceIndex_interface
+            integer(GLuint)                      :: glGetProgramResourceIndex_interface
         end function glGetProgramResourceIndex_interface
 
         ! GLint glGetProgramResourceLocation(GLuint program, GLenum programInterface, const GLchar *name)
@@ -10458,7 +10458,7 @@ module sdl3_opengl_glext
             integer(GLuint),   intent(in), value :: program
             integer(GLenum),   intent(in), value :: programInterface
             character(c_char), intent(in)        :: name
-            integer(GLint)                      :: glGetProgramResourceLocation_interface
+            integer(GLint)                       :: glGetProgramResourceLocation_interface
         end function glGetProgramResourceLocation_interface
 
         ! GLint glGetProgramResourceLocationIndex(GLuint program, GLenum programInterface, const GLchar *name)
@@ -10468,7 +10468,7 @@ module sdl3_opengl_glext
             integer(GLuint),   intent(in), value :: program
             integer(GLenum),   intent(in), value :: programInterface
             character(c_char), intent(in)        :: name
-            integer(GLint)                      :: glGetProgramResourceLocationIndex_interface
+            integer(GLint)                       :: glGetProgramResourceLocationIndex_interface
         end function glGetProgramResourceLocationIndex_interface
 
         ! void glGetProgramResourceName(GLuint program, GLenum programInterface, GLuint index, GLsizei bufSize, GLsizei *length, GLchar *name)
@@ -10892,7 +10892,7 @@ module sdl3_opengl_glext
             import :: GLenum, GLushort
             implicit none
             integer(GLenum),   intent(in), value :: shadertype
-            integer(GLushort)                   :: glGetStageIndexNV_interface
+            integer(GLushort)                    :: glGetStageIndexNV_interface
         end function glGetStageIndexNV_interface
 
         ! const GLubyte *glGetStringi(GLenum name, GLuint index)
@@ -10901,7 +10901,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum), intent(in), value :: name
             integer(GLuint), intent(in), value :: index
-            type(c_ptr)                       :: glGetStringi_interface
+            type(c_ptr)                        :: glGetStringi_interface
         end function glGetStringi_interface
 
         ! GLuint glGetSubroutineIndex(GLuint program, GLenum shadertype, const GLchar *name)
@@ -10911,7 +10911,7 @@ module sdl3_opengl_glext
             integer(GLuint),   intent(in), value :: program
             integer(GLenum),   intent(in), value :: shadertype
             character(c_char), intent(in)        :: name
-            integer(GLuint)                     :: glGetSubroutineIndex_interface
+            integer(GLuint)                      :: glGetSubroutineIndex_interface
         end function glGetSubroutineIndex_interface
 
         ! GLint glGetSubroutineUniformLocation(GLuint program, GLenum shadertype, const GLchar *name)
@@ -10921,7 +10921,7 @@ module sdl3_opengl_glext
             integer(GLuint),   intent(in), value :: program
             integer(GLenum),   intent(in), value :: shadertype
             character(c_char), intent(in)        :: name
-            integer(GLint)                      :: glGetSubroutineUniformLocation_interface
+            integer(GLint)                       :: glGetSubroutineUniformLocation_interface
         end function glGetSubroutineUniformLocation_interface
 
         ! void glGetSynciv(GLsync sync, GLenum pname, GLsizei count, GLsizei *length, GLint *values)
@@ -11047,7 +11047,7 @@ module sdl3_opengl_glext
             import :: GLuint, GLuint64
             implicit none
             integer(GLuint),   intent(in), value :: texture
-            integer(GLuint64)                   :: glGetTextureHandleARB_interface
+            integer(GLuint64)                    :: glGetTextureHandleARB_interface
         end function glGetTextureHandleARB_interface
 
         ! GLuint64 glGetTextureHandleNV(GLuint texture)
@@ -11055,7 +11055,7 @@ module sdl3_opengl_glext
             import :: GLuint, GLuint64
             implicit none
             integer(GLuint),   intent(in), value :: texture
-            integer(GLuint64)                   :: glGetTextureHandleNV_interface
+            integer(GLuint64)                    :: glGetTextureHandleNV_interface
         end function glGetTextureHandleNV_interface
 
         ! void glGetTextureImage(GLuint texture, GLint level, GLenum format, GLenum type, GLsizei bufSize, void *pixels)
@@ -11206,7 +11206,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),   intent(in), value :: texture
             integer(GLuint),   intent(in), value :: sampler
-            integer(GLuint64)                   :: glGetTextureSamplerHandleARB_interface
+            integer(GLuint64)                    :: glGetTextureSamplerHandleARB_interface
         end function glGetTextureSamplerHandleARB_interface
 
         ! GLuint64 glGetTextureSamplerHandleNV(GLuint texture, GLuint sampler)
@@ -11215,7 +11215,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),   intent(in), value :: texture
             integer(GLuint),   intent(in), value :: sampler
-            integer(GLuint64)                   :: glGetTextureSamplerHandleNV_interface
+            integer(GLuint64)                    :: glGetTextureSamplerHandleNV_interface
         end function glGetTextureSamplerHandleNV_interface
 
         ! void glGetTextureSubImage(GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLsizei bufSize, void *pixels)
@@ -11316,7 +11316,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),   intent(in), value :: program
             character(c_char), intent(in)        :: uniformBlockName
-            integer(GLuint)                     :: glGetUniformBlockIndex_interface
+            integer(GLuint)                      :: glGetUniformBlockIndex_interface
         end function glGetUniformBlockIndex_interface
 
         ! GLint glGetUniformBufferSizeEXT(GLuint program, GLint location)
@@ -11325,7 +11325,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint), intent(in), value :: program
             integer(GLint),  intent(in), value :: location
-            integer(GLint)                    :: glGetUniformBufferSizeEXT_interface
+            integer(GLint)                     :: glGetUniformBufferSizeEXT_interface
         end function glGetUniformBufferSizeEXT_interface
 
         ! void glGetUniformIndices(GLuint program, GLsizei uniformCount, const GLchar *const*uniformNames, GLuint *uniformIndices)
@@ -11343,7 +11343,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),   intent(in), value :: program
             character(c_char), intent(in)        :: name
-            integer(GLint)                      :: glGetUniformLocation_interface
+            integer(GLint)                       :: glGetUniformLocation_interface
         end function glGetUniformLocation_interface
 
         ! GLint glGetUniformLocationARB(GLhandleARB programObj, const GLcharARB *name)
@@ -11352,7 +11352,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLhandleARB), intent(in), value :: programObj
             character(c_char),    intent(in)        :: name
-            integer(GLint)                         :: glGetUniformLocationARB_interface
+            integer(GLint)                          :: glGetUniformLocationARB_interface
         end function glGetUniformLocationARB_interface
 
         ! GLintptr glGetUniformOffsetEXT(GLuint program, GLint location)
@@ -11361,7 +11361,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),   intent(in), value :: program
             integer(GLint),    intent(in), value :: location
-            integer(GLintptr)                   :: glGetUniformOffsetEXT_interface
+            integer(GLintptr)                    :: glGetUniformOffsetEXT_interface
         end function glGetUniformOffsetEXT_interface
 
         ! void glGetUniformSubroutineuiv(GLenum shadertype, GLint location, GLuint *params)
@@ -11549,7 +11549,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),   intent(in), value :: program
             character(c_char), intent(in)        :: name
-            integer(GLint)                      :: glGetVaryingLocationNV_interface
+            integer(GLint)                       :: glGetVaryingLocationNV_interface
         end function glGetVaryingLocationNV_interface
 
         ! void glGetVertexArrayIndexed64iv(GLuint vaobj, GLuint index, GLenum pname, GLint64 *param)
@@ -12431,7 +12431,7 @@ module sdl3_opengl_glext
             integer(GLenum),     intent(in), value :: external_sync_type
             integer(GLintptr),   intent(in), value :: external_sync
             integer(Glbitfield), intent(in), value :: flags
-            type(c_ptr)                           :: glImportSyncEXT_interface
+            type(c_ptr)                            :: glImportSyncEXT_interface
         end function glImportSyncEXT_interface
 
         ! void glIndexFormatNV(GLenum type, GLsizei stride)
@@ -12614,7 +12614,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: marker
-            integer(GLboolean)                   :: glIsAsyncMarkerSGIX_interface
+            integer(GLboolean)                    :: glIsAsyncMarkerSGIX_interface
         end function glIsAsyncMarkerSGIX_interface
 
         ! GLboolean glIsBuffer(GLuint buffer)
@@ -12622,7 +12622,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: buffer
-            integer(GLboolean)                   :: glIsBuffer_interface
+            integer(GLboolean)                    :: glIsBuffer_interface
         end function glIsBuffer_interface
 
         ! GLboolean glIsBufferARB(GLuint buffer)
@@ -12630,7 +12630,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: buffer
-            integer(GLboolean)                   :: glIsBufferARB_interface
+            integer(GLboolean)                    :: glIsBufferARB_interface
         end function glIsBufferARB_interface
 
         ! GLboolean glIsBufferResidentNV(GLenum target)
@@ -12638,7 +12638,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLenum
             implicit none
             integer(GLenum),    intent(in), value :: target
-            integer(GLboolean)                   :: glIsBufferResidentNV_interface
+            integer(GLboolean)                    :: glIsBufferResidentNV_interface
         end function glIsBufferResidentNV_interface
 
         ! GLboolean glIsCommandListNV(GLuint list)
@@ -12646,7 +12646,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: list
-            integer(GLboolean)                   :: glIsCommandListNV_interface
+            integer(GLboolean)                    :: glIsCommandListNV_interface
         end function glIsCommandListNV_interface
 
         ! GLboolean glIsEnabledIndexedEXT(GLenum target, GLuint index)
@@ -12655,7 +12655,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum),    intent(in), value :: target
             integer(GLuint),    intent(in), value :: index
-            integer(GLboolean)                   :: glIsEnabledIndexedEXT_interface
+            integer(GLboolean)                    :: glIsEnabledIndexedEXT_interface
         end function glIsEnabledIndexedEXT_interface
 
         ! GLboolean glIsEnabledi(GLenum target, GLuint index)
@@ -12664,7 +12664,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum),    intent(in), value :: target
             integer(GLuint),    intent(in), value :: index
-            integer(GLboolean)                   :: glIsEnabledi_interface
+            integer(GLboolean)                    :: glIsEnabledi_interface
         end function glIsEnabledi_interface
 
         ! GLboolean glIsFenceAPPLE(GLuint fence)
@@ -12672,7 +12672,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: fence
-            integer(GLboolean)                   :: glIsFenceAPPLE_interface
+            integer(GLboolean)                    :: glIsFenceAPPLE_interface
         end function glIsFenceAPPLE_interface
 
         ! GLboolean glIsFenceNV(GLuint fence)
@@ -12680,7 +12680,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: fence
-            integer(GLboolean)                   :: glIsFenceNV_interface
+            integer(GLboolean)                    :: glIsFenceNV_interface
         end function glIsFenceNV_interface
 
         ! GLboolean glIsFramebuffer(GLuint framebuffer)
@@ -12688,7 +12688,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: framebuffer
-            integer(GLboolean)                   :: glIsFramebuffer_interface
+            integer(GLboolean)                    :: glIsFramebuffer_interface
         end function glIsFramebuffer_interface
 
         ! GLboolean glIsFramebufferEXT(GLuint framebuffer)
@@ -12696,7 +12696,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: framebuffer
-            integer(GLboolean)                   :: glIsFramebufferEXT_interface
+            integer(GLboolean)                    :: glIsFramebufferEXT_interface
         end function glIsFramebufferEXT_interface
 
         ! GLboolean glIsImageHandleResidentARB(GLuint64 handle)
@@ -12704,7 +12704,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint64
             implicit none
             integer(GLuint64),  intent(in), value :: handle
-            integer(GLboolean)                   :: glIsImageHandleResidentARB_interface
+            integer(GLboolean)                    :: glIsImageHandleResidentARB_interface
         end function glIsImageHandleResidentARB_interface
 
         ! GLboolean glIsImageHandleResidentNV(GLuint64 handle)
@@ -12712,7 +12712,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint64
             implicit none
             integer(GLuint64),  intent(in), value :: handle
-            integer(GLboolean)                   :: glIsImageHandleResidentNV_interface
+            integer(GLboolean)                    :: glIsImageHandleResidentNV_interface
         end function glIsImageHandleResidentNV_interface
 
         ! GLboolean glIsMemoryObjectEXT(GLuint memoryObject)
@@ -12720,7 +12720,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: memoryObject
-            integer(GLboolean)                   :: glIsMemoryObjectEXT_interface
+            integer(GLboolean)                    :: glIsMemoryObjectEXT_interface
         end function glIsMemoryObjectEXT_interface
 
         ! GLboolean glIsNameAMD(GLenum identifier, GLuint name)
@@ -12729,7 +12729,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum),    intent(in), value :: identifier
             integer(GLuint),    intent(in), value :: name
-            integer(GLboolean)                   :: glIsNameAMD_interface
+            integer(GLboolean)                    :: glIsNameAMD_interface
         end function glIsNameAMD_interface
 
         ! GLboolean glIsNamedBufferResidentNV(GLuint buffer)
@@ -12737,7 +12737,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: buffer
-            integer(GLboolean)                   :: glIsNamedBufferResidentNV_interface
+            integer(GLboolean)                    :: glIsNamedBufferResidentNV_interface
         end function glIsNamedBufferResidentNV_interface
 
         ! GLboolean glIsNamedStringARB(GLint namelen, const GLchar *name)
@@ -12746,7 +12746,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLint),     intent(in), value :: namelen
             character(c_char),  intent(in)        :: name
-            integer(GLboolean)                   :: glIsNamedStringARB_interface
+            integer(GLboolean)                    :: glIsNamedStringARB_interface
         end function glIsNamedStringARB_interface
 
         ! GLboolean glIsObjectBufferATI(GLuint buffer)
@@ -12754,7 +12754,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: buffer
-            integer(GLboolean)                   :: glIsObjectBufferATI_interface
+            integer(GLboolean)                    :: glIsObjectBufferATI_interface
         end function glIsObjectBufferATI_interface
 
         ! GLboolean glIsOcclusionQueryNV(GLuint id)
@@ -12762,7 +12762,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                   :: glIsOcclusionQueryNV_interface
+            integer(GLboolean)                    :: glIsOcclusionQueryNV_interface
         end function glIsOcclusionQueryNV_interface
 
         ! GLboolean glIsPathNV(GLuint path)
@@ -12770,7 +12770,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: path
-            integer(GLboolean)                   :: glIsPathNV_interface
+            integer(GLboolean)                    :: glIsPathNV_interface
         end function glIsPathNV_interface
 
         ! GLboolean glIsPointInFillPathNV(GLuint path, GLuint mask, GLfloat x, GLfloat y)
@@ -12781,7 +12781,7 @@ module sdl3_opengl_glext
             integer(GLuint),    intent(in), value :: mask
             real(GLfloat),      intent(in), value :: x
             real(GLfloat),      intent(in), value :: y
-            integer(GLboolean)                   :: glIsPointInFillPathNV_interface
+            integer(GLboolean)                    :: glIsPointInFillPathNV_interface
         end function glIsPointInFillPathNV_interface
 
         ! GLboolean glIsPointInStrokePathNV(GLuint path, GLfloat x, GLfloat y)
@@ -12791,7 +12791,7 @@ module sdl3_opengl_glext
             integer(GLuint),    intent(in), value :: path
             real(GLfloat),      intent(in), value :: x
             real(GLfloat),      intent(in), value :: y
-            integer(GLboolean)                   :: glIsPointInStrokePathNV_interface
+            integer(GLboolean)                    :: glIsPointInStrokePathNV_interface
         end function glIsPointInStrokePathNV_interface
 
         ! GLboolean glIsProgram(GLuint program)
@@ -12799,7 +12799,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: program
-            integer(GLboolean)                   :: glIsProgram_interface
+            integer(GLboolean)                    :: glIsProgram_interface
         end function glIsProgram_interface
 
         ! GLboolean glIsProgramARB(GLuint program)
@@ -12807,7 +12807,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: program
-            integer(GLboolean)                   :: glIsProgramARB_interface
+            integer(GLboolean)                    :: glIsProgramARB_interface
         end function glIsProgramARB_interface
 
         ! GLboolean glIsProgramNV(GLuint id)
@@ -12815,7 +12815,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                   :: glIsProgramNV_interface
+            integer(GLboolean)                    :: glIsProgramNV_interface
         end function glIsProgramNV_interface
 
         ! GLboolean glIsProgramPipeline(GLuint pipeline)
@@ -12823,7 +12823,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: pipeline
-            integer(GLboolean)                   :: glIsProgramPipeline_interface
+            integer(GLboolean)                    :: glIsProgramPipeline_interface
         end function glIsProgramPipeline_interface
 
         ! GLboolean glIsQuery(GLuint id)
@@ -12831,7 +12831,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                   :: glIsQuery_interface
+            integer(GLboolean)                    :: glIsQuery_interface
         end function glIsQuery_interface
 
         ! GLboolean glIsQueryARB(GLuint id)
@@ -12839,7 +12839,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                   :: glIsQueryARB_interface
+            integer(GLboolean)                    :: glIsQueryARB_interface
         end function glIsQueryARB_interface
 
         ! GLboolean glIsRenderbuffer(GLuint renderbuffer)
@@ -12847,7 +12847,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: renderbuffer
-            integer(GLboolean)                   :: glIsRenderbuffer_interface
+            integer(GLboolean)                    :: glIsRenderbuffer_interface
         end function glIsRenderbuffer_interface
 
         ! GLboolean glIsRenderbufferEXT(GLuint renderbuffer)
@@ -12855,7 +12855,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: renderbuffer
-            integer(GLboolean)                   :: glIsRenderbufferEXT_interface
+            integer(GLboolean)                    :: glIsRenderbufferEXT_interface
         end function glIsRenderbufferEXT_interface
 
         ! GLboolean glIsSampler(GLuint sampler)
@@ -12863,7 +12863,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: sampler
-            integer(GLboolean)                   :: glIsSampler_interface
+            integer(GLboolean)                    :: glIsSampler_interface
         end function glIsSampler_interface
 
         ! GLboolean glIsSemaphoreEXT(GLuint semaphore)
@@ -12871,7 +12871,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: semaphore
-            integer(GLboolean)                   :: glIsSemaphoreEXT_interface
+            integer(GLboolean)                    :: glIsSemaphoreEXT_interface
         end function glIsSemaphoreEXT_interface
 
         ! GLboolean glIsShader(GLuint shader)
@@ -12879,7 +12879,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: shader
-            integer(GLboolean)                   :: glIsShader_interface
+            integer(GLboolean)                    :: glIsShader_interface
         end function glIsShader_interface
 
         ! GLboolean glIsStateNV(GLuint state)
@@ -12887,7 +12887,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: state
-            integer(GLboolean)                   :: glIsStateNV_interface
+            integer(GLboolean)                    :: glIsStateNV_interface
         end function glIsStateNV_interface
 
         ! GLboolean glIsSync(GLsync sync)
@@ -12895,7 +12895,7 @@ module sdl3_opengl_glext
             import :: GLboolean, c_ptr
             implicit none
             type(c_ptr),        intent(in), value :: sync
-            integer(GLboolean)                   :: glIsSync_interface
+            integer(GLboolean)                    :: glIsSync_interface
         end function glIsSync_interface
 
         ! GLboolean glIsTextureEXT(GLuint texture)
@@ -12903,7 +12903,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: texture
-            integer(GLboolean)                   :: glIsTextureEXT_interface
+            integer(GLboolean)                    :: glIsTextureEXT_interface
         end function glIsTextureEXT_interface
 
         ! GLboolean glIsTextureHandleResidentARB(GLuint64 handle)
@@ -12911,7 +12911,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint64
             implicit none
             integer(GLuint64),  intent(in), value :: handle
-            integer(GLboolean)                   :: glIsTextureHandleResidentARB_interface
+            integer(GLboolean)                    :: glIsTextureHandleResidentARB_interface
         end function glIsTextureHandleResidentARB_interface
 
         ! GLboolean glIsTextureHandleResidentNV(GLuint64 handle)
@@ -12919,7 +12919,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint64
             implicit none
             integer(GLuint64),  intent(in), value :: handle
-            integer(GLboolean)                   :: glIsTextureHandleResidentNV_interface
+            integer(GLboolean)                    :: glIsTextureHandleResidentNV_interface
         end function glIsTextureHandleResidentNV_interface
 
         ! GLboolean glIsTransformFeedback(GLuint id)
@@ -12927,7 +12927,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                   :: glIsTransformFeedback_interface
+            integer(GLboolean)                    :: glIsTransformFeedback_interface
         end function glIsTransformFeedback_interface
 
         ! GLboolean glIsTransformFeedbackNV(GLuint id)
@@ -12935,7 +12935,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                   :: glIsTransformFeedbackNV_interface
+            integer(GLboolean)                    :: glIsTransformFeedbackNV_interface
         end function glIsTransformFeedbackNV_interface
 
         ! GLboolean glIsVariantEnabledEXT(GLuint id, GLenum cap)
@@ -12944,7 +12944,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),    intent(in), value :: id
             integer(GLenum),    intent(in), value :: cap
-            integer(GLboolean)                   :: glIsVariantEnabledEXT_interface
+            integer(GLboolean)                    :: glIsVariantEnabledEXT_interface
         end function glIsVariantEnabledEXT_interface
 
         ! GLboolean glIsVertexArray(GLuint array)
@@ -12952,7 +12952,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: array
-            integer(GLboolean)                   :: glIsVertexArray_interface
+            integer(GLboolean)                    :: glIsVertexArray_interface
         end function glIsVertexArray_interface
 
         ! GLboolean glIsVertexArrayAPPLE(GLuint array)
@@ -12960,7 +12960,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: array
-            integer(GLboolean)                   :: glIsVertexArrayAPPLE_interface
+            integer(GLboolean)                    :: glIsVertexArrayAPPLE_interface
         end function glIsVertexArrayAPPLE_interface
 
         ! GLboolean glIsVertexAttribEnabledAPPLE(GLuint index, GLenum pname)
@@ -12969,7 +12969,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),    intent(in), value :: index
             integer(GLenum),    intent(in), value :: pname
-            integer(GLboolean)                   :: glIsVertexAttribEnabledAPPLE_interface
+            integer(GLboolean)                    :: glIsVertexAttribEnabledAPPLE_interface
         end function glIsVertexAttribEnabledAPPLE_interface
 
         ! void glLGPUCopyImageSubDataNVX(GLuint sourceGpu, GLbitfield destinationGpuMask, GLuint srcName, GLenum srcTarget, GLint srcLevel, GLint srcX, GLint srxY, GLint srcZ, GLuint dstName, GLenum dstTarget, GLint dstLevel, GLint dstX, GLint dstY, GLint dstZ, GLsizei width, GLsizei height, GLsizei depth)
@@ -13321,7 +13321,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum), intent(in), value :: target
             integer(GLenum), intent(in), value :: access
-            type(c_ptr)                       :: glMapBuffer_interface
+            type(c_ptr)                        :: glMapBuffer_interface
         end function glMapBuffer_interface
 
         ! void *glMapBufferARB(GLenum target, GLenum access)
@@ -13330,7 +13330,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum), intent(in), value :: target
             integer(GLenum), intent(in), value :: access
-            type(c_ptr)                       :: glMapBufferARB_interface
+            type(c_ptr)                        :: glMapBufferARB_interface
         end function glMapBufferARB_interface
 
         ! void *glMapBufferRange(GLenum target, GLintptr offset, GLsizeiptr length, GLbitfield access)
@@ -13341,7 +13341,7 @@ module sdl3_opengl_glext
             integer(GLintptr),   intent(in), value :: offset
             integer(GLsizeiptr), intent(in), value :: length
             integer(Glbitfield), intent(in), value :: access
-            type(c_ptr)                           :: glMapBufferRange_interface
+            type(c_ptr)                            :: glMapBufferRange_interface
         end function glMapBufferRange_interface
 
         ! void glMapControlPointsNV(GLenum target, GLuint index, GLenum type, GLsizei ustride, GLsizei vstride, GLint uorder, GLint vorder, GLboolean packed, const void *points)
@@ -13385,7 +13385,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint), intent(in), value :: buffer
             integer(GLenum), intent(in), value :: access
-            type(c_ptr)                       :: glMapNamedBuffer_interface
+            type(c_ptr)                        :: glMapNamedBuffer_interface
         end function glMapNamedBuffer_interface
 
         ! void *glMapNamedBufferEXT(GLuint buffer, GLenum access)
@@ -13394,7 +13394,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint), intent(in), value :: buffer
             integer(GLenum), intent(in), value :: access
-            type(c_ptr)                       :: glMapNamedBufferEXT_interface
+            type(c_ptr)                        :: glMapNamedBufferEXT_interface
         end function glMapNamedBufferEXT_interface
 
         ! void *glMapNamedBufferRange(GLuint buffer, GLintptr offset, GLsizeiptr length, GLbitfield access)
@@ -13405,7 +13405,7 @@ module sdl3_opengl_glext
             integer(GLintptr),   intent(in), value :: offset
             integer(GLsizeiptr), intent(in), value :: length
             integer(Glbitfield), intent(in), value :: access
-            type(c_ptr)                           :: glMapNamedBufferRange_interface
+            type(c_ptr)                            :: glMapNamedBufferRange_interface
         end function glMapNamedBufferRange_interface
 
         ! void *glMapNamedBufferRangeEXT(GLuint buffer, GLintptr offset, GLsizeiptr length, GLbitfield access)
@@ -13416,7 +13416,7 @@ module sdl3_opengl_glext
             integer(GLintptr),   intent(in), value :: offset
             integer(GLsizeiptr), intent(in), value :: length
             integer(Glbitfield), intent(in), value :: access
-            type(c_ptr)                           :: glMapNamedBufferRangeEXT_interface
+            type(c_ptr)                            :: glMapNamedBufferRangeEXT_interface
         end function glMapNamedBufferRangeEXT_interface
 
         ! void *glMapObjectBufferATI(GLuint buffer)
@@ -13424,7 +13424,7 @@ module sdl3_opengl_glext
             import :: GLuint, c_ptr
             implicit none
             integer(GLuint), intent(in), value :: buffer
-            type(c_ptr)                       :: glMapObjectBufferATI_interface
+            type(c_ptr)                        :: glMapObjectBufferATI_interface
         end function glMapObjectBufferATI_interface
 
         ! void glMapParameterfvNV(GLenum target, GLenum pname, const GLfloat *params)
@@ -13454,7 +13454,7 @@ module sdl3_opengl_glext
             integer(Glbitfield), intent(in), value :: access
             integer(GLint),      intent(out)       :: stride
             integer(GLenum),     intent(out)       :: layout
-            type(c_ptr)                           :: glMapTexture2DINTEL_interface
+            type(c_ptr)                            :: glMapTexture2DINTEL_interface
         end function glMapTexture2DINTEL_interface
 
         ! void glMapVertexAttrib1dAPPLE(GLuint index, GLuint size, GLdouble u1, GLdouble u2, GLint stride, GLint order, const GLdouble *points)
@@ -16008,7 +16008,7 @@ module sdl3_opengl_glext
             integer(GLsizei), intent(in), value :: size
             type(c_ptr),      intent(in), value :: pointer
             integer(GLenum),  intent(in), value :: usage
-            integer(GLuint)                    :: glNewObjectBufferATI_interface
+            integer(GLuint)                     :: glNewObjectBufferATI_interface
         end function glNewObjectBufferATI_interface
 
         ! void glNormal3hNV(GLhalfNV nx, GLhalfNV ny, GLhalfNV nz)
@@ -16211,7 +16211,7 @@ module sdl3_opengl_glext
             integer(GLenum), intent(in), value :: objectType
             integer(GLuint), intent(in), value :: name
             integer(GLenum), intent(in), value :: option
-            integer(GLenum)                   :: glObjectPurgeableAPPLE_interface
+            integer(GLenum)                    :: glObjectPurgeableAPPLE_interface
         end function glObjectPurgeableAPPLE_interface
 
         ! GLenum glObjectUnpurgeableAPPLE(GLenum objectType, GLuint name, GLenum option)
@@ -16221,7 +16221,7 @@ module sdl3_opengl_glext
             integer(GLenum), intent(in), value :: objectType
             integer(GLuint), intent(in), value :: name
             integer(GLenum), intent(in), value :: option
-            integer(GLenum)                   :: glObjectUnpurgeableAPPLE_interface
+            integer(GLenum)                    :: glObjectUnpurgeableAPPLE_interface
         end function glObjectUnpurgeableAPPLE_interface
 
         ! void glOrthofOES(GLfloat l, GLfloat r, GLfloat b, GLfloat t, GLfloat n, GLfloat f)
@@ -16363,7 +16363,7 @@ module sdl3_opengl_glext
             integer(GLsizei),    intent(in), value :: numGlyphs
             integer(GLuint),     intent(in), value :: pathParameterTemplate
             real(GLfloat),       intent(in), value :: emScale
-            integer(GLenum)                       :: glPathGlyphIndexArrayNV_interface
+            integer(GLenum)                        :: glPathGlyphIndexArrayNV_interface
         end function glPathGlyphIndexArrayNV_interface
 
         ! GLenum glPathGlyphIndexRangeNV(GLenum fontTarget, const void *fontName, GLbitfield fontStyle, GLuint pathParameterTemplate, GLfloat emScale, GLuint *baseAndCount)
@@ -16376,7 +16376,7 @@ module sdl3_opengl_glext
             integer(GLuint),     intent(in), value :: pathParameterTemplate
             real(GLfloat),       intent(in), value :: emScale
             integer(GLuint),     intent(out)       :: baseAndCount
-            integer(GLenum)                       :: glPathGlyphIndexRangeNV_interface
+            integer(GLenum)                        :: glPathGlyphIndexRangeNV_interface
         end function glPathGlyphIndexRangeNV_interface
 
         ! void glPathGlyphRangeNV(GLuint firstPathName, GLenum fontTarget, const void *fontName, GLbitfield fontStyle, GLuint firstGlyph, GLsizei numGlyphs, GLenum handleMissingGlyphs, GLuint pathParameterTemplate, GLfloat emScale)
@@ -16423,7 +16423,7 @@ module sdl3_opengl_glext
             integer(GLsizei),    intent(in), value :: numGlyphs
             integer(GLuint),     intent(in), value :: pathParameterTemplate
             real(GLfloat),       intent(in), value :: emScale
-            integer(GLenum)                       :: glPathMemoryGlyphIndexArrayNV_interface
+            integer(GLenum)                        :: glPathMemoryGlyphIndexArrayNV_interface
         end function glPathMemoryGlyphIndexArrayNV_interface
 
         ! void glPathParameterfNV(GLuint path, GLenum pname, GLfloat value)
@@ -16661,7 +16661,7 @@ module sdl3_opengl_glext
             real(GLfloat),      intent(out)       :: y
             real(GLfloat),      intent(out)       :: tangentX
             real(GLfloat),      intent(out)       :: tangentY
-            integer(GLboolean)                   :: glPointAlongPathNV_interface
+            integer(GLboolean)                    :: glPointAlongPathNV_interface
         end function glPointAlongPathNV_interface
 
         ! void glPointParameterf(GLenum pname, GLfloat param)
@@ -16780,7 +16780,7 @@ module sdl3_opengl_glext
             import :: GLint, GLuint
             implicit none
             integer(GLuint), intent(out) :: markerp
-            integer(GLint)              :: glPollAsyncSGIX_interface
+            integer(GLint)               :: glPollAsyncSGIX_interface
         end function glPollAsyncSGIX_interface
 
         ! GLint glPollInstrumentsSGIX(GLint *marker_p)
@@ -16788,7 +16788,7 @@ module sdl3_opengl_glext
             import :: GLint
             implicit none
             integer(GLint), intent(out) :: marker_p
-            integer(GLint)             :: glPollInstrumentsSGIX_interface
+            integer(GLint)              :: glPollInstrumentsSGIX_interface
         end function glPollInstrumentsSGIX_interface
 
         ! void glPolygonOffsetClamp(GLfloat factor, GLfloat units, GLfloat clamp)
@@ -18853,7 +18853,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLfixed),    intent(out) :: mantissa
             integer(GLint),      intent(out) :: exponent
-            integer(Glbitfield)             :: glQueryMatrixxOES_interface
+            integer(Glbitfield)              :: glQueryMatrixxOES_interface
         end function glQueryMatrixxOES_interface
 
         ! void glQueryObjectParameteruiAMD(GLenum target, GLuint id, GLenum pname, GLuint param)
@@ -18874,7 +18874,7 @@ module sdl3_opengl_glext
             integer(GLint),  intent(in), value :: tagId
             integer(GLuint), intent(in), value :: count
             integer(GLint),  intent(out)       :: buffer
-            integer(GLint)                    :: glQueryResourceNV_interface
+            integer(GLint)                     :: glQueryResourceNV_interface
         end function glQueryResourceNV_interface
 
         ! void glQueryResourceTagNV(GLint tagId, const GLchar *tagString)
@@ -19007,7 +19007,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLuint),    intent(in), value :: memory
             integer(GLuint64),  intent(in), value :: key
-            integer(GLboolean)                   :: glReleaseKeyedMutexWin32EXT_interface
+            integer(GLboolean)                    :: glReleaseKeyedMutexWin32EXT_interface
         end function glReleaseKeyedMutexWin32EXT_interface
 
         ! void glReleaseShaderCompiler(void)
@@ -20323,7 +20323,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: fence
-            integer(GLboolean)                   :: glTestFenceAPPLE_interface
+            integer(GLboolean)                    :: glTestFenceAPPLE_interface
         end function glTestFenceAPPLE_interface
 
         ! GLboolean glTestFenceNV(GLuint fence)
@@ -20331,7 +20331,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: fence
-            integer(GLboolean)                   :: glTestFenceNV_interface
+            integer(GLboolean)                    :: glTestFenceNV_interface
         end function glTestFenceNV_interface
 
         ! GLboolean glTestObjectAPPLE(GLenum object, GLuint name)
@@ -20340,7 +20340,7 @@ module sdl3_opengl_glext
             implicit none
             integer(GLenum),    intent(in), value :: object
             integer(GLuint),    intent(in), value :: name
-            integer(GLboolean)                   :: glTestObjectAPPLE_interface
+            integer(GLboolean)                    :: glTestObjectAPPLE_interface
         end function glTestObjectAPPLE_interface
 
         ! void glTexAttachMemoryNV(GLenum target, GLuint memory, GLuint64 offset)
@@ -23069,7 +23069,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLenum
             implicit none
             integer(GLenum),    intent(in), value :: target
-            integer(GLboolean)                   :: glUnmapBuffer_interface
+            integer(GLboolean)                    :: glUnmapBuffer_interface
         end function glUnmapBuffer_interface
 
         ! GLboolean glUnmapBufferARB(GLenum target)
@@ -23077,7 +23077,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLenum
             implicit none
             integer(GLenum),    intent(in), value :: target
-            integer(GLboolean)                   :: glUnmapBufferARB_interface
+            integer(GLboolean)                    :: glUnmapBufferARB_interface
         end function glUnmapBufferARB_interface
 
         ! GLboolean glUnmapNamedBuffer(GLuint buffer)
@@ -23085,7 +23085,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: buffer
-            integer(GLboolean)                   :: glUnmapNamedBuffer_interface
+            integer(GLboolean)                    :: glUnmapNamedBuffer_interface
         end function glUnmapNamedBuffer_interface
 
         ! GLboolean glUnmapNamedBufferEXT(GLuint buffer)
@@ -23093,7 +23093,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLuint
             implicit none
             integer(GLuint),    intent(in), value :: buffer
-            integer(GLboolean)                   :: glUnmapNamedBufferEXT_interface
+            integer(GLboolean)                    :: glUnmapNamedBufferEXT_interface
         end function glUnmapNamedBufferEXT_interface
 
         ! void glUnmapObjectBufferATI(GLuint buffer)
@@ -23188,7 +23188,7 @@ module sdl3_opengl_glext
             import :: GLboolean, GLvdpauSurfaceNV
             implicit none
             integer(GLvdpauSurfaceNV), intent(in), value :: surface
-            integer(GLboolean)                          :: glVDPAUIsSurfaceNV_interface
+            integer(GLboolean)                           :: glVDPAUIsSurfaceNV_interface
         end function glVDPAUIsSurfaceNV_interface
 
         ! void glVDPAUMapSurfacesNV(GLsizei numSurfaces, const GLvdpauSurfaceNV *surfaces)
@@ -23207,7 +23207,7 @@ module sdl3_opengl_glext
             integer(GLenum),           intent(in), value :: target
             integer(GLsizei),          intent(in), value :: numTextureNames
             integer(GLuint),           intent(in)        :: textureNames(*)
-            integer(GLvdpauSurfaceNV)                   :: glVDPAURegisterOutputSurfaceNV_interface
+            integer(GLvdpauSurfaceNV)                    :: glVDPAURegisterOutputSurfaceNV_interface
         end function glVDPAURegisterOutputSurfaceNV_interface
 
         ! GLvdpauSurfaceNV glVDPAURegisterVideoSurfaceNV(const void *vdpSurface, GLenum target, GLsizei numTextureNames, const GLuint *textureNames)
@@ -23218,7 +23218,7 @@ module sdl3_opengl_glext
             integer(GLenum),           intent(in), value :: target
             integer(GLsizei),          intent(in), value :: numTextureNames
             integer(GLuint),           intent(in)        :: textureNames(*)
-            integer(GLvdpauSurfaceNV)                   :: glVDPAURegisterVideoSurfaceNV_interface
+            integer(GLvdpauSurfaceNV)                    :: glVDPAURegisterVideoSurfaceNV_interface
         end function glVDPAURegisterVideoSurfaceNV_interface
 
         ! GLvdpauSurfaceNV glVDPAURegisterVideoSurfaceWithPictureStructureNV(const void *vdpSurface, GLenum target, GLsizei numTextureNames, const GLuint *textureNames, GLboolean isFrameStructure)
@@ -23230,7 +23230,7 @@ module sdl3_opengl_glext
             integer(GLsizei),          intent(in), value :: numTextureNames
             integer(GLuint),           intent(in)        :: textureNames(*)
             integer(GLboolean),        intent(in), value :: isFrameStructure
-            integer(GLvdpauSurfaceNV)                   :: glVDPAURegisterVideoSurfaceWithPictureStructureNV_interface
+            integer(GLvdpauSurfaceNV)                    :: glVDPAURegisterVideoSurfaceWithPictureStructureNV_interface
         end function glVDPAURegisterVideoSurfaceWithPictureStructureNV_interface
 
         ! void glVDPAUSurfaceAccessNV(GLvdpauSurfaceNV surface, GLenum access)
@@ -26247,7 +26247,7 @@ module sdl3_opengl_glext
             integer(GLuint),      intent(in), value :: video_capture_slot
             integer(GLuint),      intent(out)       :: sequence_num
             integer(GLuint64EXT), intent(out)       :: capture_time
-            integer(GLenum)                        :: glVideoCaptureNV_interface
+            integer(GLenum)                         :: glVideoCaptureNV_interface
         end function glVideoCaptureNV_interface
 
         ! void glVideoCaptureStreamParameterdvNV(GLuint video_capture_slot, GLuint stream, GLenum pname, const GLdouble *params)
