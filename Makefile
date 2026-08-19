@@ -35,6 +35,7 @@ SRC = src/sdl3.F90 \
       src/sdl3_endian.F90 \
       src/sdl3_error.F90 \
       src/sdl3_events.F90 \
+      src/sdl3_clipboard.F90 \
       src/sdl3_gpu.F90 \
       src/sdl3_guid.F90 \
       src/sdl3_hints.F90 \
@@ -98,6 +99,7 @@ $(TARGET): $(SRC)
 	$(FC) $(FFLAGS) -c src/sdl3_sensor.F90
 	$(FC) $(FFLAGS) -c src/sdl3_audio.F90
 	$(FC) $(FFLAGS) -c src/sdl3_camera.F90
+	$(FC) $(FFLAGS) -c src/sdl3_clipboard.F90
 	$(FC) $(FFLAGS) -c src/sdl3_power.F90
 	$(FC) $(FFLAGS) -c src/sdl3_notification.F90
 	$(FC) $(FFLAGS) -c src/sdl3_events.F90

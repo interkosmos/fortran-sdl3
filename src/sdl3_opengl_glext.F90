@@ -9045,22 +9045,22 @@ module sdl3_opengl_glext
         function glGetGraphicsResetStatus_interface() bind(c)
             import :: GLenum
             implicit none
-            integer(GLenum)   :: glGetGraphicsResetStatus_interface
+            integer(GLenum) :: glGetGraphicsResetStatus_interface
         end function glGetGraphicsResetStatus_interface
 
         ! GLenum glGetGraphicsResetStatusARB(void)
         function glGetGraphicsResetStatusARB_interface() bind(c)
             import :: GLenum
             implicit none
-            integer(GLenum)   :: glGetGraphicsResetStatusARB_interface
+            integer(GLenum) :: glGetGraphicsResetStatusARB_interface
         end function glGetGraphicsResetStatusARB_interface
 
         ! GLhandleARB glGetHandleARB(GLenum pname)
         function glGetHandleARB_interface(pname) bind(c)
             import :: GLenum, GLhandleARB
             implicit none
-            integer(GLenum),      intent(in), value :: pname
-            integer(GLhandleARB)                    :: glGetHandleARB_interface
+            integer(GLenum), intent(in), value :: pname
+            integer(GLhandleARB)               :: glGetHandleARB_interface
         end function glGetHandleARB_interface
 
         ! void glGetHistogram(GLenum target, GLboolean reset, GLenum format, GLenum type, void *values)
@@ -9186,7 +9186,7 @@ module sdl3_opengl_glext
         function glGetInstrumentsSGIX_interface() bind(c)
             import :: GLint
             implicit none
-            integer(GLint)   :: glGetInstrumentsSGIX_interface
+            integer(GLint) :: glGetInstrumentsSGIX_interface
         end function glGetInstrumentsSGIX_interface
 
         ! void glGetInteger64i_v(GLenum target, GLuint index, GLint64 *data)
@@ -10891,8 +10891,8 @@ module sdl3_opengl_glext
         function glGetStageIndexNV_interface(shadertype) bind(c)
             import :: GLenum, GLushort
             implicit none
-            integer(GLenum),   intent(in), value :: shadertype
-            integer(GLushort)                    :: glGetStageIndexNV_interface
+            integer(GLenum), intent(in), value :: shadertype
+            integer(GLushort)                  :: glGetStageIndexNV_interface
         end function glGetStageIndexNV_interface
 
         ! const GLubyte *glGetStringi(GLenum name, GLuint index)
@@ -11046,16 +11046,16 @@ module sdl3_opengl_glext
         function glGetTextureHandleARB_interface(texture) bind(c)
             import :: GLuint, GLuint64
             implicit none
-            integer(GLuint),   intent(in), value :: texture
-            integer(GLuint64)                    :: glGetTextureHandleARB_interface
+            integer(GLuint), intent(in), value :: texture
+            integer(GLuint64)                  :: glGetTextureHandleARB_interface
         end function glGetTextureHandleARB_interface
 
         ! GLuint64 glGetTextureHandleNV(GLuint texture)
         function glGetTextureHandleNV_interface(texture) bind(c)
             import :: GLuint, GLuint64
             implicit none
-            integer(GLuint),   intent(in), value :: texture
-            integer(GLuint64)                    :: glGetTextureHandleNV_interface
+            integer(GLuint), intent(in), value :: texture
+            integer(GLuint64)                  :: glGetTextureHandleNV_interface
         end function glGetTextureHandleNV_interface
 
         ! void glGetTextureImage(GLuint texture, GLint level, GLenum format, GLenum type, GLsizei bufSize, void *pixels)
@@ -11359,9 +11359,9 @@ module sdl3_opengl_glext
         function glGetUniformOffsetEXT_interface(program, location) bind(c)
             import :: GLint, GLintptr, GLuint
             implicit none
-            integer(GLuint),   intent(in), value :: program
-            integer(GLint),    intent(in), value :: location
-            integer(GLintptr)                    :: glGetUniformOffsetEXT_interface
+            integer(GLuint), intent(in), value :: program
+            integer(GLint),  intent(in), value :: location
+            integer(GLintptr)                  :: glGetUniformOffsetEXT_interface
         end function glGetUniformOffsetEXT_interface
 
         ! void glGetUniformSubroutineuiv(GLenum shadertype, GLint location, GLuint *params)
@@ -12613,297 +12613,297 @@ module sdl3_opengl_glext
         function glIsAsyncMarkerSGIX_interface(marker) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: marker
-            integer(GLboolean)                    :: glIsAsyncMarkerSGIX_interface
+            integer(GLuint), intent(in), value :: marker
+            integer(GLboolean)                 :: glIsAsyncMarkerSGIX_interface
         end function glIsAsyncMarkerSGIX_interface
 
         ! GLboolean glIsBuffer(GLuint buffer)
         function glIsBuffer_interface(buffer) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: buffer
-            integer(GLboolean)                    :: glIsBuffer_interface
+            integer(GLuint),  intent(in), value :: buffer
+            integer(GLboolean)                  :: glIsBuffer_interface
         end function glIsBuffer_interface
 
         ! GLboolean glIsBufferARB(GLuint buffer)
         function glIsBufferARB_interface(buffer) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: buffer
-            integer(GLboolean)                    :: glIsBufferARB_interface
+            integer(GLuint), intent(in), value :: buffer
+            integer(GLboolean)                 :: glIsBufferARB_interface
         end function glIsBufferARB_interface
 
         ! GLboolean glIsBufferResidentNV(GLenum target)
         function glIsBufferResidentNV_interface(target) bind(c)
             import :: GLboolean, GLenum
             implicit none
-            integer(GLenum),    intent(in), value :: target
-            integer(GLboolean)                    :: glIsBufferResidentNV_interface
+            integer(GLenum), intent(in), value :: target
+            integer(GLboolean)                 :: glIsBufferResidentNV_interface
         end function glIsBufferResidentNV_interface
 
         ! GLboolean glIsCommandListNV(GLuint list)
         function glIsCommandListNV_interface(list) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: list
-            integer(GLboolean)                    :: glIsCommandListNV_interface
+            integer(GLuint), intent(in), value :: list
+            integer(GLboolean)                 :: glIsCommandListNV_interface
         end function glIsCommandListNV_interface
 
         ! GLboolean glIsEnabledIndexedEXT(GLenum target, GLuint index)
         function glIsEnabledIndexedEXT_interface(target, index) bind(c)
             import :: GLboolean, GLenum, GLuint
             implicit none
-            integer(GLenum),    intent(in), value :: target
-            integer(GLuint),    intent(in), value :: index
-            integer(GLboolean)                    :: glIsEnabledIndexedEXT_interface
+            integer(GLenum), intent(in), value :: target
+            integer(GLuint), intent(in), value :: index
+            integer(GLboolean)                 :: glIsEnabledIndexedEXT_interface
         end function glIsEnabledIndexedEXT_interface
 
         ! GLboolean glIsEnabledi(GLenum target, GLuint index)
         function glIsEnabledi_interface(target, index) bind(c)
             import :: GLboolean, GLenum, GLuint
             implicit none
-            integer(GLenum),    intent(in), value :: target
-            integer(GLuint),    intent(in), value :: index
-            integer(GLboolean)                    :: glIsEnabledi_interface
+            integer(GLenum), intent(in), value :: target
+            integer(GLuint), intent(in), value :: index
+            integer(GLboolean)                 :: glIsEnabledi_interface
         end function glIsEnabledi_interface
 
         ! GLboolean glIsFenceAPPLE(GLuint fence)
         function glIsFenceAPPLE_interface(fence) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: fence
-            integer(GLboolean)                    :: glIsFenceAPPLE_interface
+            integer(GLuint), intent(in), value :: fence
+            integer(GLboolean)                 :: glIsFenceAPPLE_interface
         end function glIsFenceAPPLE_interface
 
         ! GLboolean glIsFenceNV(GLuint fence)
         function glIsFenceNV_interface(fence) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: fence
-            integer(GLboolean)                    :: glIsFenceNV_interface
+            integer(GLuint), intent(in), value :: fence
+            integer(GLboolean)                 :: glIsFenceNV_interface
         end function glIsFenceNV_interface
 
         ! GLboolean glIsFramebuffer(GLuint framebuffer)
         function glIsFramebuffer_interface(framebuffer) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: framebuffer
-            integer(GLboolean)                    :: glIsFramebuffer_interface
+            integer(GLuint), intent(in), value :: framebuffer
+            integer(GLboolean)                 :: glIsFramebuffer_interface
         end function glIsFramebuffer_interface
 
         ! GLboolean glIsFramebufferEXT(GLuint framebuffer)
         function glIsFramebufferEXT_interface(framebuffer) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: framebuffer
-            integer(GLboolean)                    :: glIsFramebufferEXT_interface
+            integer(GLuint), intent(in), value :: framebuffer
+            integer(GLboolean)                 :: glIsFramebufferEXT_interface
         end function glIsFramebufferEXT_interface
 
         ! GLboolean glIsImageHandleResidentARB(GLuint64 handle)
         function glIsImageHandleResidentARB_interface(handle) bind(c)
             import :: GLboolean, GLuint64
             implicit none
-            integer(GLuint64),  intent(in), value :: handle
-            integer(GLboolean)                    :: glIsImageHandleResidentARB_interface
+            integer(GLuint64), intent(in), value :: handle
+            integer(GLboolean)                   :: glIsImageHandleResidentARB_interface
         end function glIsImageHandleResidentARB_interface
 
         ! GLboolean glIsImageHandleResidentNV(GLuint64 handle)
         function glIsImageHandleResidentNV_interface(handle) bind(c)
             import :: GLboolean, GLuint64
             implicit none
-            integer(GLuint64),  intent(in), value :: handle
-            integer(GLboolean)                    :: glIsImageHandleResidentNV_interface
+            integer(GLuint64), intent(in), value :: handle
+            integer(GLboolean)                   :: glIsImageHandleResidentNV_interface
         end function glIsImageHandleResidentNV_interface
 
         ! GLboolean glIsMemoryObjectEXT(GLuint memoryObject)
         function glIsMemoryObjectEXT_interface(memoryObject) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: memoryObject
-            integer(GLboolean)                    :: glIsMemoryObjectEXT_interface
+            integer(GLuint), intent(in), value :: memoryObject
+            integer(GLboolean)                 :: glIsMemoryObjectEXT_interface
         end function glIsMemoryObjectEXT_interface
 
         ! GLboolean glIsNameAMD(GLenum identifier, GLuint name)
         function glIsNameAMD_interface(identifier, name) bind(c)
             import :: GLboolean, GLenum, GLuint
             implicit none
-            integer(GLenum),    intent(in), value :: identifier
-            integer(GLuint),    intent(in), value :: name
-            integer(GLboolean)                    :: glIsNameAMD_interface
+            integer(GLenum), intent(in), value :: identifier
+            integer(GLuint), intent(in), value :: name
+            integer(GLboolean)                 :: glIsNameAMD_interface
         end function glIsNameAMD_interface
 
         ! GLboolean glIsNamedBufferResidentNV(GLuint buffer)
         function glIsNamedBufferResidentNV_interface(buffer) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: buffer
-            integer(GLboolean)                    :: glIsNamedBufferResidentNV_interface
+            integer(GLuint), intent(in), value :: buffer
+            integer(GLboolean)                 :: glIsNamedBufferResidentNV_interface
         end function glIsNamedBufferResidentNV_interface
 
         ! GLboolean glIsNamedStringARB(GLint namelen, const GLchar *name)
         function glIsNamedStringARB_interface(namelen, name) bind(c)
             import :: GLboolean, GLint, c_char
             implicit none
-            integer(GLint),     intent(in), value :: namelen
-            character(c_char),  intent(in)        :: name
-            integer(GLboolean)                    :: glIsNamedStringARB_interface
+            integer(GLint),    intent(in), value :: namelen
+            character(c_char), intent(in)        :: name
+            integer(GLboolean)                   :: glIsNamedStringARB_interface
         end function glIsNamedStringARB_interface
 
         ! GLboolean glIsObjectBufferATI(GLuint buffer)
         function glIsObjectBufferATI_interface(buffer) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: buffer
-            integer(GLboolean)                    :: glIsObjectBufferATI_interface
+            integer(GLuint), intent(in), value :: buffer
+            integer(GLboolean)                 :: glIsObjectBufferATI_interface
         end function glIsObjectBufferATI_interface
 
         ! GLboolean glIsOcclusionQueryNV(GLuint id)
         function glIsOcclusionQueryNV_interface(id) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                    :: glIsOcclusionQueryNV_interface
+            integer(GLuint), intent(in), value :: id
+            integer(GLboolean)                 :: glIsOcclusionQueryNV_interface
         end function glIsOcclusionQueryNV_interface
 
         ! GLboolean glIsPathNV(GLuint path)
         function glIsPathNV_interface(path) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: path
-            integer(GLboolean)                    :: glIsPathNV_interface
+            integer(GLuint), intent(in), value :: path
+            integer(GLboolean)                 :: glIsPathNV_interface
         end function glIsPathNV_interface
 
         ! GLboolean glIsPointInFillPathNV(GLuint path, GLuint mask, GLfloat x, GLfloat y)
         function glIsPointInFillPathNV_interface(path, mask, x, y) bind(c)
             import :: GLboolean, GLfloat, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: path
-            integer(GLuint),    intent(in), value :: mask
-            real(GLfloat),      intent(in), value :: x
-            real(GLfloat),      intent(in), value :: y
-            integer(GLboolean)                    :: glIsPointInFillPathNV_interface
+            integer(GLuint), intent(in), value :: path
+            integer(GLuint), intent(in), value :: mask
+            real(GLfloat),   intent(in), value :: x
+            real(GLfloat),   intent(in), value :: y
+            integer(GLboolean)                 :: glIsPointInFillPathNV_interface
         end function glIsPointInFillPathNV_interface
 
         ! GLboolean glIsPointInStrokePathNV(GLuint path, GLfloat x, GLfloat y)
         function glIsPointInStrokePathNV_interface(path, x, y) bind(c)
             import :: GLboolean, GLfloat, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: path
-            real(GLfloat),      intent(in), value :: x
-            real(GLfloat),      intent(in), value :: y
-            integer(GLboolean)                    :: glIsPointInStrokePathNV_interface
+            integer(GLuint), intent(in), value :: path
+            real(GLfloat),   intent(in), value :: x
+            real(GLfloat),   intent(in), value :: y
+            integer(GLboolean)                 :: glIsPointInStrokePathNV_interface
         end function glIsPointInStrokePathNV_interface
 
         ! GLboolean glIsProgram(GLuint program)
         function glIsProgram_interface(program) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: program
-            integer(GLboolean)                    :: glIsProgram_interface
+            integer(GLuint), intent(in), value :: program
+            integer(GLboolean)                 :: glIsProgram_interface
         end function glIsProgram_interface
 
         ! GLboolean glIsProgramARB(GLuint program)
         function glIsProgramARB_interface(program) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: program
-            integer(GLboolean)                    :: glIsProgramARB_interface
+            integer(GLuint), intent(in), value :: program
+            integer(GLboolean)                 :: glIsProgramARB_interface
         end function glIsProgramARB_interface
 
         ! GLboolean glIsProgramNV(GLuint id)
         function glIsProgramNV_interface(id) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                    :: glIsProgramNV_interface
+            integer(GLuint), intent(in), value :: id
+            integer(GLboolean)                 :: glIsProgramNV_interface
         end function glIsProgramNV_interface
 
         ! GLboolean glIsProgramPipeline(GLuint pipeline)
         function glIsProgramPipeline_interface(pipeline) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: pipeline
-            integer(GLboolean)                    :: glIsProgramPipeline_interface
+            integer(GLuint), intent(in), value :: pipeline
+            integer(GLboolean)                 :: glIsProgramPipeline_interface
         end function glIsProgramPipeline_interface
 
         ! GLboolean glIsQuery(GLuint id)
         function glIsQuery_interface(id) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                    :: glIsQuery_interface
+            integer(GLuint), intent(in), value :: id
+            integer(GLboolean)                 :: glIsQuery_interface
         end function glIsQuery_interface
 
         ! GLboolean glIsQueryARB(GLuint id)
         function glIsQueryARB_interface(id) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                    :: glIsQueryARB_interface
+            integer(GLuint), intent(in), value :: id
+            integer(GLboolean)                 :: glIsQueryARB_interface
         end function glIsQueryARB_interface
 
         ! GLboolean glIsRenderbuffer(GLuint renderbuffer)
         function glIsRenderbuffer_interface(renderbuffer) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: renderbuffer
-            integer(GLboolean)                    :: glIsRenderbuffer_interface
+            integer(GLuint), intent(in), value :: renderbuffer
+            integer(GLboolean)                 :: glIsRenderbuffer_interface
         end function glIsRenderbuffer_interface
 
         ! GLboolean glIsRenderbufferEXT(GLuint renderbuffer)
         function glIsRenderbufferEXT_interface(renderbuffer) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: renderbuffer
-            integer(GLboolean)                    :: glIsRenderbufferEXT_interface
+            integer(GLuint), intent(in), value :: renderbuffer
+            integer(GLboolean)                 :: glIsRenderbufferEXT_interface
         end function glIsRenderbufferEXT_interface
 
         ! GLboolean glIsSampler(GLuint sampler)
         function glIsSampler_interface(sampler) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: sampler
-            integer(GLboolean)                    :: glIsSampler_interface
+            integer(GLuint), intent(in), value :: sampler
+            integer(GLboolean)                 :: glIsSampler_interface
         end function glIsSampler_interface
 
         ! GLboolean glIsSemaphoreEXT(GLuint semaphore)
         function glIsSemaphoreEXT_interface(semaphore) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: semaphore
-            integer(GLboolean)                    :: glIsSemaphoreEXT_interface
+            integer(GLuint), intent(in), value :: semaphore
+            integer(GLboolean)                 :: glIsSemaphoreEXT_interface
         end function glIsSemaphoreEXT_interface
 
         ! GLboolean glIsShader(GLuint shader)
         function glIsShader_interface(shader) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: shader
-            integer(GLboolean)                    :: glIsShader_interface
+            integer(GLuint), intent(in), value :: shader
+            integer(GLboolean)                 :: glIsShader_interface
         end function glIsShader_interface
 
         ! GLboolean glIsStateNV(GLuint state)
         function glIsStateNV_interface(state) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: state
-            integer(GLboolean)                    :: glIsStateNV_interface
+            integer(GLuint), intent(in), value :: state
+            integer(GLboolean)                 :: glIsStateNV_interface
         end function glIsStateNV_interface
 
         ! GLboolean glIsSync(GLsync sync)
         function glIsSync_interface(sync) bind(c)
             import :: GLboolean, c_ptr
             implicit none
-            type(c_ptr),        intent(in), value :: sync
-            integer(GLboolean)                    :: glIsSync_interface
+            type(c_ptr), intent(in), value :: sync
+            integer(GLboolean)             :: glIsSync_interface
         end function glIsSync_interface
 
         ! GLboolean glIsTextureEXT(GLuint texture)
         function glIsTextureEXT_interface(texture) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: texture
-            integer(GLboolean)                    :: glIsTextureEXT_interface
+            integer(GLuint), intent(in), value :: texture
+            integer(GLboolean)                 :: glIsTextureEXT_interface
         end function glIsTextureEXT_interface
 
         ! GLboolean glIsTextureHandleResidentARB(GLuint64 handle)
@@ -12926,50 +12926,50 @@ module sdl3_opengl_glext
         function glIsTransformFeedback_interface(id) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                    :: glIsTransformFeedback_interface
+            integer(GLuint), intent(in), value :: id
+            integer(GLboolean)                 :: glIsTransformFeedback_interface
         end function glIsTransformFeedback_interface
 
         ! GLboolean glIsTransformFeedbackNV(GLuint id)
         function glIsTransformFeedbackNV_interface(id) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: id
-            integer(GLboolean)                    :: glIsTransformFeedbackNV_interface
+            integer(GLuint), intent(in), value :: id
+            integer(GLboolean)                 :: glIsTransformFeedbackNV_interface
         end function glIsTransformFeedbackNV_interface
 
         ! GLboolean glIsVariantEnabledEXT(GLuint id, GLenum cap)
         function glIsVariantEnabledEXT_interface(id, cap) bind(c)
             import :: GLboolean, GLenum, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: id
-            integer(GLenum),    intent(in), value :: cap
-            integer(GLboolean)                    :: glIsVariantEnabledEXT_interface
+            integer(GLuint), intent(in), value :: id
+            integer(GLenum), intent(in), value :: cap
+            integer(GLboolean)                 :: glIsVariantEnabledEXT_interface
         end function glIsVariantEnabledEXT_interface
 
         ! GLboolean glIsVertexArray(GLuint array)
         function glIsVertexArray_interface(array) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: array
-            integer(GLboolean)                    :: glIsVertexArray_interface
+            integer(GLuint), intent(in), value :: array
+            integer(GLboolean)                 :: glIsVertexArray_interface
         end function glIsVertexArray_interface
 
         ! GLboolean glIsVertexArrayAPPLE(GLuint array)
         function glIsVertexArrayAPPLE_interface(array) bind(c)
             import :: GLboolean, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: array
-            integer(GLboolean)                    :: glIsVertexArrayAPPLE_interface
+            integer(GLuint), intent(in), value :: array
+            integer(GLboolean)                 :: glIsVertexArrayAPPLE_interface
         end function glIsVertexArrayAPPLE_interface
 
         ! GLboolean glIsVertexAttribEnabledAPPLE(GLuint index, GLenum pname)
         function glIsVertexAttribEnabledAPPLE_interface(index, pname) bind(c)
             import :: GLboolean, GLenum, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: index
-            integer(GLenum),    intent(in), value :: pname
-            integer(GLboolean)                    :: glIsVertexAttribEnabledAPPLE_interface
+            integer(GLuint), intent(in), value :: index
+            integer(GLenum), intent(in), value :: pname
+            integer(GLboolean)                 :: glIsVertexAttribEnabledAPPLE_interface
         end function glIsVertexAttribEnabledAPPLE_interface
 
         ! void glLGPUCopyImageSubDataNVX(GLuint sourceGpu, GLbitfield destinationGpuMask, GLuint srcName, GLenum srcTarget, GLint srcLevel, GLint srcX, GLint srxY, GLint srcZ, GLuint dstName, GLenum dstTarget, GLint dstLevel, GLint dstX, GLint dstY, GLint dstZ, GLsizei width, GLsizei height, GLsizei depth)
@@ -16653,15 +16653,15 @@ module sdl3_opengl_glext
         function glPointAlongPathNV_interface(path, startSegment, numSegments, distance, x, y, tangentX, tangentY) bind(c)
             import :: GLboolean, GLfloat, GLsizei, GLuint
             implicit none
-            integer(GLuint),    intent(in), value :: path
-            integer(GLsizei),   intent(in), value :: startSegment
-            integer(GLsizei),   intent(in), value :: numSegments
-            real(GLfloat),      intent(in), value :: distance
-            real(GLfloat),      intent(out)       :: x
-            real(GLfloat),      intent(out)       :: y
-            real(GLfloat),      intent(out)       :: tangentX
-            real(GLfloat),      intent(out)       :: tangentY
-            integer(GLboolean)                    :: glPointAlongPathNV_interface
+            integer(GLuint),  intent(in), value :: path
+            integer(GLsizei), intent(in), value :: startSegment
+            integer(GLsizei), intent(in), value :: numSegments
+            real(GLfloat),    intent(in), value :: distance
+            real(GLfloat),    intent(out)       :: x
+            real(GLfloat),    intent(out)       :: y
+            real(GLfloat),    intent(out)       :: tangentX
+            real(GLfloat),    intent(out)       :: tangentY
+            integer(GLboolean)                  :: glPointAlongPathNV_interface
         end function glPointAlongPathNV_interface
 
         ! void glPointParameterf(GLenum pname, GLfloat param)

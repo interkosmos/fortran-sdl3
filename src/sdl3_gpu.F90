@@ -4,6 +4,7 @@ module sdl3_gpu
     !! Auto-generated Fortran 2023 interface bindings to `SDL3/SDL_gpu.h`.
     use :: sdl3_pixels
     use :: sdl3_properties
+    use :: sdl3_rect
     use :: sdl3_stdinc
     implicit none (type, external)
     private
@@ -763,4 +764,956 @@ module sdl3_gpu
         integer(uint32) :: instance_extension_count           = 0          !! Number of additional instance extensions to require.
         type(c_ptr)     :: instance_extension_names           = c_null_ptr !! Pointer to a list of additional instance extensions to require.
     end type sdl_gpu_vulkan_options
+
+    public :: sdl_acquire_gpu_command_buffer
+    public :: sdl_acquire_gpu_swapchain_texture
+    public :: sdl_begin_gpu_compute_pass
+    public :: sdl_begin_gpu_copy_pass
+    public :: sdl_begin_gpu_render_pass
+    public :: sdl_bind_gpu_compute_pipeline
+    public :: sdl_bind_gpu_compute_samplers
+    public :: sdl_bind_gpu_compute_storage_buffers
+    public :: sdl_bind_gpu_compute_storage_textures
+    public :: sdl_bind_gpu_fragment_samplers
+    public :: sdl_bind_gpu_fragment_storage_buffers
+    public :: sdl_bind_gpu_fragment_storage_textures
+    public :: sdl_bind_gpu_graphics_pipeline
+    public :: sdl_bind_gpu_index_buffer
+    public :: sdl_bind_gpu_vertex_buffers
+    public :: sdl_bind_gpu_vertex_samplers
+    public :: sdl_bind_gpu_vertex_storage_buffers
+    public :: sdl_bind_gpu_vertex_storage_textures
+    public :: sdl_blit_gpu_texture
+    public :: sdl_calculate_gpu_texture_format_size
+    public :: sdl_cancel_gpu_command_buffer
+    public :: sdl_claim_window_for_gpu_device
+    public :: sdl_copy_gpu_buffer_to_buffer
+    public :: sdl_copy_gpu_texture_to_texture
+    public :: sdl_create_gpu_buffer
+    public :: sdl_create_gpu_compute_pipeline
+    public :: sdl_create_gpu_device
+    public :: sdl_create_gpu_device_with_properties
+    public :: sdl_create_gpu_graphics_pipeline
+    public :: sdl_create_gpu_sampler
+    public :: sdl_create_gpu_shader
+    public :: sdl_create_gpu_texture
+    public :: sdl_create_gpu_transfer_buffer
+    public :: sdl_destroy_gpu_device
+    public :: sdl_dispatch_gpu_compute
+    public :: sdl_dispatch_gpu_compute_indirect
+    public :: sdl_download_from_gpu_buffer
+    public :: sdl_download_from_gpu_texture
+    public :: sdl_draw_gpu_indexed_primitives
+    public :: sdl_draw_gpu_indexed_primitives_indirect
+    public :: sdl_draw_gpu_primitives
+    public :: sdl_draw_gpu_primitives_indirect
+    public :: sdl_end_gpu_compute_pass
+    public :: sdl_end_gpu_copy_pass
+    public :: sdl_end_gpu_render_pass
+    public :: sdl_gpu_supports_properties
+    public :: sdl_gpu_supports_shader_formats
+    public :: sdl_gpu_texture_format_texel_block_size
+    public :: sdl_gpu_texture_supports_format
+    public :: sdl_gpu_texture_supports_sample_count
+    public :: sdl_generate_mipmaps_for_gpu_texture
+    public :: sdl_get_gpu_device_driver
+    public :: sdl_get_gpu_device_properties
+    public :: sdl_get_gpu_driver
+    public :: sdl_get_gpu_shader_formats
+    public :: sdl_get_gpu_swapchain_texture_format
+    public :: sdl_get_gpu_texture_format_from_pixel_format
+    public :: sdl_get_num_gpu_drivers
+    public :: sdl_get_pixel_format_from_gpu_texture_format
+    public :: sdl_insert_gpu_debug_label
+    public :: sdl_map_gpu_transfer_buffer
+    public :: sdl_pop_gpu_debug_group
+    public :: sdl_push_gpu_compute_uniform_data
+    public :: sdl_push_gpu_debug_group
+    public :: sdl_push_gpu_fragment_uniform_data
+    public :: sdl_push_gpu_vertex_uniform_data
+    public :: sdl_query_gpu_fence
+    public :: sdl_release_gpu_buffer
+    public :: sdl_release_gpu_compute_pipeline
+    public :: sdl_release_gpu_fence
+    public :: sdl_release_gpu_graphics_pipeline
+    public :: sdl_release_gpu_sampler
+    public :: sdl_release_gpu_shader
+    public :: sdl_release_gpu_texture
+    public :: sdl_release_gpu_transfer_buffer
+    public :: sdl_release_window_from_gpu_device
+    public :: sdl_set_gpu_allowed_frames_in_flight
+    public :: sdl_set_gpu_blend_constants
+    public :: sdl_set_gpu_buffer_name
+    public :: sdl_set_gpu_scissor
+    public :: sdl_set_gpu_stencil_reference
+    public :: sdl_set_gpu_swapchain_parameters
+    public :: sdl_set_gpu_texture_name
+    public :: sdl_set_gpu_viewport
+    public :: sdl_submit_gpu_command_buffer
+    public :: sdl_submit_gpu_command_buffer_and_acquire_fence
+    public :: sdl_unmap_gpu_transfer_buffer
+    public :: sdl_upload_to_gpu_buffer
+    public :: sdl_upload_to_gpu_texture
+    public :: sdl_wait_and_acquire_gpu_swapchain_texture
+    public :: sdl_wait_for_gpu_fences
+    public :: sdl_wait_for_gpu_idle
+    public :: sdl_wait_for_gpu_swapchain
+    public :: sdl_window_supports_gpu_present_mode
+    public :: sdl_window_supports_gpu_swapchain_composition
+
+    interface
+        ! SDL_GPUCommandBuffer *SDL_AcquireGPUCommandBuffer(SDL_GPUDevice *device)
+        function sdl_acquire_gpu_command_buffer(device) bind(c, name='SDL_AcquireGPUCommandBuffer')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr)                    :: sdl_acquire_gpu_command_buffer
+        end function sdl_acquire_gpu_command_buffer
+
+        ! bool SDL_AcquireGPUSwapchainTexture(SDL_GPUCommandBuffer *command_buffer, SDL_Window *window, SDL_GPUTexture **swapchain_texture, Uint32 *swapchain_texture_width, Uint32 *swapchain_texture_height)
+        function sdl_acquire_gpu_swapchain_texture(command_buffer, window, swapchain_texture, swapchain_texture_width, swapchain_texture_height) bind(c, name='SDL_AcquireGPUSwapchainTexture')
+            import :: c_bool, c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: command_buffer
+            type(c_ptr),     intent(in), value :: window
+            type(c_ptr),     intent(out)       :: swapchain_texture
+            integer(uint32), intent(out)       :: swapchain_texture_width
+            integer(uint32), intent(out)       :: swapchain_texture_height
+            logical(c_bool)                    :: sdl_acquire_gpu_swapchain_texture
+        end function sdl_acquire_gpu_swapchain_texture
+
+        ! SDL_GPUComputePass *SDL_BeginGPUComputePass(SDL_GPUCommandBuffer *command_buffer, const SDL_GPUStorageTextureReadWriteBinding *storage_texture_bindings, Uint32 num_storage_texture_bindings, const SDL_GPUStorageBufferReadWriteBinding *storage_buffer_bindings, Uint32 num_storage_buffer_bindings)
+        function sdl_begin_gpu_compute_pass(command_buffer, storage_texture_bindings, num_storage_texture_bindings, storage_buffer_bindings, num_storage_buffer_bindings) bind(c, name='SDL_BeginGPUComputePass')
+            import :: c_ptr, sdl_gpu_storage_buffer_read_write_binding, sdl_gpu_storage_texture_read_write_binding, uint32
+            implicit none
+            type(c_ptr),                                      intent(in), value :: command_buffer
+            type(sdl_gpu_storage_texture_read_write_binding), intent(in)        :: storage_texture_bindings
+            integer(uint32),                                  intent(in), value :: num_storage_texture_bindings
+            type(sdl_gpu_storage_buffer_read_write_binding),  intent(in)        :: storage_buffer_bindings
+            integer(uint32),                                  intent(in), value :: num_storage_buffer_bindings
+            type(c_ptr)                                                         :: sdl_begin_gpu_compute_pass
+        end function sdl_begin_gpu_compute_pass
+
+        ! SDL_GPUCopyPass *SDL_BeginGPUCopyPass(SDL_GPUCommandBuffer *command_buffer)
+        function sdl_begin_gpu_copy_pass(command_buffer) bind(c, name='SDL_BeginGPUCopyPass')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: command_buffer
+            type(c_ptr)                    :: sdl_begin_gpu_copy_pass
+        end function sdl_begin_gpu_copy_pass
+
+        ! SDL_GPURenderPass *SDL_BeginGPURenderPass(SDL_GPUCommandBuffer *command_buffer, const SDL_GPUColorTargetInfo *color_target_infos, Uint32 num_color_targets, const SDL_GPUDepthStencilTargetInfo *depth_stencil_target_info)
+        function sdl_begin_gpu_render_pass(command_buffer, color_target_infos, num_color_targets, depth_stencil_target_info) bind(c, name='SDL_BeginGPURenderPass')
+            import :: c_ptr, sdl_gpu_color_target_info, sdl_gpu_depth_stencil_target_info, uint32
+            implicit none
+            type(c_ptr),                             intent(in), value :: command_buffer
+            type(sdl_gpu_color_target_info),         intent(in)        :: color_target_infos
+            integer(uint32),                         intent(in), value :: num_color_targets
+            type(sdl_gpu_depth_stencil_target_info), intent(in)        :: depth_stencil_target_info
+            type(c_ptr)                                                :: sdl_begin_gpu_render_pass
+        end function sdl_begin_gpu_render_pass
+
+        ! void SDL_BindGPUComputePipeline(SDL_GPUComputePass *compute_pass, SDL_GPUComputePipeline *compute_pipeline)
+        subroutine sdl_bind_gpu_compute_pipeline(compute_pass, compute_pipeline) bind(c, name='SDL_BindGPUComputePipeline')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: compute_pass
+            type(c_ptr), intent(in), value :: compute_pipeline
+        end subroutine sdl_bind_gpu_compute_pipeline
+
+        ! void SDL_BindGPUComputeSamplers(SDL_GPUComputePass *compute_pass, Uint32 first_slot, const SDL_GPUTextureSamplerBinding *texture_sampler_bindings, Uint32 num_bindings)
+        subroutine sdl_bind_gpu_compute_samplers(compute_pass, first_slot, texture_sampler_bindings, num_bindings) bind(c, name='SDL_BindGPUComputeSamplers')
+            import :: c_ptr, sdl_gpu_texture_sampler_binding, uint32
+            implicit none
+            type(c_ptr),                           intent(in), value :: compute_pass
+            integer(uint32),                       intent(in), value :: first_slot
+            type(sdl_gpu_texture_sampler_binding), intent(in)        :: texture_sampler_bindings
+            integer(uint32),                       intent(in), value :: num_bindings
+        end subroutine sdl_bind_gpu_compute_samplers
+
+        ! void SDL_BindGPUComputeStorageBuffers(SDL_GPUComputePass *compute_pass, Uint32 first_slot, SDL_GPUBuffer *const *storage_buffers, Uint32 num_bindings)
+        subroutine sdl_bind_gpu_compute_storage_buffers(compute_pass, first_slot, num_bindings) bind(c, name='SDL_BindGPUComputeStorageBuffers')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: compute_pass
+            integer(uint32), intent(in), value :: first_slot
+            integer(uint32), intent(in), value :: num_bindings
+        end subroutine sdl_bind_gpu_compute_storage_buffers
+
+        ! void SDL_BindGPUComputeStorageTextures(SDL_GPUComputePass *compute_pass, Uint32 first_slot, SDL_GPUTexture *const *storage_textures, Uint32 num_bindings)
+        subroutine sdl_bind_gpu_compute_storage_textures(compute_pass, first_slot, num_bindings) bind(c, name='SDL_BindGPUComputeStorageTextures')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: compute_pass
+            integer(uint32), intent(in), value :: first_slot
+            integer(uint32), intent(in), value :: num_bindings
+        end subroutine sdl_bind_gpu_compute_storage_textures
+
+        ! void SDL_BindGPUFragmentSamplers(SDL_GPURenderPass *render_pass, Uint32 first_slot, const SDL_GPUTextureSamplerBinding *texture_sampler_bindings, Uint32 num_bindings)
+        subroutine sdl_bind_gpu_fragment_samplers(render_pass, first_slot, texture_sampler_bindings, num_bindings) bind(c, name='SDL_BindGPUFragmentSamplers')
+            import :: c_ptr, sdl_gpu_texture_sampler_binding, uint32
+            implicit none
+            type(c_ptr),                           intent(in), value :: render_pass
+            integer(uint32),                       intent(in), value :: first_slot
+            type(sdl_gpu_texture_sampler_binding), intent(in)        :: texture_sampler_bindings
+            integer(uint32),                       intent(in), value :: num_bindings
+        end subroutine sdl_bind_gpu_fragment_samplers
+
+        ! void SDL_BindGPUFragmentStorageBuffers(SDL_GPURenderPass *render_pass, Uint32 first_slot, SDL_GPUBuffer *const *storage_buffers, Uint32 num_bindings)
+        subroutine sdl_bind_gpu_fragment_storage_buffers(render_pass, first_slot, num_bindings) bind(c, name='SDL_BindGPUFragmentStorageBuffers')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: render_pass
+            integer(uint32), intent(in), value :: first_slot
+            integer(uint32), intent(in), value :: num_bindings
+        end subroutine sdl_bind_gpu_fragment_storage_buffers
+
+        ! void SDL_BindGPUFragmentStorageTextures(SDL_GPURenderPass *render_pass, Uint32 first_slot, SDL_GPUTexture *const *storage_textures, Uint32 num_bindings)
+        subroutine sdl_bind_gpu_fragment_storage_textures(render_pass, first_slot, num_bindings) bind(c, name='SDL_BindGPUFragmentStorageTextures')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: render_pass
+            integer(uint32), intent(in), value :: first_slot
+            integer(uint32), intent(in), value :: num_bindings
+        end subroutine sdl_bind_gpu_fragment_storage_textures
+
+        ! void SDL_BindGPUGraphicsPipeline(SDL_GPURenderPass *render_pass, SDL_GPUGraphicsPipeline *graphics_pipeline)
+        subroutine sdl_bind_gpu_graphics_pipeline(render_pass, graphics_pipeline) bind(c, name='SDL_BindGPUGraphicsPipeline')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: render_pass
+            type(c_ptr), intent(in), value :: graphics_pipeline
+        end subroutine sdl_bind_gpu_graphics_pipeline
+
+        ! void SDL_BindGPUIndexBuffer(SDL_GPURenderPass *render_pass, const SDL_GPUBufferBinding *binding, SDL_GPUIndexElementSize index_element_size)
+        subroutine sdl_bind_gpu_index_buffer(render_pass, binding, index_element_size) bind(c, name='SDL_BindGPUIndexBuffer')
+            import :: c_int, c_ptr, sdl_gpu_buffer_binding
+            implicit none
+            type(c_ptr),                  intent(in), value :: render_pass
+            type(sdl_gpu_buffer_binding), intent(in)        :: binding
+            integer(c_int),               intent(in), value :: index_element_size
+        end subroutine sdl_bind_gpu_index_buffer
+
+        ! void SDL_BindGPUVertexBuffers(SDL_GPURenderPass *render_pass, Uint32 first_slot, const SDL_GPUBufferBinding *bindings, Uint32 num_bindings)
+        subroutine sdl_bind_gpu_vertex_buffers(render_pass, first_slot, bindings, num_bindings) bind(c, name='SDL_BindGPUVertexBuffers')
+            import :: c_ptr, sdl_gpu_buffer_binding, uint32
+            implicit none
+            type(c_ptr),                  intent(in), value :: render_pass
+            integer(uint32),              intent(in), value :: first_slot
+            type(sdl_gpu_buffer_binding), intent(in)        :: bindings
+            integer(uint32),              intent(in), value :: num_bindings
+        end subroutine sdl_bind_gpu_vertex_buffers
+
+        ! void SDL_BindGPUVertexSamplers(SDL_GPURenderPass *render_pass, Uint32 first_slot, const SDL_GPUTextureSamplerBinding *texture_sampler_bindings, Uint32 num_bindings)
+        subroutine sdl_bind_gpu_vertex_samplers(render_pass, first_slot, texture_sampler_bindings, num_bindings) bind(c, name='SDL_BindGPUVertexSamplers')
+            import :: c_ptr, sdl_gpu_texture_sampler_binding, uint32
+            implicit none
+            type(c_ptr),                           intent(in), value :: render_pass
+            integer(uint32),                       intent(in), value :: first_slot
+            type(sdl_gpu_texture_sampler_binding), intent(in)        :: texture_sampler_bindings
+            integer(uint32),                       intent(in), value :: num_bindings
+        end subroutine sdl_bind_gpu_vertex_samplers
+
+        ! void SDL_BindGPUVertexStorageBuffers(SDL_GPURenderPass *render_pass, Uint32 first_slot, SDL_GPUBuffer *const *storage_buffers, Uint32 num_bindings)
+        subroutine sdl_bind_gpu_vertex_storage_buffers(render_pass, first_slot, num_bindings) bind(c, name='SDL_BindGPUVertexStorageBuffers')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: render_pass
+            integer(uint32), intent(in), value :: first_slot
+            integer(uint32), intent(in), value :: num_bindings
+        end subroutine sdl_bind_gpu_vertex_storage_buffers
+
+        ! void SDL_BindGPUVertexStorageTextures(SDL_GPURenderPass *render_pass, Uint32 first_slot, SDL_GPUTexture *const *storage_textures, Uint32 num_bindings)
+        subroutine sdl_bind_gpu_vertex_storage_textures(render_pass, first_slot, num_bindings) bind(c, name='SDL_BindGPUVertexStorageTextures')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: render_pass
+            integer(uint32), intent(in), value :: first_slot
+            integer(uint32), intent(in), value :: num_bindings
+        end subroutine sdl_bind_gpu_vertex_storage_textures
+
+        ! void SDL_BlitGPUTexture(SDL_GPUCommandBuffer *command_buffer, const SDL_GPUBlitInfo *info)
+        subroutine sdl_blit_gpu_texture(command_buffer, info) bind(c, name='SDL_BlitGPUTexture')
+            import :: c_ptr, sdl_gpu_blit_info
+            implicit none
+            type(c_ptr),             intent(in), value :: command_buffer
+            type(sdl_gpu_blit_info), intent(in)        :: info
+        end subroutine sdl_blit_gpu_texture
+
+        ! Uint32 SDL_CalculateGPUTextureFormatSize(SDL_GPUTextureFormat format, Uint32 width, Uint32 height, Uint32 depth_or_layer_count)
+        function sdl_calculate_gpu_texture_format_size(format, width, height, depth_or_layer_count) bind(c, name='SDL_CalculateGPUTextureFormatSize')
+            import :: c_int, uint32
+            implicit none
+            integer(c_int),  intent(in), value :: format
+            integer(uint32), intent(in), value :: width
+            integer(uint32), intent(in), value :: height
+            integer(uint32), intent(in), value :: depth_or_layer_count
+            integer(uint32)                    :: sdl_calculate_gpu_texture_format_size
+        end function sdl_calculate_gpu_texture_format_size
+
+        ! bool SDL_CancelGPUCommandBuffer(SDL_GPUCommandBuffer *command_buffer)
+        function sdl_cancel_gpu_command_buffer(command_buffer) bind(c, name='SDL_CancelGPUCommandBuffer')
+            import :: c_bool, c_ptr
+            implicit none
+            type(c_ptr),     intent(in), value :: command_buffer
+            logical(c_bool)                    :: sdl_cancel_gpu_command_buffer
+        end function sdl_cancel_gpu_command_buffer
+
+        ! bool SDL_ClaimWindowForGPUDevice(SDL_GPUDevice *device, SDL_Window *window)
+        function sdl_claim_window_for_gpu_device(device, window) bind(c, name='SDL_ClaimWindowForGPUDevice')
+            import :: c_bool, c_ptr
+            implicit none
+            type(c_ptr),     intent(in), value :: device
+            type(c_ptr),     intent(in), value :: window
+            logical(c_bool)                    :: sdl_claim_window_for_gpu_device
+        end function sdl_claim_window_for_gpu_device
+
+        ! void SDL_CopyGPUBufferToBuffer(SDL_GPUCopyPass *copy_pass, const SDL_GPUBufferLocation *source, const SDL_GPUBufferLocation *destination, Uint32 size, bool cycle)
+        subroutine sdl_copy_gpu_buffer_to_buffer(copy_pass, source, destination, size, cycle) bind(c, name='SDL_CopyGPUBufferToBuffer')
+            import :: c_bool, c_ptr, sdl_gpu_buffer_location, uint32
+            implicit none
+            type(c_ptr),                   intent(in), value :: copy_pass
+            type(sdl_gpu_buffer_location), intent(in)        :: source
+            type(sdl_gpu_buffer_location), intent(in)        :: destination
+            integer(uint32),               intent(in), value :: size
+            logical(c_bool),               intent(in), value :: cycle
+        end subroutine sdl_copy_gpu_buffer_to_buffer
+
+        ! void SDL_CopyGPUTextureToTexture(SDL_GPUCopyPass *copy_pass, const SDL_GPUTextureLocation *source, const SDL_GPUTextureLocation *destination, Uint32 w, Uint32 h, Uint32 d, bool cycle)
+        subroutine sdl_copy_gpu_texture_to_texture(copy_pass, source, destination, w, h, d, cycle) bind(c, name='SDL_CopyGPUTextureToTexture')
+            import :: c_bool, c_ptr, sdl_gpu_texture_location, uint32
+            implicit none
+            type(c_ptr),                    intent(in), value :: copy_pass
+            type(sdl_gpu_texture_location), intent(in)        :: source
+            type(sdl_gpu_texture_location), intent(in)        :: destination
+            integer(uint32),                intent(in), value :: w
+            integer(uint32),                intent(in), value :: h
+            integer(uint32),                intent(in), value :: d
+            logical(c_bool),                intent(in), value :: cycle
+        end subroutine sdl_copy_gpu_texture_to_texture
+
+        ! SDL_GPUBuffer *SDL_CreateGPUBuffer(SDL_GPUDevice *device, const SDL_GPUBufferCreateInfo *createinfo)
+        function sdl_create_gpu_buffer(device, createinfo) bind(c, name='SDL_CreateGPUBuffer')
+            import :: c_ptr, sdl_gpu_buffer_create_info
+            implicit none
+            type(c_ptr),                      intent(in), value :: device
+            type(sdl_gpu_buffer_create_info), intent(in)        :: createinfo
+            type(c_ptr)                                         :: sdl_create_gpu_buffer
+        end function sdl_create_gpu_buffer
+
+        ! SDL_GPUComputePipeline *SDL_CreateGPUComputePipeline(SDL_GPUDevice *device, const SDL_GPUComputePipelineCreateInfo *createinfo)
+        function sdl_create_gpu_compute_pipeline(device, createinfo) bind(c, name='SDL_CreateGPUComputePipeline')
+            import :: c_ptr, sdl_gpu_compute_pipeline_create_info
+            implicit none
+            type(c_ptr),                                intent(in), value :: device
+            type(sdl_gpu_compute_pipeline_create_info), intent(in)        :: createinfo
+            type(c_ptr)                                                   :: sdl_create_gpu_compute_pipeline
+        end function sdl_create_gpu_compute_pipeline
+
+        ! SDL_GPUDevice *SDL_CreateGPUDevice(SDL_GPUShaderFormat format_flags, bool debug_mode, const char *name)
+        function sdl_create_gpu_device(format_flags, debug_mode, name) bind(c, name='SDL_CreateGPUDevice')
+            import :: c_bool, c_char, c_ptr, sdl_gpu_shader_format
+            implicit none
+            integer(sdl_gpu_shader_format), intent(in), value :: format_flags
+            logical(c_bool),                intent(in), value :: debug_mode
+            character(c_char),              intent(in)        :: name
+            type(c_ptr)                                       :: sdl_create_gpu_device
+        end function sdl_create_gpu_device
+
+        ! SDL_GPUDevice *SDL_CreateGPUDeviceWithProperties(SDL_PropertiesID props)
+        function sdl_create_gpu_device_with_properties(props) bind(c, name='SDL_CreateGPUDeviceWithProperties')
+            import :: c_ptr, sdl_properties_id
+            implicit none
+            integer(sdl_properties_id), intent(in), value :: props
+            type(c_ptr)                                   :: sdl_create_gpu_device_with_properties
+        end function sdl_create_gpu_device_with_properties
+
+        ! SDL_GPUGraphicsPipeline *SDL_CreateGPUGraphicsPipeline(SDL_GPUDevice *device, const SDL_GPUGraphicsPipelineCreateInfo *createinfo)
+        function sdl_create_gpu_graphics_pipeline(device, createinfo) bind(c, name='SDL_CreateGPUGraphicsPipeline')
+            import :: c_ptr, sdl_gpu_graphics_pipeline_create_info
+            implicit none
+            type(c_ptr),                                 intent(in), value :: device
+            type(sdl_gpu_graphics_pipeline_create_info), intent(in)        :: createinfo
+            type(c_ptr)                                                    :: sdl_create_gpu_graphics_pipeline
+        end function sdl_create_gpu_graphics_pipeline
+
+        ! SDL_GPUSampler *SDL_CreateGPUSampler(SDL_GPUDevice *device, const SDL_GPUSamplerCreateInfo *createinfo)
+        function sdl_create_gpu_sampler(device, createinfo) bind(c, name='SDL_CreateGPUSampler')
+            import :: c_ptr, sdl_gpu_sampler_create_info
+            implicit none
+            type(c_ptr),                       intent(in), value :: device
+            type(sdl_gpu_sampler_create_info), intent(in)        :: createinfo
+            type(c_ptr)                                          :: sdl_create_gpu_sampler
+        end function sdl_create_gpu_sampler
+
+        ! SDL_GPUShader *SDL_CreateGPUShader(SDL_GPUDevice *device, const SDL_GPUShaderCreateInfo *createinfo)
+        function sdl_create_gpu_shader(device, createinfo) bind(c, name='SDL_CreateGPUShader')
+            import :: c_ptr, sdl_gpu_shader_create_info
+            implicit none
+            type(c_ptr),                      intent(in), value :: device
+            type(sdl_gpu_shader_create_info), intent(in)        :: createinfo
+            type(c_ptr)                                         :: sdl_create_gpu_shader
+        end function sdl_create_gpu_shader
+
+        ! SDL_GPUTexture *SDL_CreateGPUTexture(SDL_GPUDevice *device, const SDL_GPUTextureCreateInfo *createinfo)
+        function sdl_create_gpu_texture(device, createinfo) bind(c, name='SDL_CreateGPUTexture')
+            import :: c_ptr, sdl_gpu_texture_create_info
+            implicit none
+            type(c_ptr),                       intent(in), value :: device
+            type(sdl_gpu_texture_create_info), intent(in)        :: createinfo
+            type(c_ptr)                                          :: sdl_create_gpu_texture
+        end function sdl_create_gpu_texture
+
+        ! SDL_GPUTransferBuffer *SDL_CreateGPUTransferBuffer(SDL_GPUDevice *device, const SDL_GPUTransferBufferCreateInfo *createinfo)
+        function sdl_create_gpu_transfer_buffer(device, createinfo) bind(c, name='SDL_CreateGPUTransferBuffer')
+            import :: c_ptr, sdl_gpu_transfer_buffer_create_info
+            implicit none
+            type(c_ptr),                               intent(in), value :: device
+            type(sdl_gpu_transfer_buffer_create_info), intent(in)        :: createinfo
+            type(c_ptr)                                                  :: sdl_create_gpu_transfer_buffer
+        end function sdl_create_gpu_transfer_buffer
+
+        ! void SDL_DestroyGPUDevice(SDL_GPUDevice *device)
+        subroutine sdl_destroy_gpu_device(device) bind(c, name='SDL_DestroyGPUDevice')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+        end subroutine sdl_destroy_gpu_device
+
+        ! void SDL_DispatchGPUCompute(SDL_GPUComputePass *compute_pass, Uint32 groupcount_x, Uint32 groupcount_y, Uint32 groupcount_z)
+        subroutine sdl_dispatch_gpu_compute(compute_pass, groupcount_x, groupcount_y, groupcount_z) bind(c, name='SDL_DispatchGPUCompute')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: compute_pass
+            integer(uint32), intent(in), value :: groupcount_x
+            integer(uint32), intent(in), value :: groupcount_y
+            integer(uint32), intent(in), value :: groupcount_z
+        end subroutine sdl_dispatch_gpu_compute
+
+        ! void SDL_DispatchGPUComputeIndirect(SDL_GPUComputePass *compute_pass, SDL_GPUBuffer *buffer, Uint32 offset)
+        subroutine sdl_dispatch_gpu_compute_indirect(compute_pass, buffer, offset) bind(c, name='SDL_DispatchGPUComputeIndirect')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: compute_pass
+            type(c_ptr),     intent(in), value :: buffer
+            integer(uint32), intent(in), value :: offset
+        end subroutine sdl_dispatch_gpu_compute_indirect
+
+        ! void SDL_DownloadFromGPUBuffer(SDL_GPUCopyPass *copy_pass, const SDL_GPUBufferRegion *source, const SDL_GPUTransferBufferLocation *destination)
+        subroutine sdl_download_from_gpu_buffer(copy_pass, source, destination) bind(c, name='SDL_DownloadFromGPUBuffer')
+            import :: c_ptr, sdl_gpu_buffer_region, sdl_gpu_transfer_buffer_location
+            implicit none
+            type(c_ptr),                            intent(in), value :: copy_pass
+            type(sdl_gpu_buffer_region),            intent(in)        :: source
+            type(sdl_gpu_transfer_buffer_location), intent(in)        :: destination
+        end subroutine sdl_download_from_gpu_buffer
+
+        ! void SDL_DownloadFromGPUTexture(SDL_GPUCopyPass *copy_pass, const SDL_GPUTextureRegion *source, const SDL_GPUTextureTransferInfo *destination)
+        subroutine sdl_download_from_gpu_texture(copy_pass, source, destination) bind(c, name='SDL_DownloadFromGPUTexture')
+            import :: c_ptr, sdl_gpu_texture_region, sdl_gpu_texture_transfer_info
+            implicit none
+            type(c_ptr),                         intent(in), value :: copy_pass
+            type(sdl_gpu_texture_region),        intent(in)        :: source
+            type(sdl_gpu_texture_transfer_info), intent(in)        :: destination
+        end subroutine sdl_download_from_gpu_texture
+
+        ! void SDL_DrawGPUIndexedPrimitives(SDL_GPURenderPass *render_pass, Uint32 num_indices, Uint32 num_instances, Uint32 first_index, Sint32 vertex_offset, Uint32 first_instance)
+        subroutine sdl_draw_gpu_indexed_primitives(render_pass, num_indices, num_instances, first_index, vertex_offset, first_instance) bind(c, name='SDL_DrawGPUIndexedPrimitives')
+            import :: c_ptr, sint32, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: render_pass
+            integer(uint32), intent(in), value :: num_indices
+            integer(uint32), intent(in), value :: num_instances
+            integer(uint32), intent(in), value :: first_index
+            integer(sint32), intent(in), value :: vertex_offset
+            integer(uint32), intent(in), value :: first_instance
+        end subroutine sdl_draw_gpu_indexed_primitives
+
+        ! void SDL_DrawGPUIndexedPrimitivesIndirect(SDL_GPURenderPass *render_pass, SDL_GPUBuffer *buffer, Uint32 offset, Uint32 draw_count)
+        subroutine sdl_draw_gpu_indexed_primitives_indirect(render_pass, buffer, offset, draw_count) bind(c, name='SDL_DrawGPUIndexedPrimitivesIndirect')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: render_pass
+            type(c_ptr),     intent(in), value :: buffer
+            integer(uint32), intent(in), value :: offset
+            integer(uint32), intent(in), value :: draw_count
+        end subroutine sdl_draw_gpu_indexed_primitives_indirect
+
+        ! void SDL_DrawGPUPrimitives(SDL_GPURenderPass *render_pass, Uint32 num_vertices, Uint32 num_instances, Uint32 first_vertex, Uint32 first_instance)
+        subroutine sdl_draw_gpu_primitives(render_pass, num_vertices, num_instances, first_vertex, first_instance) bind(c, name='SDL_DrawGPUPrimitives')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: render_pass
+            integer(uint32), intent(in), value :: num_vertices
+            integer(uint32), intent(in), value :: num_instances
+            integer(uint32), intent(in), value :: first_vertex
+            integer(uint32), intent(in), value :: first_instance
+        end subroutine sdl_draw_gpu_primitives
+
+        ! void SDL_DrawGPUPrimitivesIndirect(SDL_GPURenderPass *render_pass, SDL_GPUBuffer *buffer, Uint32 offset, Uint32 draw_count)
+        subroutine sdl_draw_gpu_primitives_indirect(render_pass, buffer, offset, draw_count) bind(c, name='SDL_DrawGPUPrimitivesIndirect')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: render_pass
+            type(c_ptr),     intent(in), value :: buffer
+            integer(uint32), intent(in), value :: offset
+            integer(uint32), intent(in), value :: draw_count
+        end subroutine sdl_draw_gpu_primitives_indirect
+
+        ! void SDL_EndGPUComputePass(SDL_GPUComputePass *compute_pass)
+        subroutine sdl_end_gpu_compute_pass(compute_pass) bind(c, name='SDL_EndGPUComputePass')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: compute_pass
+        end subroutine sdl_end_gpu_compute_pass
+
+        ! void SDL_EndGPUCopyPass(SDL_GPUCopyPass *copy_pass)
+        subroutine sdl_end_gpu_copy_pass(copy_pass) bind(c, name='SDL_EndGPUCopyPass')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: copy_pass
+        end subroutine sdl_end_gpu_copy_pass
+
+        ! void SDL_EndGPURenderPass(SDL_GPURenderPass *render_pass)
+        subroutine sdl_end_gpu_render_pass(render_pass) bind(c, name='SDL_EndGPURenderPass')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: render_pass
+        end subroutine sdl_end_gpu_render_pass
+
+        ! bool SDL_GPUSupportsProperties(SDL_PropertiesID props)
+        function sdl_gpu_supports_properties(props) bind(c, name='SDL_GPUSupportsProperties')
+            import :: c_bool, sdl_properties_id
+            implicit none
+            integer(sdl_properties_id), intent(in), value :: props
+            logical(c_bool)                               :: sdl_gpu_supports_properties
+        end function sdl_gpu_supports_properties
+
+        ! bool SDL_GPUSupportsShaderFormats(SDL_GPUShaderFormat format_flags, const char *name)
+        function sdl_gpu_supports_shader_formats(format_flags, name) bind(c, name='SDL_GPUSupportsShaderFormats')
+            import :: c_bool, c_char, sdl_gpu_shader_format
+            implicit none
+            integer(sdl_gpu_shader_format), intent(in), value :: format_flags
+            character(c_char),              intent(in)        :: name
+            logical(c_bool)                                   :: sdl_gpu_supports_shader_formats
+        end function sdl_gpu_supports_shader_formats
+
+        ! Uint32 SDL_GPUTextureFormatTexelBlockSize(SDL_GPUTextureFormat format)
+        function sdl_gpu_texture_format_texel_block_size(format) bind(c, name='SDL_GPUTextureFormatTexelBlockSize')
+            import :: c_int, uint32
+            implicit none
+            integer(c_int),  intent(in), value :: format
+            integer(uint32)                    :: sdl_gpu_texture_format_texel_block_size
+        end function sdl_gpu_texture_format_texel_block_size
+
+        ! bool SDL_GPUTextureSupportsFormat(SDL_GPUDevice *device, SDL_GPUTextureFormat format, SDL_GPUTextureType type, SDL_GPUTextureUsageFlags usage)
+        function sdl_gpu_texture_supports_format(device, format, type, usage) bind(c, name='SDL_GPUTextureSupportsFormat')
+            import :: c_bool, c_int, c_ptr, sdl_gpu_texture_usage_flags
+            implicit none
+            type(c_ptr),                          intent(in), value :: device
+            integer(c_int),                       intent(in), value :: format
+            integer(c_int),                       intent(in), value :: type
+            integer(sdl_gpu_texture_usage_flags), intent(in), value :: usage
+            logical(c_bool)                                         :: sdl_gpu_texture_supports_format
+        end function sdl_gpu_texture_supports_format
+
+        ! bool SDL_GPUTextureSupportsSampleCount(SDL_GPUDevice *device, SDL_GPUTextureFormat format, SDL_GPUSampleCount sample_count)
+        function sdl_gpu_texture_supports_sample_count(device, format, sample_count) bind(c, name='SDL_GPUTextureSupportsSampleCount')
+            import :: c_bool, c_int, c_ptr
+            implicit none
+            type(c_ptr),    intent(in), value :: device
+            integer(c_int), intent(in), value :: format
+            integer(c_int), intent(in), value :: sample_count
+            logical(c_bool)                   :: sdl_gpu_texture_supports_sample_count
+        end function sdl_gpu_texture_supports_sample_count
+
+        ! void SDL_GenerateMipmapsForGPUTexture(SDL_GPUCommandBuffer *command_buffer, SDL_GPUTexture *texture)
+        subroutine sdl_generate_mipmaps_for_gpu_texture(command_buffer, texture) bind(c, name='SDL_GenerateMipmapsForGPUTexture')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: command_buffer
+            type(c_ptr), intent(in), value :: texture
+        end subroutine sdl_generate_mipmaps_for_gpu_texture
+
+        ! const char *SDL_GetGPUDeviceDriver(SDL_GPUDevice *device)
+        function sdl_get_gpu_device_driver(device) bind(c, name='SDL_GetGPUDeviceDriver')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr)                    :: sdl_get_gpu_device_driver
+        end function sdl_get_gpu_device_driver
+
+        ! SDL_PropertiesID SDL_GetGPUDeviceProperties(SDL_GPUDevice *device)
+        function sdl_get_gpu_device_properties(device) bind(c, name='SDL_GetGPUDeviceProperties')
+            import :: c_ptr, sdl_properties_id
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            integer(sdl_properties_id)     :: sdl_get_gpu_device_properties
+        end function sdl_get_gpu_device_properties
+
+        ! const char *SDL_GetGPUDriver(int index)
+        function sdl_get_gpu_driver(index) bind(c, name='SDL_GetGPUDriver')
+            import :: c_int, c_ptr
+            implicit none
+            integer(c_int), intent(in), value :: index
+            type(c_ptr)                       :: sdl_get_gpu_driver
+        end function sdl_get_gpu_driver
+
+        ! SDL_GPUShaderFormat SDL_GetGPUShaderFormats(SDL_GPUDevice *device)
+        function sdl_get_gpu_shader_formats(device) bind(c, name='SDL_GetGPUShaderFormats')
+            import :: c_ptr, sdl_gpu_shader_format
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            integer(sdl_gpu_shader_format) :: sdl_get_gpu_shader_formats
+        end function sdl_get_gpu_shader_formats
+
+        ! SDL_GPUTextureFormat SDL_GetGPUSwapchainTextureFormat(SDL_GPUDevice *device, SDL_Window *window)
+        function sdl_get_gpu_swapchain_texture_format(device, window) bind(c, name='SDL_GetGPUSwapchainTextureFormat')
+            import :: c_int, c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: window
+            integer(c_int)                 :: sdl_get_gpu_swapchain_texture_format
+        end function sdl_get_gpu_swapchain_texture_format
+
+        ! SDL_GPUTextureFormat SDL_GetGPUTextureFormatFromPixelFormat(SDL_PixelFormat format)
+        function sdl_get_gpu_texture_format_from_pixel_format(format) bind(c, name='SDL_GetGPUTextureFormatFromPixelFormat')
+            import :: c_int
+            implicit none
+            integer(c_int), intent(in), value :: format
+            integer(c_int)                    :: sdl_get_gpu_texture_format_from_pixel_format
+        end function sdl_get_gpu_texture_format_from_pixel_format
+
+        ! int SDL_GetNumGPUDrivers(void)
+        function sdl_get_num_gpu_drivers() bind(c, name='SDL_GetNumGPUDrivers')
+            import :: c_int
+            implicit none
+            integer(c_int) :: sdl_get_num_gpu_drivers
+        end function sdl_get_num_gpu_drivers
+
+        ! SDL_PixelFormat SDL_GetPixelFormatFromGPUTextureFormat(SDL_GPUTextureFormat format)
+        function sdl_get_pixel_format_from_gpu_texture_format(format) bind(c, name='SDL_GetPixelFormatFromGPUTextureFormat')
+            import :: c_int
+            implicit none
+            integer(c_int), intent(in), value :: format
+            integer(c_int)                    :: sdl_get_pixel_format_from_gpu_texture_format
+        end function sdl_get_pixel_format_from_gpu_texture_format
+
+        ! void SDL_InsertGPUDebugLabel(SDL_GPUCommandBuffer *command_buffer, const char *text)
+        subroutine sdl_insert_gpu_debug_label(command_buffer, text) bind(c, name='SDL_InsertGPUDebugLabel')
+            import :: c_char, c_ptr
+            implicit none
+            type(c_ptr),       intent(in), value :: command_buffer
+            character(c_char), intent(in)        :: text
+        end subroutine sdl_insert_gpu_debug_label
+
+        ! void *SDL_MapGPUTransferBuffer(SDL_GPUDevice *device, SDL_GPUTransferBuffer *transfer_buffer, bool cycle)
+        function sdl_map_gpu_transfer_buffer(device, transfer_buffer, cycle) bind(c, name='SDL_MapGPUTransferBuffer')
+            import :: c_bool, c_ptr
+            implicit none
+            type(c_ptr),     intent(in), value :: device
+            type(c_ptr),     intent(in), value :: transfer_buffer
+            logical(c_bool), intent(in), value :: cycle
+            type(c_ptr)                        :: sdl_map_gpu_transfer_buffer
+        end function sdl_map_gpu_transfer_buffer
+
+        ! void SDL_PopGPUDebugGroup(SDL_GPUCommandBuffer *command_buffer)
+        subroutine sdl_pop_gpu_debug_group(command_buffer) bind(c, name='SDL_PopGPUDebugGroup')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: command_buffer
+        end subroutine sdl_pop_gpu_debug_group
+
+        ! void SDL_PushGPUComputeUniformData(SDL_GPUCommandBuffer *command_buffer, Uint32 slot_index, const void *data, Uint32 length)
+        subroutine sdl_push_gpu_compute_uniform_data(command_buffer, slot_index, data, length) bind(c, name='SDL_PushGPUComputeUniformData')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: command_buffer
+            integer(uint32), intent(in), value :: slot_index
+            type(c_ptr),     intent(in), value :: data
+            integer(uint32), intent(in), value :: length
+        end subroutine sdl_push_gpu_compute_uniform_data
+
+        ! void SDL_PushGPUDebugGroup(SDL_GPUCommandBuffer *command_buffer, const char *name)
+        subroutine sdl_push_gpu_debug_group(command_buffer, name) bind(c, name='SDL_PushGPUDebugGroup')
+            import :: c_char, c_ptr
+            implicit none
+            type(c_ptr),       intent(in), value :: command_buffer
+            character(c_char), intent(in)        :: name
+        end subroutine sdl_push_gpu_debug_group
+
+        ! void SDL_PushGPUFragmentUniformData(SDL_GPUCommandBuffer *command_buffer, Uint32 slot_index, const void *data, Uint32 length)
+        subroutine sdl_push_gpu_fragment_uniform_data(command_buffer, slot_index, data, length) bind(c, name='SDL_PushGPUFragmentUniformData')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: command_buffer
+            integer(uint32), intent(in), value :: slot_index
+            type(c_ptr),     intent(in), value :: data
+            integer(uint32), intent(in), value :: length
+        end subroutine sdl_push_gpu_fragment_uniform_data
+
+        ! void SDL_PushGPUVertexUniformData(SDL_GPUCommandBuffer *command_buffer, Uint32 slot_index, const void *data, Uint32 length)
+        subroutine sdl_push_gpu_vertex_uniform_data(command_buffer, slot_index, data, length) bind(c, name='SDL_PushGPUVertexUniformData')
+            import :: c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: command_buffer
+            integer(uint32), intent(in), value :: slot_index
+            type(c_ptr),     intent(in), value :: data
+            integer(uint32), intent(in), value :: length
+        end subroutine sdl_push_gpu_vertex_uniform_data
+
+        ! bool SDL_QueryGPUFence(SDL_GPUDevice *device, SDL_GPUFence *fence)
+        function sdl_query_gpu_fence(device, fence) bind(c, name='SDL_QueryGPUFence')
+            import :: c_bool, c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: fence
+            logical(c_bool)                :: sdl_query_gpu_fence
+        end function sdl_query_gpu_fence
+
+        ! void SDL_ReleaseGPUBuffer(SDL_GPUDevice *device, SDL_GPUBuffer *buffer)
+        subroutine sdl_release_gpu_buffer(device, buffer) bind(c, name='SDL_ReleaseGPUBuffer')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: buffer
+        end subroutine sdl_release_gpu_buffer
+
+        ! void SDL_ReleaseGPUComputePipeline(SDL_GPUDevice *device, SDL_GPUComputePipeline *compute_pipeline)
+        subroutine sdl_release_gpu_compute_pipeline(device, compute_pipeline) bind(c, name='SDL_ReleaseGPUComputePipeline')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: compute_pipeline
+        end subroutine sdl_release_gpu_compute_pipeline
+
+        ! void SDL_ReleaseGPUFence(SDL_GPUDevice *device, SDL_GPUFence *fence)
+        subroutine sdl_release_gpu_fence(device, fence) bind(c, name='SDL_ReleaseGPUFence')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: fence
+        end subroutine sdl_release_gpu_fence
+
+        ! void SDL_ReleaseGPUGraphicsPipeline(SDL_GPUDevice *device, SDL_GPUGraphicsPipeline *graphics_pipeline)
+        subroutine sdl_release_gpu_graphics_pipeline(device, graphics_pipeline) bind(c, name='SDL_ReleaseGPUGraphicsPipeline')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: graphics_pipeline
+        end subroutine sdl_release_gpu_graphics_pipeline
+
+        ! void SDL_ReleaseGPUSampler(SDL_GPUDevice *device, SDL_GPUSampler *sampler)
+        subroutine sdl_release_gpu_sampler(device, sampler) bind(c, name='SDL_ReleaseGPUSampler')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: sampler
+        end subroutine sdl_release_gpu_sampler
+
+        ! void SDL_ReleaseGPUShader(SDL_GPUDevice *device, SDL_GPUShader *shader)
+        subroutine sdl_release_gpu_shader(device, shader) bind(c, name='SDL_ReleaseGPUShader')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: shader
+        end subroutine sdl_release_gpu_shader
+
+        ! void SDL_ReleaseGPUTexture(SDL_GPUDevice *device, SDL_GPUTexture *texture)
+        subroutine sdl_release_gpu_texture(device, texture) bind(c, name='SDL_ReleaseGPUTexture')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: texture
+        end subroutine sdl_release_gpu_texture
+
+        ! void SDL_ReleaseGPUTransferBuffer(SDL_GPUDevice *device, SDL_GPUTransferBuffer *transfer_buffer)
+        subroutine sdl_release_gpu_transfer_buffer(device, transfer_buffer) bind(c, name='SDL_ReleaseGPUTransferBuffer')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: transfer_buffer
+        end subroutine sdl_release_gpu_transfer_buffer
+
+        ! void SDL_ReleaseWindowFromGPUDevice(SDL_GPUDevice *device, SDL_Window *window)
+        subroutine sdl_release_window_from_gpu_device(device, window) bind(c, name='SDL_ReleaseWindowFromGPUDevice')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: window
+        end subroutine sdl_release_window_from_gpu_device
+
+        ! bool SDL_SetGPUAllowedFramesInFlight(SDL_GPUDevice *device, Uint32 allowed_frames_in_flight)
+        function sdl_set_gpu_allowed_frames_in_flight(device, allowed_frames_in_flight) bind(c, name='SDL_SetGPUAllowedFramesInFlight')
+            import :: c_bool, c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: device
+            integer(uint32), intent(in), value :: allowed_frames_in_flight
+            logical(c_bool)                    :: sdl_set_gpu_allowed_frames_in_flight
+        end function sdl_set_gpu_allowed_frames_in_flight
+
+        ! void SDL_SetGPUBlendConstants(SDL_GPURenderPass *render_pass, SDL_FColor blend_constants)
+        subroutine sdl_set_gpu_blend_constants(render_pass, blend_constants) bind(c, name='SDL_SetGPUBlendConstants')
+            import :: c_ptr, sdl_fcolor
+            implicit none
+            type(c_ptr),      intent(in), value :: render_pass
+            type(sdl_fcolor), intent(in), value :: blend_constants
+        end subroutine sdl_set_gpu_blend_constants
+
+        ! void SDL_SetGPUBufferName(SDL_GPUDevice *device, SDL_GPUBuffer *buffer, const char *text)
+        subroutine sdl_set_gpu_buffer_name(device, buffer, text) bind(c, name='SDL_SetGPUBufferName')
+            import :: c_char, c_ptr
+            implicit none
+            type(c_ptr),       intent(in), value :: device
+            type(c_ptr),       intent(in), value :: buffer
+            character(c_char), intent(in)        :: text
+        end subroutine sdl_set_gpu_buffer_name
+
+        ! void SDL_SetGPUScissor(SDL_GPURenderPass *render_pass, const SDL_Rect *scissor)
+        subroutine sdl_set_gpu_scissor(render_pass, scissor) bind(c, name='SDL_SetGPUScissor')
+            import :: c_ptr, sdl_rect
+            implicit none
+            type(c_ptr),    intent(in), value :: render_pass
+            type(sdl_rect), intent(in)        :: scissor
+        end subroutine sdl_set_gpu_scissor
+
+        ! void SDL_SetGPUStencilReference(SDL_GPURenderPass *render_pass, Uint8 reference)
+        subroutine sdl_set_gpu_stencil_reference(render_pass, reference) bind(c, name='SDL_SetGPUStencilReference')
+            import :: c_ptr, uint8
+            implicit none
+            type(c_ptr),    intent(in), value :: render_pass
+            integer(uint8), intent(in), value :: reference
+        end subroutine sdl_set_gpu_stencil_reference
+
+        ! bool SDL_SetGPUSwapchainParameters(SDL_GPUDevice *device, SDL_Window *window, SDL_GPUSwapchainComposition swapchain_composition, SDL_GPUPresentMode present_mode)
+        function sdl_set_gpu_swapchain_parameters(device, window, swapchain_composition, present_mode) bind(c, name='SDL_SetGPUSwapchainParameters')
+            import :: c_bool, c_int, c_ptr
+            implicit none
+            type(c_ptr),    intent(in), value :: device
+            type(c_ptr),    intent(in), value :: window
+            integer(c_int), intent(in), value :: swapchain_composition
+            integer(c_int), intent(in), value :: present_mode
+            logical(c_bool)                   :: sdl_set_gpu_swapchain_parameters
+        end function sdl_set_gpu_swapchain_parameters
+
+        ! void SDL_SetGPUTextureName(SDL_GPUDevice *device, SDL_GPUTexture *texture, const char *text)
+        subroutine sdl_set_gpu_texture_name(device, texture, text) bind(c, name='SDL_SetGPUTextureName')
+            import :: c_char, c_ptr
+            implicit none
+            type(c_ptr),       intent(in), value :: device
+            type(c_ptr),       intent(in), value :: texture
+            character(c_char), intent(in)        :: text
+        end subroutine sdl_set_gpu_texture_name
+
+        ! void SDL_SetGPUViewport(SDL_GPURenderPass *render_pass, const SDL_GPUViewport *viewport)
+        subroutine sdl_set_gpu_viewport(render_pass, viewport) bind(c, name='SDL_SetGPUViewport')
+            import :: c_ptr, sdl_gpu_viewport
+            implicit none
+            type(c_ptr),            intent(in), value :: render_pass
+            type(sdl_gpu_viewport), intent(in)        :: viewport
+        end subroutine sdl_set_gpu_viewport
+
+        ! bool SDL_SubmitGPUCommandBuffer(SDL_GPUCommandBuffer *command_buffer)
+        function sdl_submit_gpu_command_buffer(command_buffer) bind(c, name='SDL_SubmitGPUCommandBuffer')
+            import :: c_bool, c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: command_buffer
+            logical(c_bool)                :: sdl_submit_gpu_command_buffer
+        end function sdl_submit_gpu_command_buffer
+
+        ! SDL_GPUFence *SDL_SubmitGPUCommandBufferAndAcquireFence(SDL_GPUCommandBuffer *command_buffer)
+        function sdl_submit_gpu_command_buffer_and_acquire_fence(command_buffer) bind(c, name='SDL_SubmitGPUCommandBufferAndAcquireFence')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: command_buffer
+            type(c_ptr)                    :: sdl_submit_gpu_command_buffer_and_acquire_fence
+        end function sdl_submit_gpu_command_buffer_and_acquire_fence
+
+        ! void SDL_UnmapGPUTransferBuffer(SDL_GPUDevice *device, SDL_GPUTransferBuffer *transfer_buffer)
+        subroutine sdl_unmap_gpu_transfer_buffer(device, transfer_buffer) bind(c, name='SDL_UnmapGPUTransferBuffer')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: transfer_buffer
+        end subroutine sdl_unmap_gpu_transfer_buffer
+
+        ! void SDL_UploadToGPUBuffer(SDL_GPUCopyPass *copy_pass, const SDL_GPUTransferBufferLocation *source, const SDL_GPUBufferRegion *destination, bool cycle)
+        subroutine sdl_upload_to_gpu_buffer(copy_pass, source, destination, cycle) bind(c, name='SDL_UploadToGPUBuffer')
+            import :: c_bool, c_ptr, sdl_gpu_buffer_region, sdl_gpu_transfer_buffer_location
+            implicit none
+            type(c_ptr),                            intent(in), value :: copy_pass
+            type(sdl_gpu_transfer_buffer_location), intent(in)        :: source
+            type(sdl_gpu_buffer_region),            intent(in)        :: destination
+            logical(c_bool),                        intent(in), value :: cycle
+        end subroutine sdl_upload_to_gpu_buffer
+
+        ! void SDL_UploadToGPUTexture(SDL_GPUCopyPass *copy_pass, const SDL_GPUTextureTransferInfo *source, const SDL_GPUTextureRegion *destination, bool cycle)
+        subroutine sdl_upload_to_gpu_texture(copy_pass, source, destination, cycle) bind(c, name='SDL_UploadToGPUTexture')
+            import :: c_bool, c_ptr, sdl_gpu_texture_region, sdl_gpu_texture_transfer_info
+            implicit none
+            type(c_ptr),                         intent(in), value :: copy_pass
+            type(sdl_gpu_texture_transfer_info), intent(in)        :: source
+            type(sdl_gpu_texture_region),        intent(in)        :: destination
+            logical(c_bool),                     intent(in), value :: cycle
+        end subroutine sdl_upload_to_gpu_texture
+
+        ! bool SDL_WaitAndAcquireGPUSwapchainTexture(SDL_GPUCommandBuffer *command_buffer, SDL_Window *window, SDL_GPUTexture **swapchain_texture, Uint32 *swapchain_texture_width, Uint32 *swapchain_texture_height)
+        function sdl_wait_and_acquire_gpu_swapchain_texture(command_buffer, window, swapchain_texture, swapchain_texture_width, swapchain_texture_height) bind(c, name='SDL_WaitAndAcquireGPUSwapchainTexture')
+            import :: c_bool, c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: command_buffer
+            type(c_ptr),     intent(in), value :: window
+            type(c_ptr),     intent(out)       :: swapchain_texture
+            integer(uint32), intent(out)       :: swapchain_texture_width
+            integer(uint32), intent(out)       :: swapchain_texture_height
+            logical(c_bool)                    :: sdl_wait_and_acquire_gpu_swapchain_texture
+        end function sdl_wait_and_acquire_gpu_swapchain_texture
+
+        ! bool SDL_WaitForGPUFences(SDL_GPUDevice *device, bool wait_all, SDL_GPUFence *const *fences, Uint32 num_fences)
+        function sdl_wait_for_gpu_fences(device, wait_all, num_fences) bind(c, name='SDL_WaitForGPUFences')
+            import :: c_bool, c_ptr, uint32
+            implicit none
+            type(c_ptr),     intent(in), value :: device
+            logical(c_bool), intent(in), value :: wait_all
+            integer(uint32), intent(in), value :: num_fences
+            logical(c_bool)                    :: sdl_wait_for_gpu_fences
+        end function sdl_wait_for_gpu_fences
+
+        ! bool SDL_WaitForGPUIdle(SDL_GPUDevice *device)
+        function sdl_wait_for_gpu_idle(device) bind(c, name='SDL_WaitForGPUIdle')
+            import :: c_bool, c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            logical(c_bool)                :: sdl_wait_for_gpu_idle
+        end function sdl_wait_for_gpu_idle
+
+        ! bool SDL_WaitForGPUSwapchain(SDL_GPUDevice *device, SDL_Window *window)
+        function sdl_wait_for_gpu_swapchain(device, window) bind(c, name='SDL_WaitForGPUSwapchain')
+            import :: c_bool, c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: device
+            type(c_ptr), intent(in), value :: window
+            logical(c_bool)                :: sdl_wait_for_gpu_swapchain
+        end function sdl_wait_for_gpu_swapchain
+
+        ! bool SDL_WindowSupportsGPUPresentMode(SDL_GPUDevice *device, SDL_Window *window, SDL_GPUPresentMode present_mode)
+        function sdl_window_supports_gpu_present_mode(device, window, present_mode) bind(c, name='SDL_WindowSupportsGPUPresentMode')
+            import :: c_bool, c_int, c_ptr
+            implicit none
+            type(c_ptr),    intent(in), value :: device
+            type(c_ptr),    intent(in), value :: window
+            integer(c_int), intent(in), value :: present_mode
+            logical(c_bool)                   :: sdl_window_supports_gpu_present_mode
+        end function sdl_window_supports_gpu_present_mode
+
+        ! bool SDL_WindowSupportsGPUSwapchainComposition(SDL_GPUDevice *device, SDL_Window *window, SDL_GPUSwapchainComposition swapchain_composition)
+        function sdl_window_supports_gpu_swapchain_composition(device, window, swapchain_composition) bind(c, name='SDL_WindowSupportsGPUSwapchainComposition')
+            import :: c_bool, c_int, c_ptr
+            implicit none
+            type(c_ptr),    intent(in), value :: device
+            type(c_ptr),    intent(in), value :: window
+            integer(c_int), intent(in), value :: swapchain_composition
+            logical(c_bool)                   :: sdl_window_supports_gpu_swapchain_composition
+        end function sdl_window_supports_gpu_swapchain_composition
+    end interface
 end module sdl3_gpu

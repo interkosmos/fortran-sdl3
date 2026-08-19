@@ -5,6 +5,7 @@ module sdl3
     use :: sdl3_audio
     use :: sdl3_blendmode
     use :: sdl3_camera
+    use :: sdl3_clipboard
     use :: sdl3_cpuinfo
     use :: sdl3_endian
     use :: sdl3_error
