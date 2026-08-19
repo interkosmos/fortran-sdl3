@@ -44,14 +44,14 @@ program main
     sdl_block: block
         character(:), allocatable, target :: vertex_shader
         character(:), allocatable, target :: fragment_shader
-        real                              :: camera_x, camera_y
-        real,                      target :: projection(16), view(16)
-        real,                      target :: vertices(15)
+        real(GLfloat),             target :: projection(16), view(16)
+        real(GLfloat),             target :: vertices(15)
 
         integer(GLint)  :: width, height
         integer(GLuint) :: fs, vs
         integer(GLuint) :: prg, vao(1), vbo(1)
         logical         :: done
+        real(GLfloat)   :: camera_x, camera_y
         real(GLdouble)  :: aspect
         type(sdl_event) :: event
 
@@ -115,14 +115,11 @@ program main
         vs = glCreateShader(GL_VERTEX_SHADER)
 
         vertex_shader = '#version 330 core'                                               // c_new_line // &
-                                                                                             c_new_line // &
                         'layout(location = 0) in vec2 position;'                          // c_new_line // &
                         'layout(location = 1) in vec3 color;'                             // c_new_line // &
-                                                                                             c_new_line // &
                         'uniform mat4 projection;'                                        // c_new_line // &
                         'uniform mat4 view;'                                              // c_new_line // &
                         'out     vec3 vertex_color;'                                      // c_new_line // &
-                                                                                             c_new_line // &
                         'void main()'                                                     // c_new_line // &
                         '{'                                                               // c_new_line // &
                         '    gl_Position = projection * view * vec4(position, 0.0, 1.0);' // c_new_line // &
@@ -136,10 +133,8 @@ program main
         fs = glCreateShader(GL_FRAGMENT_SHADER)
 
         fragment_shader = '#version 330 core'                             // c_new_line // &
-                                                                             c_new_line // &
                           'in  vec3 vertex_color;'                        // c_new_line // &
                           'out vec4 fragment_color;'                      // c_new_line // &
-                                                                             c_new_line // &
                           'void main()'                                   // c_new_line // &
                           '{'                                             // c_new_line // &
                           '    fragment_color = vec4(vertex_color, 1.0);' // c_new_line // &
