@@ -14,7 +14,7 @@ DEBUG   = -O0 -g -pedantic
 RELEASE = -O2 -mtune=native
 
 ARFLAGS = rcs
-CFLAGS  = $(RELEASE)
+CFLAGS  = -I$(PREFIX)/include $(RELEASE)
 FFLAGS  = $(RELEASE)
 LDFLAGS = -L$(PREFIX)
 
@@ -44,6 +44,8 @@ SRC = src/sdl3.F90 \
       src/sdl3_joystick.F90 \
       src/sdl3_keyboard.F90 \
       src/sdl3_keycode.F90 \
+      src/sdl3_log.F90 \
+      src/sdl3_macro.c \
       src/sdl3_mouse.F90 \
       src/sdl3_notification.F90 \
       src/sdl3_opengl.F90 \
@@ -74,6 +76,7 @@ release:
 	$(MAKE) $(TARGET) CFLAGS="$(RELEASE)" FFLAGS="$(RELEASE)"
 
 $(TARGET): $(SRC)
+	$(CC) $(CFLAGS) -c src/sdl3_macro.c
 	$(FC) $(FFLAGS) -c src/sdl3_stdinc.F90
 	$(FC) $(FFLAGS) -c src/sdl3_endian.F90
 	$(FC) $(FFLAGS) -c src/sdl3_version.F90
@@ -86,6 +89,7 @@ $(TARGET): $(SRC)
 	$(FC) $(FFLAGS) -c src/sdl3_pixels.F90
 	$(FC) $(FFLAGS) -c src/sdl3_rect.F90
 	$(FC) $(FFLAGS) -c src/sdl3_init.F90
+	$(FC) $(FFLAGS) -c src/sdl3_log.F90
 	$(FC) $(FFLAGS) -c src/sdl3_blendmode.F90
 	$(FC) $(FFLAGS) -c src/sdl3_surface.F90
 	$(FC) $(FFLAGS) -c src/sdl3_video.F90

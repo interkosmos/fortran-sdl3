@@ -31,10 +31,10 @@ Simply execute the Makefile to build with GNU Fortran:
 $ make
 ```
 
-Pass the argument `FC` to overwrite the Fortran compiler, for example:
+Pass the `CC` and `FC` arguments to overwrite the C and Fortran compiler, for example:
 
 ```
-$ make FC=flang21
+$ make CC=clang FC=flang
 ```
 
 Install the library to `/opt`:
@@ -95,6 +95,17 @@ Generate the source code documentation with [FORD](https://github.com/cmacmackin
 ```
 $ make doc
 ```
+
+## Compatibility
+
+Some issues have to be regarded when calling SDL 3.0 from Fortran:
+
+* All SDL procedure names and dummy arguments have been converted to snake case. SDL named parameters remain untouched.
+* The OpenGL procedure names and dummy arguments have not been altered to avoid conflicts with OpenGL named parameters.
+* Character strings passed to the interfaces have to be properly null-terminated with `c_null_char` or by using utility
+  function `f_c_str()`, unless wrapper routines like `sdl_log()` are called which add the null-termination.
+* Signed types may have to be converted to unsigned types and vice versa. Utility functions are provided in module
+  `sdl3_stdinc`, like `sint32_to_uint8()`.
 
 ## References
 

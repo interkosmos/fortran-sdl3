@@ -17,6 +17,7 @@ module sdl3
     use :: sdl3_joystick
     use :: sdl3_keyboard
     use :: sdl3_keycode
+    use :: sdl3_log
     use :: sdl3_mouse
     use :: sdl3_notification
     use :: sdl3_opengl

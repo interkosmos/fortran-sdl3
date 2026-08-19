@@ -31,8 +31,8 @@ module sdl3_clipboard
     public :: sdl_clear_clipboard_data
     public :: sdl_get_clipboard_data
     public :: sdl_get_clipboard_mime_types
-    public :: sdl_get_clipboard_text
-    public :: sdl_get_primary_selection_text
+    public :: sdl_get_clipboard_text_
+    public :: sdl_get_primary_selection_text_
     public :: sdl_has_clipboard_data
     public :: sdl_has_clipboard_text
     public :: sdl_has_primary_selection_text
@@ -66,18 +66,18 @@ module sdl3_clipboard
         end function sdl_get_clipboard_mime_types
 
         ! char *SDL_GetClipboardText(void)
-        function sdl_get_clipboard_text() bind(c, name='SDL_GetClipboardText')
+        function sdl_get_clipboard_text_() bind(c, name='SDL_GetClipboardText')
             import :: c_ptr
             implicit none
-            type(c_ptr) :: sdl_get_clipboard_text
-        end function sdl_get_clipboard_text
+            type(c_ptr) :: sdl_get_clipboard_text_
+        end function sdl_get_clipboard_text_
 
         ! char *SDL_GetPrimarySelectionText(void)
-        function sdl_get_primary_selection_text() bind(c, name='SDL_GetPrimarySelectionText')
+        function sdl_get_primary_selection_text_() bind(c, name='SDL_GetPrimarySelectionText')
             import :: c_ptr
             implicit none
-            type(c_ptr) :: sdl_get_primary_selection_text
-        end function sdl_get_primary_selection_text
+            type(c_ptr) :: sdl_get_primary_selection_text_
+        end function sdl_get_primary_selection_text_
 
         ! bool SDL_HasClipboardData(const char *mime_type)
         function sdl_has_clipboard_data(mime_type) bind(c, name='SDL_HasClipboardData')
@@ -128,4 +128,25 @@ module sdl3_clipboard
             logical(c_bool)               :: sdl_set_primary_selection_text
         end function sdl_set_primary_selection_text
     end interface
+
+    public :: sdl_get_clipboard_text
+    public :: sdl_get_primary_selection_text
+contains
+    function sdl_get_clipboard_text() result(str)
+        character(:), allocatable :: str
+
+        type(c_ptr) :: ptr
+
+        ptr = sdl_get_clipboard_text_()
+        call c_f_str_ptr(ptr, str)
+    end function sdl_get_clipboard_text
+
+    function sdl_get_primary_selection_text() result(str)
+        character(:), allocatable :: str
+
+        type(c_ptr) :: ptr
+
+        ptr = sdl_get_primary_selection_text_()
+        call c_f_str_ptr(ptr, str)
+    end function sdl_get_primary_selection_text
 end module sdl3_clipboard
