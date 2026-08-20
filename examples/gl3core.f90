@@ -34,9 +34,9 @@ program main
     procedure(glUseProgram_interface),              bind(c), pointer :: glUseProgram
     procedure(glVertexAttribPointer_interface),     bind(c), pointer :: glVertexAttribPointer
 
-    logical     :: res
-    type(c_ptr) :: context
-    type(c_ptr) :: window
+    logical(c_bool) :: res
+    type(c_ptr)     :: context
+    type(c_ptr)     :: window
 
     window  = c_null_ptr
     context = c_null_ptr
@@ -52,7 +52,6 @@ program main
         integer(GLuint) :: prg, vao(1), vbo(1)
         logical         :: done
         real(GLfloat)   :: camera_x, camera_y
-        real(GLdouble)  :: aspect
         type(sdl_event) :: event
 
         ! Initialise SDL.
@@ -62,7 +61,7 @@ program main
         end if
 
         ! Create SDL window.
-        window = sdl_create_window(f_c_str('Fortran + SDL 3.0'), WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_OPENGL)
+        window = sdl_create_window(f_c_str('Fortran + SDL3'), WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_OPENGL)
 
         if (.not. c_associated(window)) then
             call output_error('SDL_CreateWindow failed')

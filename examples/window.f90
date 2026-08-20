@@ -1,7 +1,7 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 program main
-    !! Creates an SDL 3.0 window and prints log messages to standard output.
+    !! Creates an SDL window and prints log messages to standard output.
     use :: sdl3
     implicit none (type, external)
 
@@ -29,7 +29,7 @@ program main
 
     ! Create SDL window.
     flags  = 0
-    window = sdl_create_window(f_c_str('Fortran + SDL 3.0'), WINDOW_WIDTH, WINDOW_HEIGHT, flags)
+    window = sdl_create_window(f_c_str('Fortran + SDL3'), WINDOW_WIDTH, WINDOW_HEIGHT, flags)
 
     if (.not. c_associated(window)) then
         call sdl_log_error(0, 'SDL_CreateWindow failed: ' // sdl_get_error())

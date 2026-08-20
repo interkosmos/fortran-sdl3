@@ -10,11 +10,11 @@ FORD = ford
 MAKE = make
 RM   = /bin/rm
 
-DEBUG   = -O0 -g -pedantic
+DEBUG   = -O0 -g -Wall -fcheck=all -pedantic
 RELEASE = -O2 -mtune=native
 
 ARFLAGS = rcs
-CFLAGS  = -I$(PREFIX)/include $(RELEASE)
+CFLAGS  = $(RELEASE) -I$(PREFIX)/include
 FFLAGS  = $(RELEASE)
 LDFLAGS = -L$(PREFIX)
 
@@ -123,7 +123,7 @@ install: $(TARGET)
 	install -d $(INCDIR)
 	install -m 644 sdl3*.mod $(INCDIR)/
 
-examples: affine bship clear dvd gl3core glvertex root3 smoke version window
+examples: affine bship clear dvd gl3core glvertex palette root3 smoke version window
 
 affine: $(TARGET) examples/affine.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o affine examples/affine.f90 $(TARGET) $(LDLIBS) $(LIBIMG3)
@@ -142,6 +142,9 @@ gl3core: $(TARGET) examples/gl3core.f90
 
 glvertex: $(TARGET) examples/glvertex.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o glvertex examples/glvertex.f90 $(TARGET) $(LDLIBS) $(LIBGL)
+
+palette: $(TARGET) examples/palette.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -o palette examples/palette.f90 $(TARGET) $(LDLIBS)
 
 root3: $(TARGET) examples/root3.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o root3 examples/root3.f90 $(TARGET) $(LDLIBS)
@@ -169,6 +172,7 @@ clean:
 	$(RM) -f dvd
 	$(RM) -f gl3core
 	$(RM) -f glvertex
+	$(RM) -f palette
 	$(RM) -f root3
 	$(RM) -f smoke
 	$(RM) -f version

@@ -33,9 +33,9 @@ program main
         end if
 
         ! Create SDL window and renderer.
-        res = sdl_create_window_and_renderer(f_c_str('Fortran + SDL 3.0'), &
-                                             WINDOW_WIDTH, WINDOW_HEIGHT,  &
-                                             SDL_WINDOW_RESIZABLE,         &
+        res = sdl_create_window_and_renderer(f_c_str('Fortran + SDL3'),   &
+                                             WINDOW_WIDTH, WINDOW_HEIGHT, &
+                                             SDL_WINDOW_RESIZABLE,        &
                                              window, renderer)
 
         if (.not. res) then

@@ -10,9 +10,9 @@ program main
     integer, parameter :: WINDOW_WIDTH  = 1024
     integer, parameter :: WINDOW_HEIGHT = 768
 
-    logical     :: res
-    type(c_ptr) :: context
-    type(c_ptr) :: window
+    logical(c_bool) :: res
+    type(c_ptr)     :: context
+    type(c_ptr)     :: window
 
     window  = c_null_ptr
     context = c_null_ptr
@@ -28,7 +28,7 @@ program main
         end if
 
         ! Create window.
-        window = sdl_create_window(f_c_str('Fortran + SDL 3.0'), WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_OPENGL)
+        window = sdl_create_window(f_c_str('Fortran + SDL3'), WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_OPENGL)
 
         if (.not. c_associated(window)) then
             call output_error('SDL_CreateWindow failed')

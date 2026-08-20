@@ -13,10 +13,10 @@ program main
     integer,      parameter :: STEP_SIZE  = 2
     real(real64), parameter :: FT         = 1.0_real64 / FPS
 
-    logical     :: res
-    type(c_ptr) :: renderer
-    type(c_ptr) :: texture
-    type(c_ptr) :: window
+    logical(c_bool) :: res
+    type(c_ptr)     :: renderer
+    type(c_ptr)     :: texture
+    type(c_ptr)     :: window
 
     window   = c_null_ptr
     renderer = c_null_ptr
@@ -41,7 +41,7 @@ program main
         call screen_dimensions(screen_width, screen_height)
 
         res = sdl_create_window_and_renderer( &
-            title        = f_c_str('Fortran + SDL 3.0'), &
+            title        = f_c_str('Fortran + SDL3'), &
             width        = screen_width, &
             height       = screen_height, &
             window_flags = ior(SDL_WINDOW_FULLSCREEN, SDL_WINDOW_BORDERLESS), &
@@ -156,7 +156,7 @@ contains
         type(c_ptr), intent(in)    :: texture
         integer,     intent(inout) :: next
 
-        logical :: res
+        logical(c_bool) :: res
 
         next = next + 1
         next = 1 + modulo(next - 1, size(COLORS))

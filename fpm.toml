@@ -4,7 +4,7 @@ license = "ISC"
 author = "Philipp Engel"
 maintainer = "@interkosmos"
 copyright = "Copyright (c) 2026, Philipp Engel"
-description = "Fortran 2023 ISO C binding interfaces to SDL 3.0"
+description = "Fortran 2023 ISO C binding interfaces to SDL 3.4"
 keywords = [ "graphics", "sdl", "sdl3" ]
 
 [build]
@@ -57,6 +57,11 @@ source-dir = "examples"
 name = "glvertex"
 main = "glvertex.f90"
 link = [ "SDL3", "GL" ]
+
+[[executable]]
+source-dir = "examples"
+name = "palette"
+main = "palette.f90"
 
 [[executable]]
 source-dir = "examples"

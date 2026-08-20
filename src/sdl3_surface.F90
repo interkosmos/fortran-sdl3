@@ -160,12 +160,12 @@ module sdl3_surface
         function sdl_blit_surface_scaled(src, src_rect, dst, dst_rect, scale_mode) bind(c, name='SDL_BlitSurfaceScaled')
             import :: c_bool, c_int, c_ptr, sdl_rect
             implicit none
-            type(c_ptr),    intent(in), value :: src
-            type(sdl_rect), intent(in)        :: src_rect
-            type(c_ptr),    intent(in), value :: dst
-            type(sdl_rect), intent(in)        :: dst_rect
-            integer(c_int), intent(in), value :: scale_mode
-            logical(c_bool)                   :: sdl_blit_surface_scaled
+            type(c_ptr),    intent(in), value    :: src
+            type(sdl_rect), intent(in), optional :: src_rect
+            type(c_ptr),    intent(in), value    :: dst
+            type(sdl_rect), intent(in), optional :: dst_rect
+            integer(c_int), intent(in), value    :: scale_mode
+            logical(c_bool)                      :: sdl_blit_surface_scaled
         end function sdl_blit_surface_scaled
 
         ! bool SDL_BlitSurfaceTiled(SDL_Surface *src, const SDL_Rect *srcrect, SDL_Surface *dst, const SDL_Rect *dstrect)

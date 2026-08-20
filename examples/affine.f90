@@ -1,7 +1,7 @@
 ! Author:  Philipp Engel
 ! Licence: ISC
 program main
-    !! Draws a cube using an affine-transformed texture. Based on the SDL 3.0
+    !! Draws a cube using an affine-transformed texture. Based on the SDL
     !! example program `affine-textures.c`.
     use, intrinsic :: iso_fortran_env, only: real64
     use :: sdl3
@@ -14,10 +14,10 @@ program main
     integer,      parameter :: WINDOW_HEIGHT = 768
     real(real64), parameter :: FT            = 1.0_real64 / FPS
 
-    logical     :: res
-    type(c_ptr) :: renderer
-    type(c_ptr) :: texture
-    type(c_ptr) :: window
+    logical(c_bool) :: res
+    type(c_ptr)     :: renderer
+    type(c_ptr)     :: texture
+    type(c_ptr)     :: window
 
     window   = c_null_ptr
     renderer = c_null_ptr
@@ -36,9 +36,9 @@ program main
         end if
 
         ! Create window and renderer.
-        res = sdl_create_window_and_renderer(f_c_str('Fortran + SDL 3.0'), &
-                                             WINDOW_WIDTH, WINDOW_HEIGHT,  &
-                                             0_sdl_window_flags,           &
+        res = sdl_create_window_and_renderer(f_c_str('Fortran + SDL3'),   &
+                                             WINDOW_WIDTH, WINDOW_HEIGHT, &
+                                             0_sdl_window_flags,          &
                                              window, renderer)
 
         if (.not. res) then
@@ -115,13 +115,14 @@ contains
         type(c_ptr), intent(in) :: texture
         real,        intent(in) :: period
 
-        integer :: dir, i, odd
-        integer :: idx_d, idx_o, idx_r
-        logical :: res
-        real    :: corners(2, 8)
-        real    :: mat(3, 3)
-        real    :: c, r, s, vc
-        real    :: x, y, z
+        integer         :: dir, i, odd
+        integer         :: idx_d, idx_o, idx_r
+        logical(c_bool) :: res
+
+        real :: corners(2, 8)
+        real :: mat(3, 3)
+        real :: c, r, s, vc
+        real :: x, y, z
 
         type(sdl_fpoint) :: down
         type(sdl_fpoint) :: origin

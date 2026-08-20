@@ -308,9 +308,9 @@ module sdl3_pixels
 
         ! void SDL_DestroyPalette(SDL_Palette *palette)
         subroutine sdl_destroy_palette(palette) bind(c, name='SDL_DestroyPalette')
-            import :: sdl_palette
+            import :: c_ptr
             implicit none
-            type(sdl_palette), intent(inout) :: palette
+            type(c_ptr), intent(in), value :: palette
         end subroutine sdl_destroy_palette
 
         ! bool SDL_GetMasksForPixelFormat(SDL_PixelFormat format, int *bpp, Uint32 *Rmask, Uint32 *Gmask, Uint32 *Bmask, Uint32 *Amask)
@@ -356,11 +356,11 @@ module sdl3_pixels
 
         ! void SDL_GetRGB(Uint32 pixelvalue, const SDL_PixelFormatDetails *format, const SDL_Palette *palette, Uint8 *r, Uint8 *g, Uint8 *b)
         subroutine sdl_get_rgb(pixel_value, format, palette, r, g, b) bind(c, name='SDL_GetRGB')
-            import :: sdl_palette, sdl_pixel_format_details, uint32, uint8
+            import :: c_ptr, sdl_pixel_format_details, uint32, uint8
             implicit none
             integer(uint32),                intent(in), value :: pixel_value
             type(sdl_pixel_format_details), intent(in)        :: format
-            type(sdl_palette),              intent(in)        :: palette
+            type(c_ptr),                    intent(in), value :: palette
             integer(uint8),                 intent(out)       :: r
             integer(uint8),                 intent(out)       :: g
             integer(uint8),                 intent(out)       :: b
@@ -368,11 +368,11 @@ module sdl3_pixels
 
         ! void SDL_GetRGBA(Uint32 pixelvalue, const SDL_PixelFormatDetails *format, const SDL_Palette *palette, Uint8 *r, Uint8 *g, Uint8 *b, Uint8 *a)
         subroutine sdl_get_rgba(pixel_value, format, palette, r, g, b, a) bind(c, name='SDL_GetRGBA')
-            import :: sdl_palette, sdl_pixel_format_details, uint32, uint8
+            import :: c_ptr, sdl_pixel_format_details, uint32, uint8
             implicit none
             integer(uint32),                intent(in), value :: pixel_value
             type(sdl_pixel_format_details), intent(in)        :: format
-            type(sdl_palette),              intent(in)        :: palette
+            type(c_ptr),                    intent(in), value :: palette
             integer(uint8),                 intent(out)       :: r
             integer(uint8),                 intent(out)       :: g
             integer(uint8),                 intent(out)       :: b
@@ -381,10 +381,10 @@ module sdl3_pixels
 
         ! Uint32 SDL_MapRGB(const SDL_PixelFormatDetails *format, const SDL_Palette *palette, Uint8 r, Uint8 g, Uint8 b)
         function sdl_map_rgb(format, palette, r, g, b) bind(c, name='SDL_MapRGB')
-            import :: sdl_palette, sdl_pixel_format_details, uint32, uint8
+            import :: c_ptr, sdl_pixel_format_details, uint32, uint8
             implicit none
             type(sdl_pixel_format_details), intent(in)        :: format
-            type(sdl_palette),              intent(in)        :: palette
+            type(c_ptr),                    intent(in), value :: palette
             integer(uint8),                 intent(in), value :: r
             integer(uint8),                 intent(in), value :: g
             integer(uint8),                 intent(in), value :: b
@@ -393,10 +393,10 @@ module sdl3_pixels
 
         ! Uint32 SDL_MapRGBA(const SDL_PixelFormatDetails *format, const SDL_Palette *palette, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
         function sdl_map_rgba(format, palette, r, g, b, a) bind(c, name='SDL_MapRGBA')
-            import :: sdl_palette, sdl_pixel_format_details, uint32, uint8
+            import :: c_ptr, sdl_pixel_format_details, uint32, uint8
             implicit none
             type(sdl_pixel_format_details), intent(in)        :: format
-            type(sdl_palette),              intent(in)        :: palette
+            type(c_ptr),                    intent(in), value :: palette
             integer(uint8),                 intent(in), value :: r
             integer(uint8),                 intent(in), value :: g
             integer(uint8),                 intent(in), value :: b
@@ -406,10 +406,10 @@ module sdl3_pixels
 
         ! bool SDL_SetPaletteColors(SDL_Palette *palette, const SDL_Color *colors, int firstcolor, int ncolors)
         function sdl_set_palette_colors(palette, colors, first_color, ncolors) bind(c, name='SDL_SetPaletteColors')
-            import :: c_bool, c_int, sdl_color, sdl_palette
+            import :: c_bool, c_int, c_ptr, sdl_color
             implicit none
-            type(sdl_palette), intent(inout)     :: palette
-            type(sdl_color),   intent(in)        :: colors
+            type(c_ptr),       intent(in), value :: palette
+            type(sdl_color),   intent(in)        :: colors(*)
             integer(c_int),    intent(in), value :: first_color
             integer(c_int),    intent(in), value :: ncolors
             logical(c_bool)                      :: sdl_set_palette_colors

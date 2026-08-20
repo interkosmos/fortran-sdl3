@@ -4,13 +4,13 @@
 ![License](https://img.shields.io/github/license/interkosmos/fortran-sdl3)
 
 A work-in-progress collection of Fortran 2023 interface bindings to the
-[SDL 3.0](https://wiki.libsdl.org/SDL3/FrontPage) multimedia library.
+[SDL 3.4](https://wiki.libsdl.org/SDL3/FrontPage) multimedia library.
 
 For Fortran bindings to SDL 2.0, see [fortran-sdl2](https://github.com/interkosmos/fortran-sdl2).
 
 ## Build Instructions
 
-Install SDL 3.0 and SDL3_image with development headers. On FreeBSD, run:
+Install SDL3 and SDL3_image with development headers. On FreeBSD, run:
 
 ```
 $ doas pkg install devel/pkgconf devel/sdl3 graphics/sdl3_image
@@ -77,6 +77,7 @@ The following example programs are provided in `examples/`:
 * **dvd** bounces texture in full screen.
 * **gl3core** renders a triangle with OpenGL 3.3 core profile using shaders.
 * **glvertex** renders a triangle with OpenGL 1.2 immediate mode.
+* **palette** draws pixels on a surface using a colour palette.
 * **root3** draws a complex cube root fractal to texture.
 * **smoke** renders a chaotic [attractor](https://en.wikipedia.org/wiki/Attractor).
 * **version** outputs SDL version information.
@@ -98,7 +99,7 @@ $ make doc
 
 ## Compatibility
 
-Some issues have to be regarded when calling SDL 3.0 from Fortran:
+Some issues have to be regarded when calling SDL from Fortran:
 
 * All SDL procedure names and dummy arguments have been converted to snake case. SDL named parameters remain untouched.
 * The OpenGL procedure names and dummy arguments have not been altered to avoid conflicts with OpenGL named parameters.
@@ -109,9 +110,9 @@ Some issues have to be regarded when calling SDL 3.0 from Fortran:
 
 ## References
 
-* [SDL 3.0 API by Category](https://wiki.libsdl.org/SDL3/APIByCategory) (C API)
-* [SDL 3.0 Migration Guide](https://wiki.libsdl.org/SDL3/README-migration) (C API)
-* [SDL 3.0 Quick Reference](https://wiki.libsdl.org/SDL3/QuickReference) (C API)
+* [SDL 3 API by Category](https://wiki.libsdl.org/SDL3/APIByCategory) (C API)
+* [SDL 3 Migration Guide](https://wiki.libsdl.org/SDL3/README-migration) (C API)
+* [SDL 3 Quick Reference](https://wiki.libsdl.org/SDL3/QuickReference) (C API)
 
 ## Licence
 

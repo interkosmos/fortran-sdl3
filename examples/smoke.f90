@@ -34,7 +34,7 @@ program main
 
         ! Create SDL window.
         flags  = 0
-        window = sdl_create_window(f_c_str('Fortran + SDL 3.0'), WINDOW_SIZE, WINDOW_SIZE, flags)
+        window = sdl_create_window(f_c_str('Fortran + SDL3'), WINDOW_SIZE, WINDOW_SIZE, flags)
 
         if (.not. c_associated(window)) then
             print '("SDL_CreateWindow failed: ", a)', sdl_get_error()
