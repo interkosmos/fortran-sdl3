@@ -128,7 +128,7 @@ contains
 
                     if (k < NITER) then
                         l = min(255, int(8 * abs(k + 1 - log(dz) / log(2.0))))
-                        call set_pixel(pixels, width, height, x + 1, y + 1, 255, l, 0, 255)
+                        call set_pixel(pixels, width, height, x, y, 255, l, 0, 255)
                     end if
                 end do
             end do
@@ -140,15 +140,15 @@ contains
 
     pure subroutine set_pixel(pixels, width, height, x, y, r, g, b, a)
         !! Sets RGBA colour of single pixel in texture.
-        integer(uint32), intent(inout) :: pixels(:)
+        integer(uint32), intent(inout) :: pixels(0:)
         integer,         intent(in)    :: width, height
         integer,         intent(in)    :: x, y
         integer,         intent(in)    :: r, g, b, a
 
         integer(uint32) :: rgba
 
-        if (x < 1 .or. x > width .or. y < 1 .or. y > height) return
+        if (x < 0 .or. x >= width .or. y < 0 .or. y >= height) return
         rgba = ior(ior(ior(shiftl(r, 24), shiftl(g, 16)), shiftl(b, 8)), a)
-        pixels((y - 1) * width + x) = rgba
+        pixels(y * width + x) = rgba
     end subroutine set_pixel
 end program main

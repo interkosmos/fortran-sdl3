@@ -157,10 +157,10 @@ program main
         call glBindBuffer(GL_ARRAY_BUFFER, vbo(1))
 
         vertices = [ &
-            100.0, 100.0, 1.0, 0.0, 0.0, & ! x, y, red
-            300.0, 400.0, 0.0, 1.0, 0.0, & ! x, y, green
-            500.0, 100.0, 0.0, 0.0, 1.0  & ! x, y, blue
-        ] ! Position (x, y) and colour (r, g, b).
+            100.0, 100.0, 1.0, 0.0, 0.0, & ! x, y, r, g, b
+            300.0, 400.0, 0.0, 1.0, 0.0, & ! x, y, r, g, b
+            500.0, 100.0, 0.0, 0.0, 1.0  & ! x, y, r, g, b
+        ]
 
         call glBufferData(GL_ARRAY_BUFFER, c_sizeof(vertices), c_loc(vertices), GL_STATIC_DRAW)
 

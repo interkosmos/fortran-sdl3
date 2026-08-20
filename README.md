@@ -4,9 +4,9 @@
 ![License](https://img.shields.io/github/license/interkosmos/fortran-sdl3)
 
 A work-in-progress collection of Fortran 2023 interface bindings to the
-[SDL 3.4](https://wiki.libsdl.org/SDL3/FrontPage) multimedia library.
+[SDL3](https://wiki.libsdl.org/SDL3/FrontPage) multimedia library.
 
-For Fortran bindings to SDL 2.0, see [fortran-sdl2](https://github.com/interkosmos/fortran-sdl2).
+For Fortran bindings to SDL2, see [fortran-sdl2](https://github.com/interkosmos/fortran-sdl2).
 
 ## Build Instructions
 

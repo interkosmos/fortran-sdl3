@@ -23,8 +23,9 @@ program main
     window_surface = c_null_ptr
 
     sdl_block: block
-        integer         :: i, j, npixels, x, y
-        logical         :: done, res
+        integer         :: c, i, x, y
+        logical         :: done
+        logical(c_bool) :: res
         type(c_ptr)     :: palette
         type(sdl_color) :: colors(NCOLORS)
         type(sdl_event) :: event
@@ -88,11 +89,13 @@ program main
             exit sdl_block
         end if
 
-        ! Get frame buffer pixels. Index of pixels pointer starts at 1.
+        ! Get frame buffer pixels. Index of pixels pointer starts at 1. For performance reasons,
+        ! surface locking is omitted.
         call c_f_pointer(buffer_surface, buffer)
-        npixels = buffer%pitch * BUFFER_HEIGHT
-        call c_f_pointer(buffer%pixels, pixels, shape=[ npixels ])
-        pixels = to_uint8(0) ! Fill first palette colour.
+        call c_f_pointer(buffer%pixels, pixels, shape=[ buffer%pitch * BUFFER_HEIGHT ])
+
+        ! Fill buffer with first palette colour.
+        pixels = to_uint8(0)
 
         ! Main loop.
         done = .false.
@@ -108,13 +111,12 @@ program main
                 end select
             end do
 
-            ! Update pixels to random palette colour.
+            ! Update pixels to random palette colour (from 1 to 7).
             do i = 1, RANDOM_PIXELS
                 x = random_integer(BUFFER_WIDTH)
                 y = random_integer(BUFFER_HEIGHT)
-                j = 1 + modulo(((y - 1) * buffer%pitch + x) - 1, npixels)
-
-                pixels(j) = to_uint8(random_integer(NCOLORS))
+                c = random_integer(NCOLORS - 1)
+                call set_pixel(pixels, buffer%pitch, x, y, c)
             end do
 
             ! Blit to window surface.
@@ -139,6 +141,15 @@ program main
     if (c_associated(window))         call sdl_destroy_window(window)
     call sdl_quit()
 contains
+    pure subroutine set_pixel(pixels, pitch, x, y, color)
+        integer(uint8), intent(inout) :: pixels(0:)
+        integer,        intent(in)    :: pitch
+        integer,        intent(in)    :: x, y
+        integer,        intent(in)    :: color
+
+        pixels((y - 1) * pitch + (x - 1)) = to_uint8(color)
+    end subroutine set_pixel
+
     integer function random_integer(n) result(i)
         integer, intent(in) :: n
 

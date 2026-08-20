@@ -166,18 +166,14 @@ contains
 
     pure subroutine set_pixel(pixels, size, x, y, r, g, b, a)
         !! Sets RGBA colour of single pixel in texture.
-        integer(uint32), intent(inout) :: pixels(:)
+        integer(uint32), intent(inout) :: pixels(0:)
         integer,         intent(in)    :: size
-        integer,         intent(in)    :: x
-        integer,         intent(in)    :: y
-        integer,         intent(in)    :: r
-        integer,         intent(in)    :: g
-        integer,         intent(in)    :: b
-        integer,         intent(in)    :: a
+        integer,         intent(in)    :: x, y
+        integer,         intent(in)    :: r, g, b, a
 
         integer(uint32) :: rgba
 
         rgba = ior(ior(ior(shiftl(r, 24), shiftl(g, 16)), shiftl(b, 8)), a)
-        pixels((y - 1) * size + x) = rgba
+        pixels((y - 1) * size + (x - 1)) = rgba
     end subroutine set_pixel
 end program main
