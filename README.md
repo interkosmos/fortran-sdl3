@@ -76,7 +76,8 @@ The following example programs are provided in `examples/`:
 * **clear** demonstrates colour fading.
 * **dvd** bounces texture in full screen.
 * **gl3core** renders a triangle with OpenGL 3.3 core profile using shaders.
-* **glvertex** renders a triangle with OpenGL 1.2 immediate mode.
+* **glempire** renders the Empire State Building in OpenGL 2.1 immediate mode.
+* **glvertex** renders a triangle in OpenGL 2.1 immediate mode.
 * **palette** draws pixels on a surface using a colour palette.
 * **root3** draws a complex cube root fractal to texture.
 * **smoke** renders a chaotic [attractor](https://en.wikipedia.org/wiki/Attractor).
@@ -110,9 +111,9 @@ Some issues have to be regarded when calling SDL from Fortran:
 
 ## References
 
-* [SDL 3 API by Category](https://wiki.libsdl.org/SDL3/APIByCategory) (C API)
-* [SDL 3 Migration Guide](https://wiki.libsdl.org/SDL3/README-migration) (C API)
-* [SDL 3 Quick Reference](https://wiki.libsdl.org/SDL3/QuickReference) (C API)
+* [SDL3 API by Category](https://wiki.libsdl.org/SDL3/APIByCategory) (C API)
+* [SDL3 Migration Guide](https://wiki.libsdl.org/SDL3/README-migration) (C API)
+* [SDL3 Quick Reference](https://wiki.libsdl.org/SDL3/QuickReference) (C API)
 
 ## Licence
 

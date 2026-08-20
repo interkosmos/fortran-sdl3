@@ -123,7 +123,7 @@ install: $(TARGET)
 	install -d $(INCDIR)
 	install -m 644 sdl3*.mod $(INCDIR)/
 
-examples: affine bship clear dvd gl3core glvertex palette root3 smoke version window
+examples: affine bship clear dvd gl3core glempire glvertex palette root3 smoke version window
 
 affine: $(TARGET) examples/affine.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o affine examples/affine.f90 $(TARGET) $(LDLIBS) $(LIBIMG3)
@@ -139,6 +139,9 @@ dvd: $(TARGET) examples/dvd.f90
 
 gl3core: $(TARGET) examples/gl3core.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o gl3core examples/gl3core.f90 $(TARGET) $(LDLIBS) $(LIBGL)
+
+glempire: $(TARGET) examples/glempire.f90
+	$(FC) $(FFLAGS) $(LDFLAGS) -o glempire examples/glempire.f90 $(TARGET) $(LDLIBS) $(LIBGL)
 
 glvertex: $(TARGET) examples/glvertex.f90
 	$(FC) $(FFLAGS) $(LDFLAGS) -o glvertex examples/glvertex.f90 $(TARGET) $(LDLIBS) $(LIBGL)
@@ -171,6 +174,7 @@ clean:
 	$(RM) -f clear
 	$(RM) -f dvd
 	$(RM) -f gl3core
+	$(RM) -f glempire
 	$(RM) -f glvertex
 	$(RM) -f palette
 	$(RM) -f root3
