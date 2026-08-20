@@ -242,7 +242,7 @@ program main
 contains
     subroutine projection_matrix(matrix, left, right, bottom, top, near, far)
         !! Creates 2D orthographic projection matrix.
-        real(c_float), intent(out) :: matrix(16)
+        real(GLfloat), intent(out) :: matrix(16)
         integer,       intent(in)  :: left
         integer,       intent(in)  :: right
         integer,       intent(in)  :: bottom
@@ -270,9 +270,9 @@ contains
 
     subroutine view_matrix(matrix, x, y)
         !! Creates view matrix from camera position.
-        real(c_float), intent(out) :: matrix(16)
-        real(c_float), intent(in)  :: x
-        real(c_float), intent(in)  :: y
+        real(GLfloat), intent(out) :: matrix(16)
+        real(GLfloat), intent(in)  :: x
+        real(GLfloat), intent(in)  :: y
 
         matrix( 1) = 1.0
         matrix( 2) = 0.0
