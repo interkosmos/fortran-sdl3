@@ -132,11 +132,11 @@ module sdl3_surface
         function sdl_blit_surface(src, src_rect, dst, dst_rect) bind(c, name='SDL_BlitSurface')
             import :: c_bool, c_ptr, sdl_rect
             implicit none
-            type(c_ptr),    intent(in), value :: src
-            type(sdl_rect), intent(in)        :: src_rect
-            type(c_ptr),    intent(in), value :: dst
-            type(sdl_rect), intent(in)        :: dst_rect
-            logical(c_bool)                   :: sdl_blit_surface
+            type(c_ptr),    intent(in), value    :: src
+            type(sdl_rect), intent(in), optional :: src_rect
+            type(c_ptr),    intent(in), value    :: dst
+            type(sdl_rect), intent(in), optional :: dst_rect
+            logical(c_bool)                      :: sdl_blit_surface
         end function sdl_blit_surface
 
         ! bool SDL_BlitSurface9Grid(SDL_Surface *src, const SDL_Rect *srcrect, int left_width, int right_width, int top_height, int bottom_height, float scale, SDL_ScaleMode scaleMode, SDL_Surface *dst, const SDL_Rect *dstrect)

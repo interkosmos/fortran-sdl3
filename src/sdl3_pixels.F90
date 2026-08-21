@@ -271,18 +271,18 @@ module sdl3_pixels
         integer(uint8)          :: bits_per_pixel  = 0
         integer(uint8)          :: bytes_per_pixel = 0
         integer(uint8), private :: padding(2)      = 0
-        integer(uint32)         :: R_mask          = 0
-        integer(uint32)         :: G_mask          = 0
-        integer(uint32)         :: B_mask          = 0
-        integer(uint32)         :: A_mask          = 0
-        integer(uint8)          :: R_bits          = 0
-        integer(uint8)          :: G_bits          = 0
-        integer(uint8)          :: B_bits          = 0
-        integer(uint8)          :: A_bits          = 0
-        integer(uint8)          :: R_shift         = 0
-        integer(uint8)          :: G_shift         = 0
-        integer(uint8)          :: B_shift         = 0
-        integer(uint8)          :: A_shift         = 0
+        integer(uint32)         :: r_mask          = 0
+        integer(uint32)         :: g_mask          = 0
+        integer(uint32)         :: b_mask          = 0
+        integer(uint32)         :: a_mask          = 0
+        integer(uint8)          :: r_bits          = 0
+        integer(uint8)          :: g_bits          = 0
+        integer(uint8)          :: b_bits          = 0
+        integer(uint8)          :: a_bits          = 0
+        integer(uint8)          :: r_shift         = 0
+        integer(uint8)          :: g_shift         = 0
+        integer(uint8)          :: b_shift         = 0
+        integer(uint8)          :: a_shift         = 0
     end type sdl_pixel_format_details
 
     public :: sdl_create_palette

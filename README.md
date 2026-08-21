@@ -81,6 +81,7 @@ The following example programs are provided in `examples/`:
 * **bship** renders the [Burning Ship fractal](https://en.wikipedia.org/wiki/Burning_Ship_fractal).
 * **clear** demonstrates colour fading.
 * **dvd** bounces texture in full screen.
+* **forest** implements a cellular automaton, based on the [forest fire model](https://rosettacode.org/wiki/Forest_fire).
 * **gl3core** renders a triangle with OpenGL 3.3 core profile using shaders.
 * **glempire** renders the Empire State Building in OpenGL 2.1 immediate mode.
 * **glvertex** renders a triangle in OpenGL 2.1 immediate mode.

@@ -240,7 +240,14 @@ program main
 
     call sdl_quit()
 contains
-    subroutine projection_matrix(matrix, left, right, bottom, top, near, far)
+    subroutine output_error(message)
+        !! Outputs SDL error message.
+        character(*), intent(in) :: message
+
+        print '(a, ": ", a)', trim(message), sdl_get_error()
+    end subroutine output_error
+
+    pure subroutine projection_matrix(matrix, left, right, bottom, top, near, far)
         !! Creates 2D orthographic projection matrix.
         real(GLfloat), intent(out) :: matrix(16)
         integer,       intent(in)  :: left
@@ -268,7 +275,7 @@ contains
         matrix(16) =  1.0
     end subroutine projection_matrix
 
-    subroutine view_matrix(matrix, x, y)
+    pure subroutine view_matrix(matrix, x, y)
         !! Creates view matrix from camera position.
         real(GLfloat), intent(out) :: matrix(16)
         real(GLfloat), intent(in)  :: x
@@ -294,11 +301,4 @@ contains
         matrix(15) =  0.0
         matrix(16) =  1.0
     end subroutine view_matrix
-
-    subroutine output_error(message)
-        !! Outputs SDL error message.
-        character(*), intent(in) :: message
-
-        print '(a, ": ", a)', trim(message), sdl_get_error()
-    end subroutine output_error
 end program main

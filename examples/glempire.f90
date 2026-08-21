@@ -123,24 +123,6 @@ program main
 
     call sdl_quit()
 contains
-    subroutine perspective(fov_y, aspect, z_near, z_far)
-        !! Sets perspective projection.
-        !!
-        !! Equivalent to `gluPerspective(fov_y, aspect, z_near, z_far)` but
-        !! without GLU.
-        real(r8), intent(in) :: fov_y
-        real(r8), intent(in) :: aspect
-        real(r8), intent(in) :: z_near
-        real(r8), intent(in) :: z_far
-
-        real(r8) :: height
-        real(r8) :: width
-
-        height = tan(fov_y * PI / 360.0_r8) * z_near
-        width  = height * aspect
-        call glFrustum(-width, width, -height, height, z_near, z_far)
-    end subroutine perspective
-
     subroutine draw_block(cx, cy, cz, width, height, depth, lod)
         !! Draws block in given level of detail.
         real(r4), parameter :: R_EDGE = 140.0_r4 / 255.0_r4
@@ -298,6 +280,24 @@ contains
 
         print '(a, ": ", a)', trim(message), sdl_get_error()
     end subroutine output_error
+
+    subroutine perspective(fov_y, aspect, z_near, z_far)
+        !! Sets perspective projection.
+        !!
+        !! Equivalent to `gluPerspective(fov_y, aspect, z_near, z_far)` but
+        !! without GLU.
+        real(r8), intent(in) :: fov_y
+        real(r8), intent(in) :: aspect
+        real(r8), intent(in) :: z_near
+        real(r8), intent(in) :: z_far
+
+        real(r8) :: height
+        real(r8) :: width
+
+        height = tan(fov_y * PI / 360.0_r8) * z_near
+        width  = height * aspect
+        call glFrustum(-width, width, -height, height, z_near, z_far)
+    end subroutine perspective
 
     subroutine render_scene(dt)
         !! Renders scene.
