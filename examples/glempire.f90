@@ -5,18 +5,18 @@ program main
     !!
     !!     <https://rosettacode.org/wiki/Draw_the_Empire_State_Building>
     !!
-    use :: sdl3
+    use :: sdl3, r4 => GLfloat, r8 => GLdouble
     implicit none (type, external)
 
-    real(GLdouble), parameter :: PI = acos(-1.0_GLdouble)
+    real(r8), parameter :: PI = acos(-1.0_r8)
 
     integer, parameter :: WINDOW_WIDTH  = 500
     integer, parameter :: WINDOW_HEIGHT = 900
 
     ! Rotation angles, in radians.
-    real(GLdouble) :: angle_x = 0.35_GLdouble
-    real(GLdouble) :: angle_y = 0.60_GLdouble
-    real(GLdouble) :: last    = 0.00_GLdouble
+    real(r8) :: angle_x = 0.35_r8
+    real(r8) :: angle_y = 0.60_r8
+    real(r8) :: last    = 0.00_r8
 
     logical(c_bool) :: res
     type(c_ptr)     :: window
@@ -26,11 +26,9 @@ program main
     context = c_null_ptr
 
     sdl_block: block
-        integer         :: pixel_width
-        integer         :: pixel_height
+        integer         :: pixel_width, pixel_height
         logical         :: done
-        real(GLdouble)  :: now
-        real(GLdouble)  :: dt
+        real(r8)        :: dt, freq, now
         type(sdl_event) :: event
 
         ! Initialise SDL.
@@ -52,13 +50,12 @@ program main
         res = sdl_set_window_position(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED)
         res = sdl_hide_cursor()
 
-        ! OpenGL context configuration.
+        ! Set OpenGL context attributes.
         res = sdl_gl_set_attribute(SDL_GL_CONTEXT_PROFILE_MASK,  SDL_GL_CONTEXT_PROFILE_COMPATIBILITY)
         res = sdl_gl_set_attribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2)
         res = sdl_gl_set_attribute(SDL_GL_CONTEXT_MINOR_VERSION, 1)
         res = sdl_gl_set_attribute(SDL_GL_MULTISAMPLEBUFFERS,    1)
         res = sdl_gl_set_attribute(SDL_GL_MULTISAMPLESAMPLES,    4)
-        res = sdl_gl_set_swap_interval(1)
 
         ! Create OpenGL context.
         context = sdl_gl_create_context(window)
@@ -68,7 +65,10 @@ program main
             exit sdl_block
         end if
 
-        ! Initial viewport.
+        ! Enable VSync.
+        res = sdl_gl_set_swap_interval(1)
+
+        ! Initialise viewport.
         if (.not. sdl_get_window_size_in_pixels(window, pixel_width, pixel_height)) then
             call output_error('SDL_GetWindowSizeInPixels failed')
             exit sdl_block
@@ -76,13 +76,14 @@ program main
 
         call resize_viewport(pixel_width, pixel_height)
 
-        ! OpenGL state.
+        ! Set OpenGL state.
         call glEnable(GL_DEPTH_TEST)
         call glEnable(GL_LINE_SMOOTH)
         call glHint(GL_LINE_SMOOTH_HINT, GL_NICEST)
 
         ! Initialise timer.
-        last = real(sdl_get_ticks_ns(), GLdouble) / 1000000000.0_GLdouble
+        freq = real(sdl_get_performance_frequency(), r8)
+        last = real(sdl_get_performance_counter(), r8) / freq
 
         ! Main loop.
         done = .false.
@@ -103,12 +104,12 @@ program main
             end do
 
             ! Render scene.
-            now  = real(sdl_get_ticks_ns(), GLdouble) / 1000000000.0_GLdouble
+            now  = real(sdl_get_performance_counter(), r8) / freq
             dt   = now - last
             last = now
 
             ! Avoid a huge rotation jump after a pause/debug break.
-            if (dt > 0.25_GLdouble) dt = 0.25_GLdouble
+            if (dt > 0.25_r8) dt = 0.25_r8
 
             call render_scene(dt)
             res = sdl_gl_swap_window(window)
@@ -127,127 +128,123 @@ contains
         !!
         !! Equivalent to `gluPerspective(fov_y, aspect, z_near, z_far)` but
         !! without GLU.
-        real(GLdouble), intent(in) :: fov_y
-        real(GLdouble), intent(in) :: aspect
-        real(GLdouble), intent(in) :: z_near
-        real(GLdouble), intent(in) :: z_far
+        real(r8), intent(in) :: fov_y
+        real(r8), intent(in) :: aspect
+        real(r8), intent(in) :: z_near
+        real(r8), intent(in) :: z_far
 
-        real(GLdouble) :: height
-        real(GLdouble) :: width
+        real(r8) :: height
+        real(r8) :: width
 
-        height = tan(fov_y * PI / 360.0_GLdouble) * z_near
+        height = tan(fov_y * PI / 360.0_r8) * z_near
         width  = height * aspect
         call glFrustum(-width, width, -height, height, z_near, z_far)
     end subroutine perspective
 
     subroutine draw_block(cx, cy, cz, width, height, depth, lod)
-        real(GLdouble), intent(in) :: cx, cy, cz
-        real(GLdouble), intent(in) :: width, height, depth
-        integer,        intent(in) :: lod
+        !! Draws block in given level of detail.
+        real(r4), parameter :: R_EDGE = 140.0_r4 / 255.0_r4
+        real(r4), parameter :: G_EDGE = 145.0_r4 / 255.0_r4
+        real(r4), parameter :: B_EDGE = 160.0_r4 / 255.0_r4
 
-        real(GLdouble) :: dx, dy, dz
-        real(GLfloat)  :: r_edge, g_edge, b_edge
-        real(GLfloat)  :: r_win, g_win, b_win
-        real(GLfloat)  :: r_pil, g_pil, b_pil
+        real(r4), parameter :: R_WIN  = 255.0_r4 / 255.0_r4
+        real(r4), parameter :: G_WIN  = 245.0_r4 / 255.0_r4
+        real(r4), parameter :: B_WIN  = 180.0_r4 / 255.0_r4
 
-        real(GLdouble) :: offset
-        real(GLdouble) :: y_step
-        real(GLdouble) :: x_step
+        real(r4), parameter :: R_PIL  =  70.0_r4 / 255.0_r4
+        real(r4), parameter :: G_PIL  =  75.0_r4 / 255.0_r4
+        real(r4), parameter :: B_PIL  =  90.0_r4 / 255.0_r4
 
-        dx = width  / 2.0_GLdouble
-        dy = height / 2.0_GLdouble
-        dz = depth  / 2.0_GLdouble
+        real(r8), intent(in) :: cx, cy, cz
+        real(r8), intent(in) :: width, height, depth
+        integer,  intent(in) :: lod
 
-        ! Colours.
-        r_edge = 140.0_GLfloat / 255.0_GLfloat
-        g_edge = 145.0_GLfloat / 255.0_GLfloat
-        b_edge = 160.0_GLfloat / 255.0_GLfloat
+        real(r8) :: dx, dy, dz
+        real(r8) :: offset
+        real(r8) :: y_step
+        real(r8) :: x_step
 
-        r_win = 255.0_GLfloat / 255.0_GLfloat
-        g_win = 245.0_GLfloat / 255.0_GLfloat
-        b_win = 180.0_GLfloat / 255.0_GLfloat
-
-        r_pil = 70.0_GLfloat / 255.0_GLfloat
-        g_pil = 75.0_GLfloat / 255.0_GLfloat
-        b_pil = 90.0_GLfloat / 255.0_GLfloat
+        dx = width  / 2.0_r8
+        dy = height / 2.0_r8
+        dz = depth  / 2.0_r8
 
         select case (lod)
             ! Level of Detail 2
             case (2)
-                call glColor3f(r_pil, g_pil, b_pil)
-                offset = -dx + 10.0_GLdouble
+                call glColor3f(R_PIL, G_PIL, B_PIL)
+                offset = -dx + 10.0_r8
 
-                do while (offset <= dx - 10.0_GLdouble)
+                do while (offset <= dx - 10.0_r8)
                     call draw_line(cx + offset, cy - dy, cz - dz, cx + offset, cy + dy, cz - dz)
                     call draw_line(cx + offset, cy - dy, cz + dz, cx + offset, cy + dy, cz + dz)
-                    offset = offset + 15.0_GLdouble
+                    offset = offset + 15.0_r8
                 end do
 
-                call glColor3f(r_win, g_win, b_win)
-                y_step = -dy + 15.0_GLdouble
+                call glColor3f(R_WIN, G_WIN, B_WIN)
+                y_step = -dy + 15.0_r8
 
-                do while (y_step <= dy - 15.0_GLdouble)
-                    x_step = -dx + 12.0_GLdouble
+                do while (y_step <= dy - 15.0_r8)
+                    x_step = -dx + 12.0_r8
 
-                    do while (x_step <= dx - 12.0_GLdouble)
-                        call draw_line(cx + x_step, cy + y_step, cz -     dz, cx + x_step, cy + y_step + 4.0_GLdouble, cz -     dz)
-                        call draw_line(cx + x_step, cy + y_step, cz +     dz, cx + x_step, cy + y_step + 4.0_GLdouble, cz +     dz)
-                        call draw_line(cx -     dx, cy + y_step, cz + x_step, cx -     dx, cy + y_step + 4.0_GLdouble, cz + x_step)
-                        call draw_line(cx +     dx, cy + y_step, cz + x_step, cx +     dx, cy + y_step + 4.0_GLdouble, cz + x_step)
-                        x_step = x_step + 15.0_GLdouble
+                    do while (x_step <= dx - 12.0_r8)
+                        call draw_line(cx + x_step, cy + y_step, cz -     dz, cx + x_step, cy + y_step + 4.0_r8, cz -     dz)
+                        call draw_line(cx + x_step, cy + y_step, cz +     dz, cx + x_step, cy + y_step + 4.0_r8, cz +     dz)
+                        call draw_line(cx -     dx, cy + y_step, cz + x_step, cx -     dx, cy + y_step + 4.0_r8, cz + x_step)
+                        call draw_line(cx +     dx, cy + y_step, cz + x_step, cx +     dx, cy + y_step + 4.0_r8, cz + x_step)
+                        x_step = x_step + 15.0_r8
                     end do
 
-                    y_step = y_step + 18.0_GLdouble
+                    y_step = y_step + 18.0_r8
                 end do
 
             ! Level of Detail 3
             case (3)
-                call glColor3f(r_pil, g_pil, b_pil)
-                offset = -dx + 6.0_GLdouble
+                call glColor3f(R_PIL, G_PIL, B_PIL)
+                offset = -dx + 6.0_r8
 
-                do while (offset <= dx - 6.0_GLdouble)
+                do while (offset <= dx - 6.0_r8)
                     call draw_line(cx + offset, cy - dy, cz -     dz, cx + offset, cy + dy, cz -     dz)
                     call draw_line(cx + offset, cy - dy, cz +     dz, cx + offset, cy + dy, cz +     dz)
                     call draw_line(cx -     dx, cy - dy, cz + offset, cx -     dx, cy + dy, cz + offset)
                     call draw_line(cx +     dx, cy - dy, cz + offset, cx +     dx, cy + dy, cz + offset)
-                    offset = offset + 8.0_GLdouble
+                    offset = offset + 8.0_r8
                 end do
 
-                call glColor3f(r_win, g_win, b_win)
-                y_step = -dy + 10.0_GLdouble
+                call glColor3f(R_WIN, G_WIN, B_WIN)
+                y_step = -dy + 10.0_r8
 
-                do while (y_step <= dy - 10.0_GLdouble)
-                    x_step = -dx + 6.0_GLdouble
+                do while (y_step <= dy - 10.0_r8)
+                    x_step = -dx + 6.0_r8
 
-                    do while (x_step <= dx - 6.0_GLdouble)
-                        call draw_line(cx + x_step, cy + y_step, cz -     dz, cx + x_step, cy + y_step + 3.0_GLdouble, cz -     dz)
-                        call draw_line(cx + x_step, cy + y_step, cz +     dz, cx + x_step, cy + y_step + 3.0_GLdouble, cz +     dz)
-                        call draw_line(cx -     dx, cy + y_step, cz + x_step, cx -     dx, cy + y_step + 3.0_GLdouble, cz + x_step)
-                        call draw_line(cx +     dx, cy + y_step, cz + x_step, cx +     dx, cy + y_step + 3.0_GLdouble, cz + x_step)
-                        x_step = x_step + 8.0_GLdouble
+                    do while (x_step <= dx - 6.0_r8)
+                        call draw_line(cx + x_step, cy + y_step, cz -     dz, cx + x_step, cy + y_step + 3.0_r8, cz -     dz)
+                        call draw_line(cx + x_step, cy + y_step, cz +     dz, cx + x_step, cy + y_step + 3.0_r8, cz +     dz)
+                        call draw_line(cx -     dx, cy + y_step, cz + x_step, cx -     dx, cy + y_step + 3.0_r8, cz + x_step)
+                        call draw_line(cx +     dx, cy + y_step, cz + x_step, cx +     dx, cy + y_step + 3.0_r8, cz + x_step)
+                        x_step = x_step + 8.0_r8
                     end do
 
-                    y_step = y_step + 12.0_GLdouble
+                    y_step = y_step + 12.0_r8
                 end do
 
             ! Level of Detail 4
             case (4)
-                call glColor3f(r_pil, g_pil, b_pil)
-                offset = -dx + 4.0_GLdouble
+                call glColor3f(R_PIL, G_PIL, B_PIL)
+                offset = -dx + 4.0_r8
 
-                do while (offset <= dx - 4.0_GLdouble)
+                do while (offset <= dx - 4.0_r8)
                     call draw_line(cx + offset, cy - dy, cz -     dz, cx + offset, cy + dy, cz -     dz)
                     call draw_line(cx -     dx, cy - dy, cz + offset, cx -     dx, cy + dy, cz + offset)
-                    offset = offset + 6.0_GLdouble
+                    offset = offset + 6.0_r8
                 end do
 
-                call glColor3f(r_win, g_win, b_win)
-                call draw_line(cx - dx + 5.0_GLdouble, cy, cz - dz + 5.0_GLdouble, cx + dx - 5.0_GLdouble, cy, cz - dz + 5.0_GLdouble)
+                call glColor3f(R_WIN, G_WIN, B_WIN)
+                call draw_line(cx - dx + 5.0_r8, cy, cz - dz + 5.0_r8, cx + dx - 5.0_r8, cy, cz - dz + 5.0_r8)
         end select
 
         ! Outer edges.
-        call glColor3f(r_edge, g_edge, b_edge)
-        call glLineWidth(2.0_GLfloat)
+        call glColor3f(R_EDGE, G_EDGE, B_EDGE)
+        call glLineWidth(2.0_r4)
 
         ! Front face.
         call draw_line(cx - dx, cy - dy, cz - dz, cx + dx, cy - dy, cz - dz)
@@ -267,12 +264,13 @@ contains
         call draw_line(cx + dx, cy + dy, cz - dz, cx + dx, cy + dy, cz + dz)
         call draw_line(cx - dx, cy + dy, cz - dz, cx - dx, cy + dy, cz + dz)
 
-        call glLineWidth(1.0_GLfloat)
+        call glLineWidth(1.0_r4)
     end subroutine draw_block
 
     subroutine draw_line(x1, y1, z1, x2, y2, z2)
-        real(GLdouble), intent(in) :: x1, y1, z1
-        real(GLdouble), intent(in) :: x2, y2, z2
+        !! Draws line.
+        real(r8), intent(in) :: x1, y1, z1
+        real(r8), intent(in) :: x2, y2, z2
 
         call glBegin(GL_LINES)
             call glVertex3d(x1, y1, z1)
@@ -282,16 +280,16 @@ contains
 
     subroutine draw_spire(x1, y1, z1, x2, y2, z2)
         !! Draws antenna.
-        real(GLdouble), intent(in) :: x1, y1, z1
-        real(GLdouble), intent(in) :: x2, y2, z2
+        real(r8), intent(in) :: x1, y1, z1
+        real(r8), intent(in) :: x2, y2, z2
 
-        call glColor3f(240.0_GLfloat / 255.0_GLfloat, &
-                       240.0_GLfloat / 255.0_GLfloat, &
-                       250.0_GLfloat / 255.0_GLfloat)
+        call glColor3f(240.0_r4 / 255.0_r4, &
+                       240.0_r4 / 255.0_r4, &
+                       250.0_r4 / 255.0_r4)
 
-        call glLineWidth(3.0_GLfloat)
+        call glLineWidth(3.0_r4)
         call draw_line(x1, y1, z1, x2, y2, z2)
-        call glLineWidth(1.0_GLfloat)
+        call glLineWidth(1.0_r4)
     end subroutine draw_spire
 
     subroutine output_error(message)
@@ -303,32 +301,32 @@ contains
 
     subroutine render_scene(dt)
         !! Renders scene.
-        real(GLdouble), intent(in) :: dt
+        real(r8), intent(in) :: dt
 
-        call glClearColor( 8.0_GLfloat / 255.0_GLfloat, &
-                          12.0_GLfloat / 255.0_GLfloat, &
-                          22.0_GLfloat / 255.0_GLfloat, &
-                                           1.0_GLfloat)
+        call glClearColor( 8.0_r4 / 255.0_r4, &
+                          12.0_r4 / 255.0_r4, &
+                          22.0_r4 / 255.0_r4, &
+                                      1.0_r4)
 
         call glClear(ior(GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT))
         call glMatrixMode(GL_MODELVIEW)
         call glLoadIdentity()
 
         ! Translation.
-        call glTranslated(0.0_GLdouble, -50.0_GLdouble, -750.0_GLdouble)
+        call glTranslated(0.0_r8, -50.0_r8, -750.0_r8)
 
         ! Time-based rotation: approximately 0.4 rad/s around y.
-        angle_y = angle_y + 0.4_GLdouble * dt
+        angle_y = angle_y + 0.4_r8 * dt
 
-        call glRotated(angle_x * 180.0_GLdouble / PI, 1.0_GLdouble, 0.0_GLdouble, 0.0_GLdouble)
-        call glRotated(angle_y * 180.0_GLdouble / PI, 0.0_GLdouble, 1.0_GLdouble, 0.0_GLdouble)
+        call glRotated(angle_x * 180.0_r8 / PI, 1.0_r8, 0.0_r8, 0.0_r8)
+        call glRotated(angle_y * 180.0_r8 / PI, 0.0_r8, 1.0_r8, 0.0_r8)
 
-        call draw_block(0.0_GLdouble, -180.0_GLdouble, 0.0_GLdouble, 150.0_GLdouble,  70.0_GLdouble, 150.0_GLdouble, 1)
-        call draw_block(0.0_GLdouble,  -90.0_GLdouble, 0.0_GLdouble, 110.0_GLdouble, 110.0_GLdouble, 110.0_GLdouble, 2)
-        call draw_block(0.0_GLdouble,   80.0_GLdouble, 0.0_GLdouble,  66.0_GLdouble, 230.0_GLdouble,  66.0_GLdouble, 3)
-        call draw_block(0.0_GLdouble,  210.0_GLdouble, 0.0_GLdouble,  42.0_GLdouble,  30.0_GLdouble,  42.0_GLdouble, 4)
-        call draw_block(0.0_GLdouble,  235.0_GLdouble, 0.0_GLdouble,  20.0_GLdouble,  20.0_GLdouble,  20.0_GLdouble, 5)
-        call draw_spire(0.0_GLdouble,  245.0_GLdouble, 0.0_GLdouble,   0.0_GLdouble, 325.0_GLdouble,   0.0_GLdouble)
+        call draw_block(0.0_r8, -180.0_r8, 0.0_r8, 150.0_r8,  70.0_r8, 150.0_r8, 1)
+        call draw_block(0.0_r8,  -90.0_r8, 0.0_r8, 110.0_r8, 110.0_r8, 110.0_r8, 2)
+        call draw_block(0.0_r8,   80.0_r8, 0.0_r8,  66.0_r8, 230.0_r8,  66.0_r8, 3)
+        call draw_block(0.0_r8,  210.0_r8, 0.0_r8,  42.0_r8,  30.0_r8,  42.0_r8, 4)
+        call draw_block(0.0_r8,  235.0_r8, 0.0_r8,  20.0_r8,  20.0_r8,  20.0_r8, 5)
+        call draw_spire(0.0_r8,  245.0_r8, 0.0_r8,   0.0_r8, 325.0_r8,   0.0_r8)
     end subroutine render_scene
 
     subroutine resize_viewport(width, height)
@@ -336,8 +334,8 @@ contains
         integer, intent(in) :: width
         integer, intent(in) :: height
 
-        integer        :: height_
-        real(GLdouble) :: aspect
+        integer  :: height_
+        real(r8) :: aspect
 
         height_ = max(1, height)
         call glViewport(0, 0, width, height_)
@@ -345,8 +343,8 @@ contains
         call glMatrixMode(GL_PROJECTION)
         call glLoadIdentity()
 
-        aspect = real(width, GLdouble) / real(height_, GLdouble)
-        call perspective(45.0_GLdouble, aspect, 1.0_GLdouble, 2000.0_GLdouble)
+        aspect = real(width, r8) / real(height_, r8)
+        call perspective(45.0_r8, aspect, 1.0_r8, 2000.0_r8)
 
         call glMatrixMode(GL_MODELVIEW)
         call glLoadIdentity()

@@ -81,7 +81,7 @@ The following example programs are provided in `examples/`:
 * **palette** draws pixels on a surface using a colour palette.
 * **root3** draws a complex cube root fractal to texture.
 * **smoke** renders a chaotic [attractor](https://en.wikipedia.org/wiki/Attractor).
-* **version** outputs SDL version information.
+* **version** outputs SDL version and system information.
 * **window** opens an SDL window.
 
 Execute the Makefile to compile the examples:

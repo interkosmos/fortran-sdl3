@@ -63,6 +63,13 @@ module sdl3_cpuinfo
             integer(c_int) :: sdl_get_system_ram
         end function sdl_get_system_ram
 
+        ! bool SDL_HasAltiVec(void)
+        function sdl_has_alti_vec() bind(c, name='SDL_HasAltiVec')
+            import :: c_bool
+            implicit none
+            logical(c_bool) :: sdl_has_alti_vec
+        end function sdl_has_alti_vec
+
         ! bool SDL_HasARMSIMD(void)
         function sdl_has_arm_simd() bind(c, name='SDL_HasARMSIMD')
             import :: c_bool
@@ -90,13 +97,6 @@ module sdl3_cpuinfo
             implicit none
             logical(c_bool) :: sdl_has_avx512f
         end function sdl_has_avx512f
-
-        ! bool SDL_HasAltiVec(void)
-        function sdl_has_alti_vec() bind(c, name='SDL_HasAltiVec')
-            import :: c_bool
-            implicit none
-            logical(c_bool) :: sdl_has_alti_vec
-        end function sdl_has_alti_vec
 
         ! bool SDL_HasLASX(void)
         function sdl_has_lasx() bind(c, name='SDL_HasLASX')
