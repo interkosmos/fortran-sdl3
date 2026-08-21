@@ -16,23 +16,23 @@ program main
     real, parameter :: DY = 5.0
 
     ! Function pointers to OpenGL API.
-    procedure(glAttachShader_interface),            bind(c), pointer :: glAttachShader
-    procedure(glBindBuffer_interface),              bind(c), pointer :: glBindBuffer
-    procedure(glBindVertexArray_interface),         bind(c), pointer :: glBindVertexArray
-    procedure(glBufferData_interface),              bind(c), pointer :: glBufferData
-    procedure(glCompileShader_interface),           bind(c), pointer :: glCompileShader
-    procedure(glCreateProgram_interface),           bind(c), pointer :: glCreateProgram
-    procedure(glCreateShader_interface),            bind(c), pointer :: glCreateShader
-    procedure(glDeleteShader_interface),            bind(c), pointer :: glDeleteShader
-    procedure(glEnableVertexAttribArray_interface), bind(c), pointer :: glEnableVertexAttribArray
-    procedure(glGenBuffers_interface),              bind(c), pointer :: glGenBuffers
-    procedure(glGenVertexArrays_interface),         bind(c), pointer :: glGenVertexArrays
-    procedure(glGetUniformLocation_interface),      bind(c), pointer :: glGetUniformLocation
-    procedure(glLinkProgram_interface),             bind(c), pointer :: glLinkProgram
-    procedure(glShaderSource_interface),            bind(c), pointer :: glShaderSource
-    procedure(glUniformMatrix4fv_interface),        bind(c), pointer :: glUniformMatrix4fv
-    procedure(glUseProgram_interface),              bind(c), pointer :: glUseProgram
-    procedure(glVertexAttribPointer_interface),     bind(c), pointer :: glVertexAttribPointer
+    procedure(PFNGLATTACHSHADERPROC),            bind(c), pointer :: glAttachShader
+    procedure(PFNGLBINDBUFFERPROC),              bind(c), pointer :: glBindBuffer
+    procedure(PFNGLBINDVERTEXARRAYPROC),         bind(c), pointer :: glBindVertexArray
+    procedure(PFNGLBUFFERDATAPROC),              bind(c), pointer :: glBufferData
+    procedure(PFNGLCOMPILESHADERPROC),           bind(c), pointer :: glCompileShader
+    procedure(PFNGLCREATEPROGRAMPROC),           bind(c), pointer :: glCreateProgram
+    procedure(PFNGLCREATESHADERPROC),            bind(c), pointer :: glCreateShader
+    procedure(PFNGLDELETESHADERPROC),            bind(c), pointer :: glDeleteShader
+    procedure(PFNGLENABLEVERTEXATTRIBARRAYPROC), bind(c), pointer :: glEnableVertexAttribArray
+    procedure(PFNGLGENBUFFERSPROC),              bind(c), pointer :: glGenBuffers
+    procedure(PFNGLGENVERTEXARRAYSPROC),         bind(c), pointer :: glGenVertexArrays
+    procedure(PFNGLGETUNIFORMLOCATIONPROC),      bind(c), pointer :: glGetUniformLocation
+    procedure(PFNGLLINKPROGRAMPROC),             bind(c), pointer :: glLinkProgram
+    procedure(PFNGLSHADERSOURCEPROC),            bind(c), pointer :: glShaderSource
+    procedure(PFNGLUNIFORMMATRIX4FVPROC),        bind(c), pointer :: glUniformMatrix4fv
+    procedure(PFNGLUSEPROGRAMPROC),              bind(c), pointer :: glUseProgram
+    procedure(PFNGLVERTEXATTRIBPOINTERPROC),     bind(c), pointer :: glVertexAttribPointer
 
     logical(c_bool) :: res
     type(c_ptr)     :: context
@@ -92,23 +92,23 @@ program main
         print '("Renderer: ", a)', glGetString(GL_RENDERER)
 
         ! Get function pointers to the OpenGL API.
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glAttachShader')),            glAttachShader)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glBindBuffer')),              glBindBuffer)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glBindVertexArray')),         glBindVertexArray)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glBufferData')),              glBufferData)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glCompileShader')),           glCompileShader)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glCreateProgram')),           glCreateProgram)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glCreateShader')),            glCreateShader)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glDeleteShader')),            glDeleteShader)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glEnableVertexAttribArray')), glEnableVertexAttribArray)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glGenBuffers')),              glGenBuffers)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glGenVertexArrays')),         glGenVertexArrays)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glGetUniformLocation')),      glGetUniformLocation)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glLinkProgram')),             glLinkProgram)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glShaderSource')),            glShaderSource)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glUniformMatrix4fv')),        glUniformMatrix4fv)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glUseProgram')),              glUseProgram)
-        call c_f_procpointer(sdl_gl_get_proc_address(f_c_str('glVertexAttribPointer')),     glVertexAttribPointer)
+        call c_f_procpointer(sdl_gl_get_proc_address('glAttachShader'),            glAttachShader)
+        call c_f_procpointer(sdl_gl_get_proc_address('glBindBuffer'),              glBindBuffer)
+        call c_f_procpointer(sdl_gl_get_proc_address('glBindVertexArray'),         glBindVertexArray)
+        call c_f_procpointer(sdl_gl_get_proc_address('glBufferData'),              glBufferData)
+        call c_f_procpointer(sdl_gl_get_proc_address('glCompileShader'),           glCompileShader)
+        call c_f_procpointer(sdl_gl_get_proc_address('glCreateProgram'),           glCreateProgram)
+        call c_f_procpointer(sdl_gl_get_proc_address('glCreateShader'),            glCreateShader)
+        call c_f_procpointer(sdl_gl_get_proc_address('glDeleteShader'),            glDeleteShader)
+        call c_f_procpointer(sdl_gl_get_proc_address('glEnableVertexAttribArray'), glEnableVertexAttribArray)
+        call c_f_procpointer(sdl_gl_get_proc_address('glGenBuffers'),              glGenBuffers)
+        call c_f_procpointer(sdl_gl_get_proc_address('glGenVertexArrays'),         glGenVertexArrays)
+        call c_f_procpointer(sdl_gl_get_proc_address('glGetUniformLocation'),      glGetUniformLocation)
+        call c_f_procpointer(sdl_gl_get_proc_address('glLinkProgram'),             glLinkProgram)
+        call c_f_procpointer(sdl_gl_get_proc_address('glShaderSource'),            glShaderSource)
+        call c_f_procpointer(sdl_gl_get_proc_address('glUniformMatrix4fv'),        glUniformMatrix4fv)
+        call c_f_procpointer(sdl_gl_get_proc_address('glUseProgram'),              glUseProgram)
+        call c_f_procpointer(sdl_gl_get_proc_address('glVertexAttribPointer'),     glVertexAttribPointer)
 
         ! Load vertex shader.
         vs = glCreateShader(GL_VERTEX_SHADER)

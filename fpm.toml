@@ -4,7 +4,7 @@ license = "ISC"
 author = "Philipp Engel"
 maintainer = "@interkosmos"
 copyright = "Copyright (c) 2026, Philipp Engel"
-description = "Fortran 2023 ISO C binding interfaces to SDL 3.4"
+description = "Fortran 2023 ISO C binding interfaces to SDL3"
 keywords = [ "graphics", "sdl", "sdl3" ]
 
 [build]

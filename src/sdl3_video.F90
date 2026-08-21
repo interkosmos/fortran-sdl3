@@ -288,7 +288,7 @@ module sdl3_video
     public :: sdl_disable_screen_saver
     public :: sdl_egl_get_current_config
     public :: sdl_egl_get_current_display
-    public :: sdl_egl_get_proc_address
+    public :: sdl_egl_get_proc_address_
     public :: sdl_egl_get_window_surface
     public :: sdl_egl_set_attribute_callbacks
     public :: sdl_enable_screen_saver
@@ -348,7 +348,7 @@ module sdl3_video
     public :: sdl_gl_get_attribute
     public :: sdl_gl_get_current_context
     public :: sdl_gl_get_current_window
-    public :: sdl_gl_get_proc_address
+    public :: sdl_gl_get_proc_address_
     public :: sdl_gl_get_swap_interval
     public :: sdl_gl_load_library
     public :: sdl_gl_make_current
@@ -465,12 +465,12 @@ module sdl3_video
         end function sdl_egl_get_current_display
 
         ! SDL_FunctionPointer SDL_EGL_GetProcAddress(const char *proc)
-        function sdl_egl_get_proc_address(proc) bind(c, name='SDL_EGL_GetProcAddress')
+        function sdl_egl_get_proc_address_(proc) bind(c, name='SDL_EGL_GetProcAddress')
             import :: c_char, c_funptr
             implicit none
             character(c_char), intent(in) :: proc
-            type(c_funptr)                :: sdl_egl_get_proc_address
-        end function sdl_egl_get_proc_address
+            type(c_funptr)                :: sdl_egl_get_proc_address_
+        end function sdl_egl_get_proc_address_
 
         ! SDL_EGLSurface SDL_EGL_GetWindowSurface(SDL_Window *window)
         function sdl_egl_get_window_surface(window) bind(c, name='SDL_EGL_GetWindowSurface')
@@ -505,119 +505,6 @@ module sdl3_video
             integer(c_int), intent(in), value :: operation
             logical(c_bool)                   :: sdl_flash_window
         end function sdl_flash_window
-
-        ! SDL_GLContext SDL_GL_CreateContext(SDL_Window *window)
-        function sdl_gl_create_context(window) bind(c, name='SDL_GL_CreateContext')
-            import :: c_ptr
-            implicit none
-            type(c_ptr), intent(in), value :: window
-            type(c_ptr)                    :: sdl_gl_create_context
-        end function sdl_gl_create_context
-
-        ! bool SDL_GL_DestroyContext(SDL_GLContext context)
-        function sdl_gl_destroy_context(context) bind(c, name='SDL_GL_DestroyContext')
-            import :: c_bool, c_ptr
-            implicit none
-            type(c_ptr), intent(in), value :: context
-            logical(c_bool)                :: sdl_gl_destroy_context
-        end function sdl_gl_destroy_context
-
-        ! bool SDL_GL_ExtensionSupported(const char *extension)
-        function sdl_gl_extension_supported(extension) bind(c, name='SDL_GL_ExtensionSupported')
-            import :: c_bool, c_char
-            implicit none
-            character(c_char), intent(in) :: extension
-            logical(c_bool)               :: sdl_gl_extension_supported
-        end function sdl_gl_extension_supported
-
-        ! bool SDL_GL_GetAttribute(SDL_GLAttr attr, int *value)
-        function sdl_gl_get_attribute(attr, value) bind(c, name='SDL_GL_GetAttribute')
-            import :: c_bool, c_int
-            implicit none
-            integer(c_int), intent(in), value :: attr
-            integer(c_int), intent(out)       :: value
-            logical(c_bool)                   :: sdl_gl_get_attribute
-        end function sdl_gl_get_attribute
-
-        ! SDL_GLContext SDL_GL_GetCurrentContext(void)
-        function sdl_gl_get_current_context() bind(c, name='SDL_GL_GetCurrentContext')
-            import :: c_ptr
-            implicit none
-            type(c_ptr) :: sdl_gl_get_current_context
-        end function sdl_gl_get_current_context
-
-        ! SDL_Window *SDL_GL_GetCurrentWindow(void)
-        function sdl_gl_get_current_window() bind(c, name='SDL_GL_GetCurrentWindow')
-            import :: c_ptr
-            implicit none
-            type(c_ptr) :: sdl_gl_get_current_window
-        end function sdl_gl_get_current_window
-
-        ! SDL_FunctionPointer SDL_GL_GetProcAddress(const char *proc)
-        function sdl_gl_get_proc_address(proc) bind(c, name='SDL_GL_GetProcAddress')
-            import :: c_char, c_funptr
-            implicit none
-            character(c_char), intent(in) :: proc
-            type(c_funptr)                :: sdl_gl_get_proc_address
-        end function sdl_gl_get_proc_address
-
-        ! bool SDL_GL_GetSwapInterval(int *interval)
-        function sdl_gl_get_swap_interval(interval) bind(c, name='SDL_GL_GetSwapInterval')
-            import :: c_bool, c_int
-            implicit none
-            integer(c_int), intent(out) :: interval
-            logical(c_bool)             :: sdl_gl_get_swap_interval
-        end function sdl_gl_get_swap_interval
-
-        ! bool SDL_GL_LoadLibrary(const char *path)
-        function sdl_gl_load_library(path) bind(c, name='SDL_GL_LoadLibrary')
-            import :: c_bool, c_char
-            implicit none
-            character(c_char), intent(in) :: path
-            logical(c_bool)               :: sdl_gl_load_library
-        end function sdl_gl_load_library
-
-        ! bool SDL_GL_MakeCurrent(SDL_Window *window, SDL_GLContext context)
-        function sdl_gl_make_current(window, context) bind(c, name='SDL_GL_MakeCurrent')
-            import :: c_bool, c_ptr
-            implicit none
-            type(c_ptr), intent(in), value :: window
-            type(c_ptr), intent(in), value :: context
-            logical(c_bool)                :: sdl_gl_make_current
-        end function sdl_gl_make_current
-
-        ! void SDL_GL_ResetAttributes(void)
-        subroutine sdl_gl_reset_attributes() bind(c, name='SDL_GL_ResetAttributes')
-        end subroutine sdl_gl_reset_attributes
-
-        ! bool SDL_GL_SetAttribute(SDL_GLAttr attr, int value)
-        function sdl_gl_set_attribute(attr, value) bind(c, name='SDL_GL_SetAttribute')
-            import :: c_bool, c_int
-            implicit none
-            integer(c_int), intent(in), value :: attr
-            integer(c_int), intent(in), value :: value
-            logical(c_bool)                   :: sdl_gl_set_attribute
-        end function sdl_gl_set_attribute
-
-        ! bool SDL_GL_SetSwapInterval(int interval)
-        function sdl_gl_set_swap_interval(interval) bind(c, name='SDL_GL_SetSwapInterval')
-            import :: c_bool, c_int
-            implicit none
-            integer(c_int), intent(in), value :: interval
-            logical(c_bool)                   :: sdl_gl_set_swap_interval
-        end function sdl_gl_set_swap_interval
-
-        ! bool SDL_GL_SwapWindow(SDL_Window *window)
-        function sdl_gl_swap_window(window) bind(c, name='SDL_GL_SwapWindow')
-            import :: c_bool, c_ptr
-            implicit none
-            type(c_ptr), intent(in), value :: window
-            logical(c_bool)                :: sdl_gl_swap_window
-        end function sdl_gl_swap_window
-
-        ! void SDL_GL_UnloadLibrary(void)
-        subroutine sdl_gl_unload_library() bind(c, name='SDL_GL_UnloadLibrary')
-        end subroutine sdl_gl_unload_library
 
         ! bool SDL_GetClosestFullscreenDisplayMode(SDL_DisplayID displayID, int w, int h, float refresh_rate, bool include_high_density_modes, SDL_DisplayMode *closest)
         function sdl_get_closest_fullscreen_display_mode(display_id, w, h, refresh_rate, include_high_density_modes, closest) bind(c, name='SDL_GetClosestFullscreenDisplayMode')
@@ -1033,6 +920,119 @@ module sdl3_video
             type(c_ptr)                 :: sdl_get_windows
         end function sdl_get_windows
 
+        ! SDL_GLContext SDL_GL_CreateContext(SDL_Window *window)
+        function sdl_gl_create_context(window) bind(c, name='SDL_GL_CreateContext')
+            import :: c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: window
+            type(c_ptr)                    :: sdl_gl_create_context
+        end function sdl_gl_create_context
+
+        ! bool SDL_GL_DestroyContext(SDL_GLContext context)
+        function sdl_gl_destroy_context(context) bind(c, name='SDL_GL_DestroyContext')
+            import :: c_bool, c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: context
+            logical(c_bool)                :: sdl_gl_destroy_context
+        end function sdl_gl_destroy_context
+
+        ! bool SDL_GL_ExtensionSupported(const char *extension)
+        function sdl_gl_extension_supported(extension) bind(c, name='SDL_GL_ExtensionSupported')
+            import :: c_bool, c_char
+            implicit none
+            character(c_char), intent(in) :: extension
+            logical(c_bool)               :: sdl_gl_extension_supported
+        end function sdl_gl_extension_supported
+
+        ! bool SDL_GL_GetAttribute(SDL_GLAttr attr, int *value)
+        function sdl_gl_get_attribute(attr, value) bind(c, name='SDL_GL_GetAttribute')
+            import :: c_bool, c_int
+            implicit none
+            integer(c_int), intent(in), value :: attr
+            integer(c_int), intent(out)       :: value
+            logical(c_bool)                   :: sdl_gl_get_attribute
+        end function sdl_gl_get_attribute
+
+        ! SDL_GLContext SDL_GL_GetCurrentContext(void)
+        function sdl_gl_get_current_context() bind(c, name='SDL_GL_GetCurrentContext')
+            import :: c_ptr
+            implicit none
+            type(c_ptr) :: sdl_gl_get_current_context
+        end function sdl_gl_get_current_context
+
+        ! SDL_Window *SDL_GL_GetCurrentWindow(void)
+        function sdl_gl_get_current_window() bind(c, name='SDL_GL_GetCurrentWindow')
+            import :: c_ptr
+            implicit none
+            type(c_ptr) :: sdl_gl_get_current_window
+        end function sdl_gl_get_current_window
+
+        ! SDL_FunctionPointer SDL_GL_GetProcAddress(const char *proc)
+        function sdl_gl_get_proc_address_(proc) bind(c, name='SDL_GL_GetProcAddress')
+            import :: c_char, c_funptr
+            implicit none
+            character(c_char), intent(in) :: proc
+            type(c_funptr)                :: sdl_gl_get_proc_address_
+        end function sdl_gl_get_proc_address_
+
+        ! bool SDL_GL_GetSwapInterval(int *interval)
+        function sdl_gl_get_swap_interval(interval) bind(c, name='SDL_GL_GetSwapInterval')
+            import :: c_bool, c_int
+            implicit none
+            integer(c_int), intent(out) :: interval
+            logical(c_bool)             :: sdl_gl_get_swap_interval
+        end function sdl_gl_get_swap_interval
+
+        ! bool SDL_GL_LoadLibrary(const char *path)
+        function sdl_gl_load_library(path) bind(c, name='SDL_GL_LoadLibrary')
+            import :: c_bool, c_char
+            implicit none
+            character(c_char), intent(in) :: path
+            logical(c_bool)               :: sdl_gl_load_library
+        end function sdl_gl_load_library
+
+        ! bool SDL_GL_MakeCurrent(SDL_Window *window, SDL_GLContext context)
+        function sdl_gl_make_current(window, context) bind(c, name='SDL_GL_MakeCurrent')
+            import :: c_bool, c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: window
+            type(c_ptr), intent(in), value :: context
+            logical(c_bool)                :: sdl_gl_make_current
+        end function sdl_gl_make_current
+
+        ! void SDL_GL_ResetAttributes(void)
+        subroutine sdl_gl_reset_attributes() bind(c, name='SDL_GL_ResetAttributes')
+        end subroutine sdl_gl_reset_attributes
+
+        ! bool SDL_GL_SetAttribute(SDL_GLAttr attr, int value)
+        function sdl_gl_set_attribute(attr, value) bind(c, name='SDL_GL_SetAttribute')
+            import :: c_bool, c_int
+            implicit none
+            integer(c_int), intent(in), value :: attr
+            integer(c_int), intent(in), value :: value
+            logical(c_bool)                   :: sdl_gl_set_attribute
+        end function sdl_gl_set_attribute
+
+        ! bool SDL_GL_SetSwapInterval(int interval)
+        function sdl_gl_set_swap_interval(interval) bind(c, name='SDL_GL_SetSwapInterval')
+            import :: c_bool, c_int
+            implicit none
+            integer(c_int), intent(in), value :: interval
+            logical(c_bool)                   :: sdl_gl_set_swap_interval
+        end function sdl_gl_set_swap_interval
+
+        ! bool SDL_GL_SwapWindow(SDL_Window *window)
+        function sdl_gl_swap_window(window) bind(c, name='SDL_GL_SwapWindow')
+            import :: c_bool, c_ptr
+            implicit none
+            type(c_ptr), intent(in), value :: window
+            logical(c_bool)                :: sdl_gl_swap_window
+        end function sdl_gl_swap_window
+
+        ! void SDL_GL_UnloadLibrary(void)
+        subroutine sdl_gl_unload_library() bind(c, name='SDL_GL_UnloadLibrary')
+        end subroutine sdl_gl_unload_library
+
         ! bool SDL_HideWindow(SDL_Window *window)
         function sdl_hide_window(window) bind(c, name='SDL_HideWindow')
             import :: c_bool, c_ptr
@@ -1363,4 +1363,21 @@ module sdl3_video
             logical(c_bool)                :: sdl_window_has_surface
         end function sdl_window_has_surface
     end interface
+
+    public :: sdl_egl_get_proc_address
+    public :: sdl_gl_get_proc_address
+contains
+     function sdl_egl_get_proc_address(proc) result(fptr)
+        character(*), intent(in) :: proc
+        type(c_funptr)           :: fptr
+
+        fptr = sdl_egl_get_proc_address_(f_c_Str(proc))
+    end function sdl_egl_get_proc_address
+
+    function sdl_gl_get_proc_address(proc) result(fptr)
+        character(*), intent(in) :: proc
+        type(c_funptr)           :: fptr
+
+        fptr = sdl_gl_get_proc_address_(f_c_Str(proc))
+    end function sdl_gl_get_proc_address
 end module sdl3_video
