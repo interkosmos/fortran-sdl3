@@ -13,13 +13,19 @@ For Fortran bindings to SDL2, see [fortran-sdl2](https://github.com/interkosmos/
 Install SDL3 and SDL3_image with development headers. On FreeBSD, run:
 
 ```
-$ doas pkg install devel/pkgconf devel/sdl3 graphics/sdl3_image
+$ doas pkg install devel/sdl3 graphics/sdl3_image
+```
+
+On Linux, instead:
+
+```
+$ sudo apt install libsdl3-0 libsdl3-dev libsdl3-image0 libsdl3-image-dev
 ```
 
 Then, clone the _fortran-sdl3_ repository:
 
 ```
-$ git clone https://github.com/interkosmos/fortran-sdl3
+$ git clone --depth 1 https://github.com/interkosmos/fortran-sdl3
 $ cd fortran-sdl3/
 ```
 

@@ -21,7 +21,7 @@ program main
     print '("CPU Cache Line Size: ", i0)', sdl_get_cpu_cache_line_size()
     print '("CPU Cores..........: ", i0)', sdl_get_num_logical_cpu_cores()
     print '("SIMD Alignment.....: ", i0)', sdl_get_simd_alignment()
-    print '("System Page Size...: ", i0)', sdl_get_system_page_size()
+    ! print '("System Page Size...: ", i0)', sdl_get_system_page_size()
     print '("System RAM.........: ", i0)', sdl_get_system_ram()
     print '("AltiVec............: ", a)',  merge(YES, NO, sdl_has_alti_vec())
     print '("ARM SIMD...........: ", a)',  merge(YES, NO, sdl_has_arm_simd())
