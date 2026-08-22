@@ -239,9 +239,9 @@ contains
 
         ! Colours of TILE_NONE, TILE_TREE and TILE_FIRE.
         colors = [ &
-            sdl_color(to_uint8(  0), to_uint8(  0), to_uint8(  0), to_uint8(255)), &
-            sdl_color(to_uint8( 46), to_uint8(139), to_uint8( 87), to_uint8(255)), &
-            sdl_color(to_uint8(255), to_uint8(  0), to_uint8(  0), to_uint8(255))  &
+            sdl_color(to_uint8(  0), to_uint8(  0), to_uint8(  0), to_uint8(SDL_ALPHA_OPAQUE)), &
+            sdl_color(to_uint8( 46), to_uint8(139), to_uint8( 87), to_uint8(SDL_ALPHA_OPAQUE)), &
+            sdl_color(to_uint8(255), to_uint8(  0), to_uint8(  0), to_uint8(SDL_ALPHA_OPAQUE))  &
         ]
 
         if (.not. sdl_set_palette_colors(screen%palette, colors, 0, size(colors))) then
@@ -264,7 +264,7 @@ contains
 
         logical :: res
 
-        ! Copy forest to buffer surface pixels, then blit buffer surface to window.
+        ! Copy forest to buffer surface pixels (transposed), then blit buffer surface to window.
         screen%pixels = forest%world
         res = sdl_blit_surface(src=screen%buffer_surface, dst=screen%window_surface)
         res = sdl_update_window_surface(screen%window)

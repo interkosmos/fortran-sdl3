@@ -74,14 +74,14 @@ program main
         end if
 
         colors = [ &
-            sdl_color(to_uint8(  0), to_uint8(  0), to_uint8(  0), to_uint8(255)), &
-            sdl_color(to_uint8(255), to_uint8(  0), to_uint8(  0), to_uint8(255)), &
-            sdl_color(to_uint8(  0), to_uint8(255), to_uint8(  0), to_uint8(255)), &
-            sdl_color(to_uint8(  0), to_uint8(  0), to_uint8(255), to_uint8(255)), &
-            sdl_color(to_uint8(255), to_uint8(255), to_uint8(  0), to_uint8(255)), &
-            sdl_color(to_uint8(255), to_uint8(  0), to_uint8(255), to_uint8(255)), &
-            sdl_color(to_uint8(  0), to_uint8(255), to_uint8(255), to_uint8(255)), &
-            sdl_color(to_uint8(255), to_uint8(255), to_uint8(255), to_uint8(255))  &
+            sdl_color(to_uint8(  0), to_uint8(  0), to_uint8(  0), to_uint8(SDL_ALPHA_OPAQUE)), &
+            sdl_color(to_uint8(255), to_uint8(  0), to_uint8(  0), to_uint8(SDL_ALPHA_OPAQUE)), &
+            sdl_color(to_uint8(  0), to_uint8(255), to_uint8(  0), to_uint8(SDL_ALPHA_OPAQUE)), &
+            sdl_color(to_uint8(  0), to_uint8(  0), to_uint8(255), to_uint8(SDL_ALPHA_OPAQUE)), &
+            sdl_color(to_uint8(255), to_uint8(255), to_uint8(  0), to_uint8(SDL_ALPHA_OPAQUE)), &
+            sdl_color(to_uint8(255), to_uint8(  0), to_uint8(255), to_uint8(SDL_ALPHA_OPAQUE)), &
+            sdl_color(to_uint8(  0), to_uint8(255), to_uint8(255), to_uint8(SDL_ALPHA_OPAQUE)), &
+            sdl_color(to_uint8(255), to_uint8(255), to_uint8(255), to_uint8(SDL_ALPHA_OPAQUE))  &
         ]
 
         if (.not. sdl_set_palette_colors(palette, colors, 0, NCOLORS)) then

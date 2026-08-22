@@ -2,21 +2,23 @@
 ! Licence: ISC
 program main
     !! Creates an SDL window and prints log messages to standard output.
-    use :: sdl3
+    use :: sdl3, to_uint8 => sint32_to_uint8
     implicit none (type, external)
 
-    integer, parameter :: WINDOW_WIDTH  = 1200
-    integer, parameter :: WINDOW_HEIGHT = 800
+    integer, parameter :: WINDOW_WIDTH  = 800
+    integer, parameter :: WINDOW_HEIGHT = 600
 
+    character(32)             :: version
+    integer(sdl_window_flags) :: flags
+    integer(uint8)            :: r, g, b, a
+    logical                   :: done, res
     type(c_ptr)               :: renderer
     type(c_ptr)               :: window
     type(sdl_event)           :: event
-    logical                   :: done, res
-    integer(sdl_window_flags) :: flags
-    integer(uint8)            :: r, g, b, a
 
     ! Set custom log procedure.
     call sdl_set_log_output_function(log_output, c_null_ptr)
+    call sdl_set_log_priorities(SDL_LOG_PRIORITY_VERBOSE)
 
     ! Initialise SDL.
     if (.not. sdl_init(SDL_INIT_VIDEO)) then
@@ -26,6 +28,7 @@ program main
     end if
 
     call sdl_log_info(0, 'SDL initialized')
+    call version_string(version)
 
     ! Create SDL window.
     flags  = 0
@@ -53,11 +56,11 @@ program main
 
     call sdl_log_info(0, 'SDL renderer created')
 
-    ! Background colour of the window.
-    r = sint32_to_uint8(0)   ! red
-    g = sint32_to_uint8(0)   ! green
-    b = sint32_to_uint8(0)   ! blue
-    a = sint32_to_uint8(255) ! alpha
+    ! Font colour.
+    r = to_uint8(0)
+    g = to_uint8(255)
+    b = to_uint8(0)
+    a = to_uint8(SDL_ALPHA_OPAQUE)
 
     ! Main loop.
     done = .false.
@@ -65,17 +68,22 @@ program main
     do while (.not. done)
         ! Event loop.
         do while (sdl_poll_event(event))
-            if (event%type == SDL_EVENT_QUIT) then
-                done = .true.
-                exit
-            end if
+            select case (event%type)
+                case (SDL_EVENT_QUIT)
+                    done = .true.
+                case (SDL_EVENT_KEY_DOWN)
+                    if (event%key%key == SDLK_ESCAPE) done = .true.
+            end select
         end do
 
         ! Update screen.
-        res = sdl_set_render_draw_color(renderer, r, g, b, a)
+        res = sdl_set_render_draw_color(renderer, 0_uint8, 0_uint8, 0_uint8, a)
         res = sdl_render_clear(renderer)
-        res = sdl_render_present(renderer)
 
+        res = sdl_set_render_draw_color(renderer, r, g, b, a)
+        res = sdl_render_debug_text(renderer, 10.0, 10.0, f_c_str(version))
+
+        res = sdl_render_present(renderer)
         call sdl_delay(20)
     end do
 
@@ -85,6 +93,7 @@ program main
     call sdl_destroy_window(window)
     call sdl_log_info(0, 'SDL window destroyed')
 
+    call sdl_log_verbose(0, 'Exiting ...')
     call sdl_quit()
 contains
     subroutine log_output(user_data, category, priority, message) bind(c)
@@ -94,13 +103,13 @@ contains
         integer(c_int), intent(in), value :: priority
         type(c_ptr),    intent(in), value :: message
 
-        character(:), allocatable :: str
+        character(:), allocatable :: string
         integer                   :: dt(8)
 
-        call c_f_str_ptr(message, str)
+        call c_f_str_ptr(message, string)
         call date_and_time(values=dt)
 
-        write (*, '("[", i4, "-", i2.2, "-", i2.2, " ", 2(i2.2, ":"), i2.2, "]")', advance='no') dt(1:3), dt(5:7)
+        write (*, '("[", i4.4, 2("-", i2.2), " ", 2(i2.2, ":"), i2.2, "]")', advance='no') dt(1:3), dt(5:7)
 
        select case (priority)
             case (SDL_LOG_PRIORITY_TRACE);    write (*, '(" [TRACE] ")',    advance='no')
@@ -112,6 +121,22 @@ contains
             case (SDL_LOG_PRIORITY_CRITICAL); write (*, '(" [CRITICAL] ")', advance='no')
         end select
 
-        write (*, '(a)') str
+        write (*, '(a)') string
     end subroutine log_output
+
+    subroutine version_string(string)
+        character(*), intent(inout) :: string
+
+        integer :: major, minor, patch, version
+        integer :: stat
+
+        string = ' '
+
+        version = sdl_get_version()
+        major   = version / 1000000
+        minor   = modulo(version / 1000, 1000)
+        patch   = modulo(version, 1000)
+
+        write (string, '("SDL ", 2(i0, "."), i0)', iostat=stat) major, minor, patch
+    end subroutine version_string
 end program main
