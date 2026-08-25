@@ -44,73 +44,73 @@ module sdl3_notification
     character(*), parameter, public :: SDL_PROP_NOTIFICATION_TITLE_STRING        = 'SDL.notification.title'
     character(*), parameter, public :: SDL_PROP_NOTIFICATION_TRANSIENT_BOOLEAN   = 'SDL.notification.transient'
 
-    public :: sdl_remove_notification
-    public :: sdl_request_notification_permission
-    public :: sdl_show_notification_
-    public :: sdl_show_notification_with_properties
-
-    interface
-        ! bool SDL_RemoveNotification(SDL_NotificationID notification)
-        function sdl_remove_notification(notification) bind(c, name='SDL_RemoveNotification')
-            import :: c_bool, sdl_notification_id
-            implicit none
-            integer(sdl_notification_id), intent(in), value :: notification
-            logical(c_bool) :: sdl_remove_notification
-        end function sdl_remove_notification
-
-        ! bool SDL_RequestNotificationPermission(void)
-        function sdl_request_notification_permission() bind(c, name='SDL_RequestNotificationPermission')
-            import :: c_bool
-            implicit none
-            logical(c_bool) :: sdl_request_notification_permission
-        end function sdl_request_notification_permission
-
-        ! SDL_NotificationID SDL_ShowNotification(const char *title, const char *message, SDL_Surface *image, SDL_NotificationAction *actions, int num_actions)
-        function sdl_show_notification_(title, message, image, actions, num_actions) bind(c, name='SDL_ShowNotification')
-            import :: c_char, c_int, c_ptr, sdl_notification_action, sdl_notification_id
-            implicit none
-            character(c_char),             intent(in)           :: title
-            character(c_char),             intent(in)           :: message
-            type(c_ptr),                   intent(in), value    :: image
-            type(sdl_notification_action), intent(in), optional :: actions(*)
-            integer(c_int),                intent(in), value    :: num_actions
-            integer(sdl_notification_id)                        :: sdl_show_notification_
-        end function sdl_show_notification_
-
-        ! SDL_NotificationID SDL_ShowNotificationWithProperties(SDL_PropertiesID props)
-        function sdl_show_notification_with_properties(props) bind(c, name='SDL_ShowNotificationWithProperties')
-            import :: sdl_notification_id, sdl_properties_id
-            implicit none
-            integer(sdl_properties_id), intent(in), value :: props
-            integer(sdl_notification_id)                  :: sdl_show_notification_with_properties
-        end function sdl_show_notification_with_properties
-    end interface
-
-    public :: sdl_show_notification
+!   public :: sdl_remove_notification
+!   public :: sdl_request_notification_permission
+!   public :: sdl_show_notification_
+!   public :: sdl_show_notification_with_properties
+!
+!   interface
+!       ! bool SDL_RemoveNotification(SDL_NotificationID notification)
+!       function sdl_remove_notification(notification) bind(c, name='SDL_RemoveNotification')
+!           import :: c_bool, sdl_notification_id
+!           implicit none
+!           integer(sdl_notification_id), intent(in), value :: notification
+!           logical(c_bool) :: sdl_remove_notification
+!       end function sdl_remove_notification
+!
+!       ! bool SDL_RequestNotificationPermission(void)
+!       function sdl_request_notification_permission() bind(c, name='SDL_RequestNotificationPermission')
+!           import :: c_bool
+!           implicit none
+!           logical(c_bool) :: sdl_request_notification_permission
+!       end function sdl_request_notification_permission
+!
+!       ! SDL_NotificationID SDL_ShowNotification(const char *title, const char *message, SDL_Surface *image, SDL_NotificationAction *actions, int num_actions)
+!       function sdl_show_notification_(title, message, image, actions, num_actions) bind(c, name='SDL_ShowNotification')
+!           import :: c_char, c_int, c_ptr, sdl_notification_action, sdl_notification_id
+!           implicit none
+!           character(c_char),             intent(in)           :: title
+!           character(c_char),             intent(in)           :: message
+!           type(c_ptr),                   intent(in), value    :: image
+!           type(sdl_notification_action), intent(in), optional :: actions(*)
+!           integer(c_int),                intent(in), value    :: num_actions
+!           integer(sdl_notification_id)                        :: sdl_show_notification_
+!       end function sdl_show_notification_
+!
+!       ! SDL_NotificationID SDL_ShowNotificationWithProperties(SDL_PropertiesID props)
+!       function sdl_show_notification_with_properties(props) bind(c, name='SDL_ShowNotificationWithProperties')
+!           import :: sdl_notification_id, sdl_properties_id
+!           implicit none
+!           integer(sdl_properties_id), intent(in), value :: props
+!           integer(sdl_notification_id)                  :: sdl_show_notification_with_properties
+!       end function sdl_show_notification_with_properties
+!   end interface
+!
+!   public :: sdl_show_notification
 contains
-    function sdl_show_notification(title, message, image, actions, num_actions) result(id)
-        character(*),                  intent(in)           :: title
-        character(*),                  intent(in)           :: message
-        type(c_ptr),                   intent(in), optional :: image
-        type(sdl_notification_action), intent(in), optional :: actions(:)
-        integer,                       intent(in), optional :: num_actions
-        integer(sdl_notification_id)                        :: id
-
-        integer :: n
-
-        n = 0
-        if (present(actions)) then
-            if (present(num_actions)) then
-                n = num_actions
-            else
-                n = size(actions)
-            end if
-        end if
-
-        if (present(image)) then
-            id = sdl_show_notification_(f_c_str(title), f_c_str(message), image=image, actions=actions, num_actions=n)
-        else
-            id = sdl_show_notification_(f_c_str(title), f_c_str(message), image=c_null_ptr, actions=actions, num_actions=n)
-        end if
-    end function sdl_show_notification
+!   function sdl_show_notification(title, message, image, actions, num_actions) result(id)
+!       character(*),                  intent(in)           :: title
+!       character(*),                  intent(in)           :: message
+!       type(c_ptr),                   intent(in), optional :: image
+!       type(sdl_notification_action), intent(in), optional :: actions(:)
+!       integer,                       intent(in), optional :: num_actions
+!       integer(sdl_notification_id)                        :: id
+!
+!       integer :: n
+!
+!       n = 0
+!       if (present(actions)) then
+!           if (present(num_actions)) then
+!               n = num_actions
+!           else
+!               n = size(actions)
+!           end if
+!       end if
+!
+!       if (present(image)) then
+!           id = sdl_show_notification_(f_c_str(title), f_c_str(message), image=image, actions=actions, num_actions=n)
+!       else
+!           id = sdl_show_notification_(f_c_str(title), f_c_str(message), image=c_null_ptr, actions=actions, num_actions=n)
+!       end if
+!   end function sdl_show_notification
 end module sdl3_notification

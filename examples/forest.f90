@@ -119,7 +119,6 @@ contains
 
         integer :: x, y
 
-        forest%buffer = TILE_NONE
         call random_number(forest%random)
 
         do concurrent (x = 1:forest%width, y = 1:forest%height)
@@ -266,6 +265,7 @@ contains
 
         ! Copy forest to buffer surface pixels (transposed), then blit buffer surface to window.
         screen%pixels = forest%world
+
         res = sdl_blit_surface(src=screen%buffer_surface, dst=screen%window_surface)
         res = sdl_update_window_surface(screen%window)
     end subroutine screen_update
